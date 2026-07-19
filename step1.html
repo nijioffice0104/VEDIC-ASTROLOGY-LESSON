@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>STEP1 インド占星術とは？｜やさしく読めるインド占星術</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { sand:{50:'#fafaf9',100:'#f5f5f4',200:'#e7e5e4',300:'#d6d3d1',400:'#a8a29e',500:'#78716c',600:'#57534e',700:'#44403c',800:'#292524',900:'#1c1917'}, aura:{navy:'#1E3A5F',sky:'#5FA8C7',gold:'#C6A15B',coral:'#FF8F73'} },
+      fontFamily: { serif:['Georgia','Times New Roman','serif'], sans:['-apple-system','Hiragino Kaku Gothic ProN','Yu Gothic','YuGothic','Meiryo','sans-serif'], jp:['Yu Mincho','YuMincho','Hiragino Mincho ProN','Hiragino Mincho Pro','serif'] }
+    } } }
+  </script>
+  <link rel="stylesheet" href="assets/vedic-style.css?v=16">
+</head>
+<body>
+  <nav class="border-b border-sand-100"><div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between"><div class="flex items-center gap-2"><span class="ks-logo" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span><span class="font-extrabold text-sand-800">やさしく読めるインド占星術</span></div><a href="index.html" class="day-pill">🏠 ホーム</a></div></nav>
+  <div class="day-nav"><div class="day-nav__inner" id="dayNav"></div></div>
+
+  <main class="max-w-4xl mx-auto px-6 pb-20 w-full">
+    <div class="hero-panel text-center mb-10">
+      <span class="part-badge">第1部：自分のホロスコープを読む</span>
+      <div class="eyebrow text-[11px] text-sand-400 mb-3">STEP 1</div>
+      <h1 class="jp-title font-extrabold text-sand-800 text-xl">インド占星術とは？</h1>
+      <p class="text-sm text-sand-500 leading-relaxed mt-2">起源から現代の使われ方まで、インド占星術の全体像を押さえましょう。西洋占星術を知らなくても大丈夫です。</p>
+    </div>
+
+    <section class="mb-8"><div id="senseiOpen"></div></section>
+    <section class="mb-8" id="lessonTalk"></section>
+
+    <section class="mb-10">
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5 sm:p-7 long-read">
+        <h3>インド占星術（ジョーティッシュ）とは</h3>
+        <p>インド占星術は、インドで数千年にわたって発展してきた占術で、サンスクリット語で<span class="wavy">「ジョーティッシュ」</span>と呼ばれます。ジョーティッシュは「光の科学」という意味を持ち、生まれた瞬間の天体の光（配置）を読み解くことで、その人の性格や人生のテーマ、時期的な流れまでを見る体系です。</p>
+
+        <h3>なぜ生年月日・出生時刻・出生地を使うのか</h3>
+        <p>インド占星術では、生まれた瞬間に空にどの惑星がどの位置にあったかを図にした「出生図（ホロスコープ）」を使います。惑星の位置は日々少しずつ動き、さらに1日のうちでも変化するため、生年月日だけでなく<span class="wavy">出生時刻・出生地</span>まで必要になります。出生地によって、地球から見た星の見え方（地平線の角度など）が変わるためです。</p>
+
+        <h3>性格だけでなく、人生のテーマや時期も読む</h3>
+        <p>インド占星術は、単に「明るい性格」「几帳面な性格」といった性格診断にとどまりません。人生でくり返し向き合うテーマ、力を発揮しやすい分野、そして<span class="wavy">「ダシャー」</span>という技法を使った人生の時期ごとの流れまで読むことができるのが大きな特徴です（ダシャーについては後のSTEPで少しずつ扱います）。</p>
+
+        <h3>サイデリアル方式について</h3>
+        <p>星座の範囲を決める基準には、大きく分けて「サイデリアル方式（恒星を基準にする）」と「トロピカル方式（季節・春分点を基準にする）」の2つがあります。インド占星術は基本的にサイデリアル方式を採用しており、実際の星の見た目の位置に近い形で星座を割り当てます。この違いにより、同じ生年月日でも、西洋占星術とインド占星術では太陽星座が1つ前の星座にずれて出ることがあります。</p>
+
+        <h3>西洋占星術との比較</h3>
+        <table class="compare-table my-3">
+          <thead><tr><th>比較する項目</th><th>インド占星術</th><th>西洋占星術</th></tr></thead>
+          <tbody id="compareBody"></tbody>
+        </table>
+        <p class="text-[12px] text-sand-500">共通点：<span id="compareCommon"></span></p>
+
+        <h3>身近な例：ホロスコープは旅行用の地図</h3>
+        <div class="example-box">
+          <p>ホロスコープは、いわば生まれたときに渡された「旅行用の地図」のようなものです。地図には道や目印が描かれていますが、実際にどう歩くか、どこに寄り道するかは、あなた自身が決めます。地図があるからといって旅の結末が決まっているわけではなく、<span class="wavy">「この地形なら、こういうルートが歩きやすい」</span>というヒントを教えてくれるものだと考えてみてください。</p>
+        </div>
+
+        <h3>ホロスコープでわかること・断定しないこと</h3>
+        <div class="grid sm:grid-cols-2 gap-3 mt-2">
+          <div class="deep-card"><b>わかること</b><ul class="check-list mt-2 text-[12.5px]"><li>生まれ持った性格や得意なこと</li><li>行動のクセやエネルギーの使い方</li><li>人生でくり返し向き合うテーマ</li><li>人間関係の傾向</li><li>時期的な流れの大まかな傾向</li></ul></div>
+          <div class="deep-card"><b>断定しないこと</b><ul class="check-list mt-2 text-[12.5px]"><li>具体的な未来の出来事の予知</li><li>病気や寿命に関わること</li><li>投資や資産運用の結果</li><li>受験や試験の合否</li></ul></div>
+        </div>
+        <div class="insight-box mt-3"><p class="text-[12.5px]">ホロスコープは未来を決めつけるものではなく、<span class="wavy">自分の傾向や人生のテーマを知るための地図</span>として使うもの。この考え方は、この教材全体を通じて大切にしていきます。</p></div>
+      </div>
+    </section>
+
+    <section class="mb-10" id="quizSection">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-gold">📝</span> ガジャ先生からの理解度チェック</h2>
+      <div id="senseiQuizIntro"></div>
+      <div id="quizMount"></div>
+    </section>
+
+    <div class="day-footer-nav">
+      <a href="step0.html"><span class="label-sm">BACK</span><b>← STEP0 はじめに</b></a>
+      <a href="step2.html" class="next"><span class="label-sm">NEXT</span><b>STEP2 北インド式ホロスコープの全体像 →</b></a>
+    </div>
+  </main>
+
+  <script src="assets/vedic-data.js?v=10"></script>
+  <script>
+    __currentStepNum = 1;
+    renderDayNav('dayNav', 1);
+    const me = getMe();
+    document.getElementById('senseiOpen').innerHTML = sensei(`
+      <p>${me ? me.name+'さん、' : ''}インド占星術って、そもそも何を見る占いなのか。まずはそこから、ゆるっと押さえましょう。</p>
+      <p>西洋占星術を知らなくても大丈夫です。一つずつ、ほどいていきましょう。</p>
+    `);
+    document.getElementById('lessonTalk').innerHTML = lessonDialog([
+      {who:'student', html:'<p>インド占星術って、普通の12星座占いとは違うんですか？</p>'},
+      {who:'teacher', html:'<p>はい、かなり違います。12星座だけで性格を見るのではなく、<b>生まれた瞬間の空全体</b>を地図として読みます。</p>'},
+      {who:'student', html:'<p>じゃあ、未来が全部決まっているということですか？</p>'},
+      {who:'teacher', html:'<p>そこは大事です。ホロスコープは未来を決めつけるものではありません。歩きやすい道や、気をつけたい癖を知る地図、くらいに思っておきましょう。</p>'}
+    ]);
+    document.getElementById('compareBody').innerHTML = comparisonRows.map(r => `<tr><td>${r.topic}</td><td>${r.india}</td><td>${r.west}</td></tr>`).join('');
+    document.getElementById('compareCommon').textContent = comparisonCommon.join('、');
+
+    document.getElementById('senseiQuizIntro').innerHTML = sensei(`
+      <p>ここまで読めたら十分です。最後にクイズで、ふわっと確認しておきましょう。全部で5問です。</p>
+    `);
+    mountQuiz('quizMount', stepQuizzes.step1, (score,total) => {
+      const msg = score === total ? '全問正解です。いいですね、基礎はちゃんとつかめています。' : score >= 3 ? `${score}/${total}問正解！いい感じです。分からなかった所は読み返してみてくださいね。` : `${score}/${total}問正解でした。焦らなくて大丈夫、この先のSTEPでも少しずつ出てくる内容です。`;
+      return sensei(`<p>${msg}</p><p>それではSTEP2で、ホロスコープの全体像を一緒に見ていきましょう。</p>`);
+    });
+
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>STEP9 家族や友人のホロスコープを登録する｜やさしく読めるインド占星術</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { sand:{50:'#fafaf9',100:'#f5f5f4',200:'#e7e5e4',300:'#d6d3d1',400:'#a8a29e',500:'#78716c',600:'#57534e',700:'#44403c',800:'#292524',900:'#1c1917'}, aura:{navy:'#1E3A5F',sky:'#5FA8C7',gold:'#C6A15B',coral:'#FF8F73'} },
+      fontFamily: { serif:['Georgia','Times New Roman','serif'], sans:['-apple-system','Hiragino Kaku Gothic ProN','Yu Gothic','YuGothic','Meiryo','sans-serif'], jp:['Yu Mincho','YuMincho','Hiragino Mincho ProN','Hiragino Mincho Pro','serif'] }
+    } } }
+  </script>
+  <link rel="stylesheet" href="assets/vedic-style.css?v=16">
+</head>
+<body>
+  <nav class="border-b border-sand-100"><div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between"><div class="flex items-center gap-2"><span class="ks-logo" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span><span class="font-extrabold text-sand-800">やさしく読めるインド占星術</span></div><a href="index.html" class="day-pill">🏠 ホーム</a></div></nav>
+  <div class="day-nav"><div class="day-nav__inner" id="dayNav"></div></div>
+
+  <main class="max-w-4xl mx-auto px-6 pb-20 w-full">
+    <div class="hero-panel text-center mb-10">
+      <span class="part-badge">第2部：ほかの人を読む</span>
+      <div class="eyebrow text-[11px] text-sand-400 mb-3">STEP 9</div>
+      <h1 class="jp-title font-extrabold text-sand-800 text-xl">家族や友人のホロスコープを登録する</h1>
+      <p class="text-sm text-sand-500 leading-relaxed mt-2">ここからは第2部。自分以外の人を占う準備をしていきましょう。</p>
+    </div>
+
+    <section class="mb-8">
+      <h2 class="jp-title text-base text-sand-700 mb-3 flex items-center gap-2"><span class="text-aura-gold">🎯</span> 今回学ぶこと</h2>
+      <div class="grid sm:grid-cols-2 gap-3 text-[12px]">
+        <div class="field-card"><b>なぜ、ほかの人も占うのか</b><p>自分だけでなく、身近な人を占うことの意味がわかります。</p></div>
+        <div class="field-card"><b>他者を占うときの心構え</b><p>プライバシーへの配慮や、決めつけない姿勢の大切さがわかります。</p></div>
+        <div class="field-card"><b>登録の流れ</b><p>名前・生年月日・出生時刻・出生地を入れると、わかる範囲でホロスコープ情報を作成できます。</p></div>
+        <div class="field-card"><b>登録人物一覧</b><p>登録した家族や友人が、いつでも一覧で確認できるようになります。</p></div>
+      </div>
+    </section>
+
+    <section class="mb-8"><div id="senseiOpen"></div></section>
+
+    <section class="mb-10">
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5 sm:p-7 long-read">
+        <h3>なぜ、ほかの人も占うのか</h3>
+        <p>第1部では、あなた自身のホロスコープを通して、ラグナ・惑星・星座・ハウス・ナクシャトラという要素を学んできました。ここから始まる第2部では、同じ知識を使って<span class="wavy">家族や友人</span>を占う練習をしていきます。自分だけでなく他者を占うことで、「同じ要素でも、人によって表れ方が違う」という感覚が実感としてつかめるようになり、鑑定の力がぐっと育ちます。</p>
+
+        <h3>誰を占うのがよいか</h3>
+        <p>最初は、身近で気心の知れた家族や友人から始めるのがおすすめです。相手のことをよく知っているからこそ、「ラグナが○○座だから、こういう傾向が出るのか」という答え合わせがしやすく、学びが深まります。もちろん、実在の人物がいない場合や、まだ誰かに伝える予定がない場合は、架空の人物を作って練習しても構いません。</p>
+
+        <h3>登録の流れ（おさらい）</h3>
+        <p>家族や友人を登録するときも、最初に必要なのは名前・生年月日・出生時刻・出生地です。ラグナや月の星座、月のナクシャトラは、普通は最初からわからなくて当然です。この教材では、出生情報がそろっていれば自動で計算し、わからない情報がある場合は空欄のまま扱います。</p>
+
+        <h3>他者を占うときの心構え・注意点</h3>
+        <div class="guide-box gold">
+          <p class="text-[12.5px]"><b>本人の同意を得ること。</b>特に鑑定結果を本人や周囲に共有する場合は、事前に一言伝えておくと安心です。</p>
+          <p class="text-[12.5px] mt-2"><b>プライバシーとして大切に扱うこと。</b>生年月日などの情報は、その人の個人情報です。SNSなどへの無断公開は避けましょう。</p>
+          <p class="text-[12.5px] mt-2"><b>決めつけないこと。</b>「あなたはこういう人だ」と断定するのではなく、「こういう傾向がありそうですね」という提案の形で伝えることが、インド占星術との健全な付き合い方です。</p>
+        </div>
+
+        <h3>まとめ：練習台としての家族・友人</h3>
+        <p>家族や友人は、あなたにとって最初の「練習台」であり、同時に一番身近な先生でもあります。占ってみた内容が当たっているか、外れているかを気にしすぎず、「なるほど、こういう見方もできるんだな」という発見を楽しむ気持ちで進めていきましょう。</p>
+      </div>
+    </section>
+
+    <section class="mb-10" id="regSection">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-sky">✨</span> 家族や友人を登録しよう</h2>
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div><label class="block text-[12px] font-bold text-sand-500 mb-2">お名前</label><input id="fName" class="w-full border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky" placeholder="例：お母さん、たろうさん"></div>
+          <div><label class="block text-[12px] font-bold text-sand-500 mb-2">生年月日</label><input id="fDate" type="date" class="w-full border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky" min="1925-01-01" max="2030-12-31"></div>
+          <div><label class="block text-[12px] font-bold text-sand-500 mb-2">出生時刻（わかれば）</label><input id="fTime" type="time" class="w-full border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky"></div>
+          <div><label class="block text-[12px] font-bold text-sand-500 mb-2">出生地（わかれば）</label><select id="fPlace" class="w-full border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky"><option value="">未選択</option></select></div>
+        </div>
+        <button id="regBtn" class="mt-4 bg-aura-navy text-white font-bold rounded-full px-6 py-3 text-sm hover:opacity-90 transition">この人を登録する</button>
+        <p class="text-[11px] text-sand-400 mt-2">出生時刻・出生地がわからない場合は、空欄のままでも登録できます。両方がわかる場合は、ラグナ・月の星座・月のナクシャトラを自動で計算します。</p>
+      </div>
+    </section>
+
+    <section class="mb-10" id="rosterSection">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-gold">👥</span> 登録した人たち</h2>
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5" id="rosterCard"></div>
+    </section>
+
+    <section class="mb-8" id="senseiSummarySection"></section>
+
+    <section class="mb-10" id="quizSection">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-gold">📝</span> ガジャ先生からの理解度チェック</h2>
+      <div id="senseiQuizIntro"></div>
+      <div id="quizMountGeneral"></div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="jp-title text-base text-sand-700 mb-3 flex items-center gap-2"><span class="text-aura-gold">✅</span> 今日のまとめ</h2>
+      <div class="guide-box gold text-[12.5px] text-sand-600">
+        <ul class="check-list">
+          <li>第2部では、家族や友人を占う練習をする。</li>
+          <li>本人の同意・プライバシーへの配慮・決めつけないことが大切。</li>
+          <li>登録に必要なのは、名前・生年月日・出生時刻・出生地。ラグナなどは自動で算出する。</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="day-footer-nav">
+      <a href="step8.html"><span class="label-sm">BACK</span><b>← STEP8 惑星・星座・ハウスを組み合わせる</b></a>
+      <a href="step10.html" class="next"><span class="label-sm">NEXT</span><b>STEP10 ほかの人の基本性質を読む →</b></a>
+    </div>
+  </main>
+
+  <script src="assets/vedic-data.js?v=10"></script>
+  <script>
+    __currentStepNum = 9;
+    renderDayNav('dayNav', 9);
+    const realMe = getMe();
+    const placeSel = document.getElementById('fPlace');
+    birthPlaces.forEach(p => {
+      const o = document.createElement('option');
+      o.value = `${p.prefecture} ${p.name}`;
+      o.textContent = `${p.prefecture} ${p.name}`;
+      placeSel.appendChild(o);
+    });
+
+    document.getElementById('senseiOpen').innerHTML = sensei(`
+      <p>${realMe ? realMe.name+'さん' : 'あなた'}、いよいよ第2部です。ここからは、ほかの人を占う練習をしていきましょう。</p>
+      <p>ラグナや月の星座は、入力するものではなく出生情報から算出されるものです。今日は、家族や友人の出生情報をわかる範囲で整理していきましょう。</p>
+    `);
+
+    function renderRoster(){
+      const others = getOthers();
+      const box = document.getElementById('rosterCard');
+      if(!others.length){ box.innerHTML = `<p class="text-[12.5px] text-sand-500">まだ登録された家族・友人がいません。上のフォームから登録してみましょう。</p>`; return; }
+      box.innerHTML = `<div class="space-y-3">` + others.map((r, i) => {
+        const chartId = `otherChart${i}`;
+        const hasChart = !!r.chart;
+        return `
+          <details class="other-chart-card"${i === 0 ? ' open' : ''}>
+            <summary>
+              <div class="other-chart-card__head">
+                <div>
+                  <b class="text-[13px] text-sand-800">${r.name}</b>
+                  <p class="text-[11.5px] text-sand-500 mt-0.5">生年月日：${r.birthDate||'未入力'}／出生時刻：${r.birthTime||'未入力'}／出生地：${r.birthPlace||'未入力'}</p>
+                </div>
+                <span class="my-chart-panel__link"><span class="toggle-open">ホロスコープを開く</span><span class="toggle-close">閉じる</span></span>
+              </div>
+            </summary>
+            <div class="other-chart-card__body">
+              ${hasChart ? `
+                <div class="flex flex-wrap gap-2 mb-3">
+                  <span class="result-chip">ラグナ：${r.lagna||r.chart.lagnaSign}</span>
+                  <span class="result-chip">月の星座：${r.moonSign||r.chart.moonSign}</span>
+                  <span class="result-chip">月のナクシャトラ：${r.moonNakshatra||r.chart.moonNakshatra}</span>
+                </div>
+                <div class="generated-chart-wrap">
+                  <div id="${chartId}"></div>
+                  <div>${buildPlanetTable(r.chart)}</div>
+                </div>
+              ` : `<p class="subtle-note">出生時刻と出生地まで入力すると、この人のホロスコープを生成できます。</p>`}
+            </div>
+          </details>`;
+      }).join('') + `</div>`;
+      requestAnimationFrame(() => {
+        others.forEach((r, i) => {
+          if(r.chart) renderGeneratedNorthIndianChart(`otherChart${i}`, r.chart);
+        });
+      });
+    }
+    document.getElementById('regBtn').addEventListener('click', () => {
+      const name = document.getElementById('fName').value;
+      if(!name){ alert('お名前を入力してください'); return; }
+      const birthDate = document.getElementById('fDate').value;
+      const birthTime = document.getElementById('fTime').value;
+      const birthPlace = document.getElementById('fPlace').value;
+      let chart = null;
+      if(birthDate && birthTime && birthPlace){
+        chart = calculateVedicChart({birthDate, birthTime, placeName:birthPlace});
+      }
+      const entry = {
+        name,
+        birthDate,
+        birthTime,
+        birthPlace,
+        lagna: chart ? chart.lagnaSign : '',
+        moonSign: chart ? chart.moonSign : '',
+        moonNakshatra: chart ? chart.moonNakshatra : '',
+        chart
+      };
+      addOtherPerson(entry);
+      markStepDone(9);
+      document.getElementById('fName').value = '';
+      renderRoster();
+    });
+    renderRoster();
+
+    document.getElementById('senseiSummarySection').innerHTML = sensei(`
+      <p>登録できたら、必要に応じて人数を増やせます。焦らず、思い出したときに足していきましょう。</p>
+      <p>それでは、クイズで心構えを確認してみましょう。</p>
+    `);
+
+    document.getElementById('senseiQuizIntro').innerHTML = sensei(`<p>他者を占うときの心構えについて、クイズで確認してみましょう。</p>`);
+    mountQuiz('quizMountGeneral', stepQuizzes.step9, (score,total) => {
+      const msg = score === total ? '全問正解です。他の人を見るときの心構え、ちゃんと持てています。' : `${score}/${total}問正解でした。上の注意点をもう一度読み返してみてくださいね。`;
+      return sensei(`<p>${msg}</p><p>それではSTEP10で、実際にほかの人の基本性質を読んでみましょう。</p>`);
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

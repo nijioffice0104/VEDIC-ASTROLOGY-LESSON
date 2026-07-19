@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>巻末特典：鑑定書テンプレート｜やさしく読めるインド占星術</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { sand:{50:'#fafaf9',100:'#f5f5f4',200:'#e7e5e4',300:'#d6d3d1',400:'#a8a29e',500:'#78716c',600:'#57534e',700:'#44403c',800:'#292524',900:'#1c1917'}, aura:{navy:'#1E3A5F',sky:'#5FA8C7',gold:'#C6A15B',coral:'#FF8F73'} },
+      fontFamily: { serif:['Georgia','Times New Roman','serif'], sans:['-apple-system','Hiragino Kaku Gothic ProN','Yu Gothic','YuGothic','Meiryo','sans-serif'], jp:['Yu Mincho','YuMincho','Hiragino Mincho ProN','Hiragino Mincho Pro','serif'] }
+    } } }
+  </script>
+  <link rel="stylesheet" href="assets/vedic-style.css?v=16">
+  <style>
+    @media print {
+      @page { size: A4; margin: 0; }
+      html, body { width: 210mm; min-height: 297mm; background: #fff; }
+      body * { visibility: hidden; }
+      #certificateArea, #certificateArea * { visibility: visible; }
+      #certificateArea { position: absolute; left: 0; top: 0; width: 210mm; min-height: 297mm; padding: 0; }
+      .no-print { display: none !important; }
+      .cert-paper { width: 210mm; height: 297mm; margin: 0; border: 0 !important; box-shadow: none !important; border-radius: 0 !important; page-break-after: avoid; }
+    }
+    .cert-paper { position: relative; overflow: hidden; max-width: 210mm; min-height: 297mm; margin: 0 auto; border: 1px solid #e7e5e4; border-radius: 10px; padding: 18mm 17mm 14mm; background: radial-gradient(circle at 50% 12%, rgba(198,161,91,.13), transparent 30%), #fffdf8; box-shadow: 0 10px 34px rgba(30,58,95,.10); }
+    .cert-paper:before { content:""; position:absolute; inset:7mm; border:1px solid rgba(198,161,91,.42); pointer-events:none; }
+    .cert-paper:after { content:""; position:absolute; right:-28mm; top:-28mm; width:86mm; height:86mm; border-radius:999px; border:1px solid rgba(95,168,199,.25); box-shadow:0 0 0 8mm rgba(95,168,199,.06), 0 0 0 18mm rgba(198,161,91,.05); pointer-events:none; }
+    .cert-inner { position:relative; z-index:1; }
+    .cert-title { font-family:"Yu Mincho",YuMincho,serif; letter-spacing:.24em; }
+    .cert-heading { font-family:"Yu Mincho",YuMincho,serif; font-size: 25px; color:#1c1917; letter-spacing:.08em; }
+    .cert-subtitle { font-size: 11px; color:#78716c; letter-spacing:.08em; }
+    .cert-meta { display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size: 11px; color:#57534e; border-top:1px solid #e7e5e4; border-bottom:1px solid #e7e5e4; padding:8px 0; margin:14px 0 12px; }
+    .cert-question { border-left: 3px solid #C6A15B; background: rgba(255,255,255,.72); padding: 8px 10px; margin: 0 0 12px; font-size: 11.5px; line-height: 1.65; color:#57534e; }
+    .cert-body p { font-size: 12.2px; line-height: 1.78; color: #44403c; margin: 0 0 .68rem; }
+    .cert-section-label { display:block; font-size:10px; color:#1E3A5F; font-weight:800; letter-spacing:.16em; margin: 0 0 4px; }
+    .cert-footer { position:absolute; z-index:1; left:17mm; right:17mm; bottom:10mm; border-top:1px solid #e7e5e4; padding-top:7px; text-align:center; }
+    .theme-tab { border:1px solid #e7e5e4; background:#fff; border-radius:999px; padding:.5rem 1.1rem; font-size:12px; font-weight:700; color:#57534e; }
+    .theme-tab.is-active { border-color:#1E3A5F; background:#1E3A5F; color:#fff; }
+  </style>
+</head>
+<body>
+  <nav class="border-b border-sand-100 no-print"><div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between"><div class="flex items-center gap-2"><span class="ks-logo" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span><span class="font-extrabold text-sand-800">やさしく読めるインド占星術</span></div><a href="index.html" class="day-pill">🏠 ホーム</a></div></nav>
+
+  <main class="max-w-4xl mx-auto px-6 pb-20 w-full">
+    <div class="hero-panel text-center mb-10 no-print">
+      <div class="eyebrow text-[11px] text-sand-400 mb-3">BONUS</div>
+      <h1 class="jp-title font-extrabold text-sand-800 text-xl">巻末特典：鑑定書テンプレート</h1>
+      <p class="text-sm text-sand-500 leading-relaxed mt-2">よくある相談5パターンの鑑定書を、入力するだけですぐに作成できます。印刷や、PDFとしての保存にも対応しています。</p>
+    </div>
+
+    <section class="mb-10 no-print"><div id="senseiOpen"></div></section>
+
+    <section class="mb-10 no-print">
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5 sm:p-7 long-read">
+        <h3>この特典の使い方</h3>
+        <p>教材内で学んだ星の情報を、お客様に伝わる言葉へ置き換えて、<span class="wavy">A4一枚の鑑定書</span>として作成します。専門用語は鑑定書には出さず、性格の傾向・心の安心ポイント・悩みへのヒントとして読める文章に整えます。</p>
+        <p>人物、相談テーマ、具体的なお悩みを入力すると、鑑定書の文章が自動的に組み立てられます。生成された鑑定書は、そのまま印刷したり、PDFとして保存したりできます。</p>
+        <div class="guide-box gold">
+          <p class="text-[12.5px]">この鑑定書は、この教材内のデータ（STEP0で生成したラグナ・月の星座・ナクシャトラ）から自動で組み立てられます。ChatGPTには接続していないため、より個性的な文章にしたい場合は、STEP14で作成した総合プロンプトをChatGPTに貼り付けて、出てきた文章をこの鑑定書に貼り替えて使うこともできます。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10 no-print" id="formSection">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-sky">📝</span> 鑑定書を作成する</h2>
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5">
+        <label class="block text-[12px] font-bold text-sand-500 mb-2">誰の鑑定書を作りますか？</label>
+        <select id="personSelect" class="w-full sm:w-auto border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky mb-4"></select>
+
+        <label class="block text-[12px] font-bold text-sand-500 mb-2">相談パターンを選んでください（よくある事案5つ）</label>
+        <div class="flex flex-wrap gap-2 mb-4" id="themeTabs"></div>
+
+        <label class="block text-[12px] font-bold text-sand-500 mb-2">どんなお悩みですか？</label>
+        <textarea id="concernInput" class="w-full border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky mb-4" rows="4" placeholder="例：好きな人との距離感がわからない／転職したいけれど不安／人間関係で疲れやすい など"></textarea>
+
+        <button id="genCertBtn" class="bg-aura-navy text-white font-bold rounded-full px-6 py-3 text-sm">鑑定書を作成する</button>
+      </div>
+    </section>
+
+    <section id="certificateArea" style="display:none">
+      <div class="cert-paper">
+        <div class="cert-inner">
+          <div class="text-center">
+            <p class="cert-title text-[10px] text-aura-navy mb-2">PRIVATE STAR READING</p>
+            <h2 class="cert-heading">星の鑑定書</h2>
+            <p class="cert-subtitle mt-2" id="certTheme"></p>
+          </div>
+          <div class="cert-meta">
+            <span id="certName"></span>
+            <span id="certDate"></span>
+          </div>
+          <div class="cert-question" id="certConcernWrap" style="display:none">
+            <span class="cert-section-label">ご相談内容</span>
+            <span id="certConcern"></span>
+          </div>
+          <div class="cert-body" id="certBody"></div>
+        </div>
+        <div class="cert-footer">
+          <p class="text-[11px] text-sand-400">やさしく読めるインド占星術　－　自分のホロスコープから学ぶ実践プログラム</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-3 justify-center mt-6 no-print">
+        <button id="printBtn" class="border border-sand-200 rounded-full px-6 py-3 text-[12px] font-bold text-sand-600">🖨️ 印刷する</button>
+        <button id="pdfBtn" class="bg-aura-navy text-white rounded-full px-6 py-3 text-[12px] font-bold">📄 PDFとして保存する</button>
+      </div>
+      <p class="text-[11px] text-sand-400 text-center mt-2 no-print">「PDFとして保存する」を押すと印刷ダイアログが開きます。送信先（プリンター）の欄で「PDFに保存」を選ぶと、PDFファイルとして保存できます。</p>
+    </section>
+
+    <div class="day-footer-nav no-print">
+      <a href="step14.html"><span class="label-sm">BACK</span><b>← STEP14 総合鑑定用プロンプトを作る</b></a>
+      <a href="index.html" class="next"><span class="label-sm">HOME</span><b>🏠 ホームへ戻る</b></a>
+    </div>
+  </main>
+
+  <script src="assets/vedic-data.js?v=10"></script>
+  <script>
+    document.getElementById('senseiOpen').innerHTML = sensei(`
+      <p>ここまでの学習、本当にお疲れさまでした</p>
+      <p>この巻末特典では、よくある相談5パターンの鑑定書を、ボタン一つで作れるようにしました。ご自身の鑑定士デビューにも、ぜひ役立ててくださいね。</p>
+    `);
+
+    const people = [];
+    const realMe = getMe();
+    if(realMe) people.push(realMe);
+    getOthers().forEach(p => people.push(p));
+    if(!people.length) people.push(samplePerson);
+    const pSel = document.getElementById('personSelect');
+    people.forEach((p,i) => { const o = document.createElement('option'); o.value = i; o.textContent = p.name; pSel.appendChild(o); });
+
+    const themes = Object.keys(themeGuides);
+    let currentTheme = themes[0];
+    const tabWrap = document.getElementById('themeTabs');
+    function renderTabs(){
+      tabWrap.innerHTML = themes.map(t => `<button class="theme-tab ${t===currentTheme?'is-active':''}" data-t="${t}">${t}</button>`).join('');
+      tabWrap.querySelectorAll('.theme-tab').forEach(btn => btn.addEventListener('click', (e) => {
+        currentTheme = e.target.dataset.t;
+        renderTabs();
+      }));
+    }
+    renderTabs();
+
+    function sentenceForTheme(theme, person, sign, moon, concern){
+      const concernText = concern ? `今回のご相談では「${concern}」というお気持ちが中心にありますね。` : '今回のご相談について、今の心の動きとこれからの整え方を見ていきますね。';
+      const map = {
+        '恋愛': `${concernText} ${person.name}様は、好きな人や大切な人に対して、自分なりの誠実さを大切にする方です。焦って答えを出すよりも、まずは「相手にどう見られるか」ではなく「自分はどんな関係なら安心できるか」を確認してみてください。`,
+        '仕事・転職': `${concernText} ${person.name}様は、責任感や積み重ねる力を活かすほど、本来の良さが出やすい方です。今すぐ大きく動くかどうかより、どんな働き方なら無理なく力を出せるのかを整理すると、次の選択が見えやすくなります。`,
+        '金運': `${concernText} お金については、勢いで増やそうとするより、安心できる土台を整えることが大切です。使う・貯める・受け取るのバランスを見直すことで、気持ちの不安も少しずつ落ち着いていきます。`,
+        '人間関係': `${concernText} ${person.name}様は、相手の空気を感じ取りながら動ける一方で、気づかないうちに自分の気持ちを後回しにしやすい面もあります。無理に合わせるより、心地よい距離感を決めることが大切です。`,
+        '使命・才能': `${concernText} ${person.name}様の才能は、急に見つけるものというより、日々自然にやってしまうことの中に隠れています。得意なことを小さく使う場を増やすほど、自分らしい道がはっきりしていきます。`
+      };
+      return map[theme] || map['恋愛'];
+    }
+
+    function buildCustomerCertificate(person, theme, concern){
+      const sign = bySignName(person.lagna);
+      const moon = person.moonSign ? bySignName(person.moonSign) : null;
+      const name = person.name || 'あなた';
+      const intro = `この度はご相談いただきありがとうございます。${name}様の生まれ持った気質と、今のお悩みに対する向き合い方を、星の配置からやさしく読み解いていきます。`;
+      const nature = `${name}様は、${sign.feature.replace('星座です。', '傾向があります。')} 周囲からは「${sign.first.replace('です。', '方')}」として受け止められやすく、物事に向き合うときは「${sign.values}」が大切な軸になりやすいでしょう。`;
+      const heart = moon ? `心の面では、${moon.values}を大切にすると落ち着きやすい方です。気持ちが揺れるときほど、無理に正解を急がず、安心できる環境や信頼できる人との対話を整えることが助けになります。` : `心の面では、まだ読み取れる情報が限られているため、今回は行動傾向を中心に見ています。無理に答えを急がず、安心できる環境を整えることを大切にしてください。`;
+      const themePara = sentenceForTheme(theme, person, sign, moon, concern);
+      const caution = `気をつけたいのは、${sign.shadow.replace('ことがあります', '流れになりやすいところです')}。これは欠点ではなく、頑張りすぎた時に出やすいサインです。自分を責めるより、「今は少し力が入りすぎているかもしれない」と気づくことが、流れを整える第一歩になります。`;
+      const action = `これからのヒントは、${sign.theme.replace('こと', 'こと')}です。今日できる小さな行動を一つだけ選び、焦らず積み重ねてみてください。${name}様らしさは、急いで変わることより、自分のペースを取り戻すことで自然に輝いていきます。`;
+      return [
+        ['はじめに', intro],
+        ['生まれ持った魅力', nature],
+        ['心を整えるポイント', heart],
+        ['ご相談へのメッセージ', themePara],
+        ['気をつけたいこと', caution],
+        ['これからのヒント', action]
+      ];
+    }
+
+    document.getElementById('genCertBtn').addEventListener('click', () => {
+      const p = people[Number(pSel.value)];
+      const concern = document.getElementById('concernInput').value.trim();
+      const area = document.getElementById('certificateArea');
+      area.style.display = 'block';
+      document.getElementById('certTheme').textContent = `相談テーマ：${currentTheme}`;
+      document.getElementById('certName').innerHTML = `<b class="text-sand-800">お名前：</b>${p.name}様`;
+      const today = new Date();
+      document.getElementById('certDate').textContent = `発行日：${today.getFullYear()}年${today.getMonth()+1}月${today.getDate()}日`;
+      const concernWrap = document.getElementById('certConcernWrap');
+      document.getElementById('certConcern').textContent = concern;
+      concernWrap.style.display = concern ? 'block' : 'none';
+      const sections = buildCustomerCertificate(p, currentTheme, concern);
+      document.getElementById('certBody').innerHTML = sections.map(([label, para]) => `<p><span class="cert-section-label">${label}</span>${para}</p>`).join('');
+      area.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+
+    document.getElementById('printBtn').addEventListener('click', () => window.print());
+    document.getElementById('pdfBtn').addEventListener('click', () => window.print());
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,315 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>やさしく読めるインド占星術｜自分のホロスコープから学ぶ実践プログラム</title>
+  <meta name="description" content="ガジャ先生と一緒に、自分自身のホロスコープから読み解くインド占星術の学習プログラム。ラグナ・惑星・星座・ハウス・ナクシャトラを、専門用語をやさしく解説しながら少しずつ学べます。" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { sand:{50:'#fafaf9',100:'#f5f5f4',200:'#e7e5e4',300:'#d6d3d1',400:'#a8a29e',500:'#78716c',600:'#57534e',700:'#44403c',800:'#292524',900:'#1c1917'}, aura:{navy:'#1E3A5F',sky:'#5FA8C7',gold:'#C6A15B',coral:'#FF8F73'} },
+      fontFamily: { serif:['Georgia','Times New Roman','serif'], sans:['-apple-system','Hiragino Kaku Gothic ProN','Yu Gothic','YuGothic','Meiryo','sans-serif'], jp:['Yu Mincho','YuMincho','Hiragino Mincho ProN','Hiragino Mincho Pro','serif'] }
+    } } }
+  </script>
+  <link rel="stylesheet" href="assets/vedic-style.css?v=16">
+</head>
+<body>
+  <div class="opening-screen" id="openingScreen" aria-label="オープニング">
+    <div class="opening-orbit" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="opening-content">
+      <p class="opening-kicker">VEDIC ASTROLOGY LESSON</p>
+      <h1 class="opening-title">星の地図を<br>ひらく時間</h1>
+      <p class="opening-copy">生まれた瞬間の空から、あなた自身のホロスコープを読み解いていきます。</p>
+      <button class="opening-enter" id="openingEnter" type="button">講座へ入る</button>
+    </div>
+    <button class="opening-skip" id="openingSkip" type="button" aria-label="オープニングを閉じる">SKIP</button>
+  </div>
+
+  <nav class="border-b border-sand-100">
+    <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2"><span class="ks-logo" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span><span class="font-extrabold text-sand-800">やさしく読めるインド占星術</span></div>
+      <span class="text-[12px] font-bold text-aura-navy border border-aura-navy rounded-full px-4 py-1.5"> ガジャ先生と学ぶ</span>
+    </div>
+  </nav>
+
+  <header class="relative overflow-hidden">
+    <div class="hero-panel text-center">
+      <div class="eyebrow text-[11px] text-sand-400 mb-3">VEDIC ASTROLOGY GUIDE</div>
+      <h1 class="font-extrabold text-sand-800 mb-3 tracking-tight"><span class="hero-title-main">やさしく読めるインド占星術</span><span class="hero-title-sub text-aura-navy">自分のホロスコープから学ぶ実践プログラム</span></h1>
+      <p class="text-sm text-sand-500 leading-relaxed max-w-md mx-auto">案内役の「ガジャ先生」と一緒に、まずはあなた自身のホロスコープを生成するところからスタート。専門用語はその場でやさしく説明しながら、少しずつ読み解いていきます。</p>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6 pb-20 w-full mt-10">
+
+    <section class="mb-10" id="senseiHome"></section>
+
+    <section class="mb-10">
+      <a href="step0.html#calc" class="day-card flex items-start gap-4 border-aura-sky">
+        <span class="step-chip shrink-0">D1</span>
+        <div class="flex-1">
+          <p class="text-[11px] font-bold text-aura-navy eyebrow mb-2">HOROSCOPE GENERATOR</p>
+          <h2 class="jp-title text-lg text-sand-800 mb-2">まずは自分のホロスコープを生成する</h2>
+          <p class="text-[12.5px] text-sand-500 leading-relaxed">生年月日・出生時刻・出生地から、ラグナ、月の星座、月のナクシャトラ、D1ラーシチャートを作成します。</p>
+        </div>
+        <span class="text-aura-sky text-xl shrink-0 self-center">→</span>
+      </a>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="jp-title text-base text-sand-700 mb-3 flex items-center gap-2"><span class="text-aura-gold">📖</span> この教材の使い方</h2>
+      <div class="grid sm:grid-cols-2 gap-3 text-[12px]">
+        <div class="field-card"><b>まず自分から占う</b><p>STEP0で自分のホロスコープを生成し、以降のSTEPすべてで「自分の場合」を確認しながら学びます。</p></div>
+        <div class="field-card"><b>暗記しなくて大丈夫</b><p>専門用語が出てきたときは、その場で意味を説明します。一度に全部覚える必要はありません。</p></div>
+        <div class="field-card"><b>情報はこの端末に保存</b><p>入力したホロスコープ情報は外部に送信されず、ブラウザのこの端末内だけに保存されます。</p></div>
+        <div class="field-card"><b>最後に総合プロンプトを作れる</b><p>すべて学んだあとで、鑑定文作成用のプロンプトをまとめて完成できます。</p></div>
+      </div>
+    </section>
+
+    <section class="mb-10" id="progressSection">
+      <h2 class="jp-title text-base text-sand-700 mb-3 flex items-center gap-2"><span class="text-aura-sky">📊</span> 学習の続き</h2>
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5" id="progressCard"></div>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="jp-title text-base text-sand-700 mb-3">第1部：自分のホロスコープを読む</h2>
+      <div class="space-y-3">
+        <a href="step0.html" class="day-card flex items-start gap-4">
+          <span class="step-chip shrink-0">0</span>
+          <div class="flex-1"><h3 class="jp-title text-base text-sand-800 mb-1">自分の星の地図を生成する</h3><p class="text-[12.5px] text-sand-500 leading-relaxed">ガジャ先生と一緒に、あなた自身のホロスコープを作ってみましょう。</p></div>
+          <span class="text-aura-sky text-xl shrink-0 self-center">→</span>
+        </a>
+        <a href="step1.html" class="day-card flex items-start gap-4">
+          <span class="step-chip shrink-0">1</span>
+          <div class="flex-1"><h3 class="jp-title text-base text-sand-800 mb-1">インド占星術とは？</h3><p class="text-[12.5px] text-sand-500 leading-relaxed">起源・考え方・西洋占星術との違いを理解度チェック付きで。</p></div>
+          <span class="text-aura-sky text-xl shrink-0 self-center">→</span>
+        </a>
+        <a href="step2.html" class="day-card flex items-start gap-4">
+          <span class="step-chip shrink-0">2</span>
+          <div class="flex-1"><h3 class="jp-title text-base text-sand-800 mb-1">北インド式ホロスコープの全体像</h3><p class="text-[12.5px] text-sand-500 leading-relaxed">惑星・星座・ハウス・ラグナの関係と、チャートの読み始め方。</p></div>
+          <span class="text-aura-sky text-xl shrink-0 self-center">→</span>
+        </a>
+        <a href="step3.html" class="day-card flex items-start gap-4">
+          <span class="step-chip shrink-0">3</span>
+          <div class="flex-1"><h3 class="jp-title text-base text-sand-800 mb-1">自分のラグナを読む</h3><p class="text-[12.5px] text-sand-500 leading-relaxed">まずあなたのラグナを深掘り。12星座分のラグナ図鑑つき。</p></div>
+          <span class="text-aura-sky text-xl shrink-0 self-center">→</span>
+        </a>
+        <a href="step4.html" class="day-card flex items-start gap-4">
+          <span class="step-chip shrink-0">4</span>
+          <div class="flex-1"><h3 class="jp-title text-base text-sand-800 mb-1">9つの惑星を読む</h3><p class="text-[12.5px] text-sand-500 leading-relaxed">太陽・月・火星など9惑星の基本的な意味を、図鑑つきで学びます。</p></div>
+          <span class="text-aura-sky text-xl shrink-0 self-center">→</span>
+        </a>
+        <a href="step5.html" class="day-card flex items-start gap-4">
+          <span class="step-chip shrink-0">5</span>
+          <div class="flex-1"><h3 class="jp-title text-base text-sand-800 mb-1">12星座を読む</h3><p class="text-[12.5px] text-sand-500 leading-relaxed">星座の4元素・3性質を整理し、フィルターとしての役割を深掘りします。</p></div>
+          <span class="text-aura-sky text-xl shrink-0 self-center">→</span>
+        </a>
+        <a href="step6.html" class="day-card flex items-start gap-4">
+          <span class="step-chip shrink-0">6</span>
+          <div class="flex-1"><h3 class="jp-title text-base text-sand-800 mb-1">12ハウスを読む</h3><p class="text-[12.5px] text-sand-500 leading-relaxed">人生の12分野を表すハウスを、図鑑とあなたのチャートで確認します。</p></div>
+          <span class="text-aura-sky text-xl shrink-0 self-center">→</span>
+        </a>
+        <a href="step7.html" class="day-card flex items-start gap-4">
+          <span class="step-chip shrink-0">7</span>
+          <div class="flex-1"><h3 class="jp-title text-base text-sand-800 mb-1">ナクシャトラを読む</h3><p class="text-[12.5px] text-sand-500 leading-relaxed">月をさらに細かく見る27の区分。自動算出されたナクシャトラの意味を確認します。</p></div>
+          <span class="text-aura-sky text-xl shrink-0 self-center">→</span>
+        </a>
+        <a href="step8.html" class="day-card flex items-start gap-4">
+          <span class="step-chip shrink-0">8</span>
+          <div class="flex-1"><h3 class="jp-title text-base text-sand-800 mb-1">惑星・星座・ハウスを組み合わせる</h3><p class="text-[12.5px] text-sand-500 leading-relaxed">第1部の総仕上げ。組み合わせワークで実践練習をします。</p></div>
+          <span class="text-aura-sky text-xl shrink-0 self-center">→</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="mb-6 mt-10">
+      <h2 class="jp-title text-base text-sand-700 mb-3">第2部：ほかの人を読む</h2>
+      <div class="space-y-3">
+        <a href="step9.html" class="day-card flex items-start gap-4">
+          <span class="step-chip shrink-0">9</span>
+          <div class="flex-1"><h3 class="jp-title text-base text-sand-800 mb-1">家族や友人のホロスコープを登録する</h3><p class="text-[12.5px] text-sand-500 leading-relaxed">心構えを学んでから、家族や友人を登録します。</p></div>
+          <span class="text-aura-sky text-xl shrink-0 self-center">→</span>
+        </a>
+        <a href="step10.html" class="day-card flex items-start gap-4">
+          <span class="step-chip shrink-0">10</span>
+          <div class="flex-1"><h3 class="jp-title text-base text-sand-800 mb-1">ほかの人の基本性質を読む</h3><p class="text-[12.5px] text-sand-500 leading-relaxed">登録した人を選んで、実際に基本性質を読んでみます。</p></div>
+          <span class="text-aura-sky text-xl shrink-0 self-center">→</span>
+        </a>
+        <a href="step11.html" class="day-card flex items-start gap-4">
+          <span class="step-chip shrink-0">11</span>
+          <div class="flex-1"><h3 class="jp-title text-base text-sand-800 mb-1">相性の基本を学ぶ</h3><p class="text-[12.5px] text-sand-500 leading-relaxed">二人を選んで、相性の読み方を実践します。</p></div>
+          <span class="text-aura-sky text-xl shrink-0 self-center">→</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="mb-6 mt-10">
+      <h2 class="jp-title text-base text-sand-700 mb-3">第3部：鑑定としてまとめる</h2>
+      <div class="space-y-3">
+        <a href="step12.html" class="day-card flex items-start gap-4">
+          <span class="step-chip shrink-0">12</span>
+          <div class="flex-1"><h3 class="jp-title text-base text-sand-800 mb-1">相談テーマ別の読み方</h3><p class="text-[12.5px] text-sand-500 leading-relaxed">恋愛・仕事・金運など5テーマの読み替え方を学びます。</p></div>
+          <span class="text-aura-sky text-xl shrink-0 self-center">→</span>
+        </a>
+        <a href="step13.html" class="day-card flex items-start gap-4">
+          <span class="step-chip shrink-0">13</span>
+          <div class="flex-1"><h3 class="jp-title text-base text-sand-800 mb-1">鑑定文の組み立て方</h3><p class="text-[12.5px] text-sand-500 leading-relaxed">導入・本文・注意点・締めくくりの型で、鑑定文を組み立てます。</p></div>
+          <span class="text-aura-sky text-xl shrink-0 self-center">→</span>
+        </a>
+        <a href="step14.html" class="day-card flex items-start gap-4">
+          <span class="step-chip shrink-0">14</span>
+          <div class="flex-1"><h3 class="jp-title text-base text-sand-800 mb-1">総合鑑定用のChatGPTプロンプトを作る</h3><p class="text-[12.5px] text-sand-500 leading-relaxed">最終STEP。すべての要素を組み合わせた集大成プロンプトを完成させます。</p></div>
+          <span class="text-aura-sky text-xl shrink-0 self-center">→</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="mb-6 mt-10">
+      <h2 class="jp-title text-base text-sand-700 mb-3 flex items-center gap-2"><span class="text-aura-gold">🎁</span> 巻末特典</h2>
+      <a href="bonus.html" class="day-card flex items-start gap-4"><div class="flex-1"><h3 class="jp-title text-base text-sand-800 mb-1">鑑定書テンプレート</h3><p class="text-[12.5px] text-sand-500 leading-relaxed">よくある相談5パターン（恋愛・仕事や転職・金運・人間関係・使命や才能）の鑑定書を、入力するだけで作成。印刷・PDF保存にも対応しています。</p></div><span class="text-aura-sky text-xl shrink-0 self-center">→</span></a>
+    </section>
+
+    <section class="mb-6 mt-10">
+      <h2 class="jp-title text-base text-sand-700 mb-3 flex items-center gap-2"><span class="text-aura-gold">📚</span> 用語集・図鑑</h2>
+      <div class="grid sm:grid-cols-2 gap-3">
+        <a href="glossary.html" class="day-card flex items-start gap-4"><div class="flex-1"><h3 class="jp-title text-base text-sand-800 mb-1">用語集</h3><p class="text-[12.5px] text-sand-500 leading-relaxed">ラグナ・惑星・ハウス・ナクシャトラなど、この教材で使う用語をいつでも確認できます。</p></div></a>
+        <a href="step3.html#encyclopedia" class="day-card flex items-start gap-4"><div class="flex-1"><h3 class="jp-title text-base text-sand-800 mb-1">ラグナ図鑑</h3><p class="text-[12.5px] text-sand-500 leading-relaxed">12星座分のラグナの特徴を、カード形式でまとめて見られます。</p></div></a>
+        <a href="step5.html#signDetails" class="day-card flex items-start gap-4"><div class="flex-1"><h3 class="jp-title text-base text-sand-800 mb-1">12星座の詳細説明</h3><p class="text-[12.5px] text-sand-500 leading-relaxed">牡羊座から魚座まで、それぞれの性質を一覧で確認できます。</p></div></a>
+        <a href="step4.html#encyclopedia" class="day-card flex items-start gap-4"><div class="flex-1"><h3 class="jp-title text-base text-sand-800 mb-1">9惑星図鑑</h3><p class="text-[12.5px] text-sand-500 leading-relaxed">太陽・月・火星など9惑星の意味をまとめて見られます。</p></div></a>
+        <a href="step6.html#encyclopedia" class="day-card flex items-start gap-4"><div class="flex-1"><h3 class="jp-title text-base text-sand-800 mb-1">12ハウス図鑑</h3><p class="text-[12.5px] text-sand-500 leading-relaxed">人生の12分野を表すハウスの意味をまとめて見られます。</p></div></a>
+        <a href="step7.html#encyclopedia" class="day-card flex items-start gap-4"><div class="flex-1"><h3 class="jp-title text-base text-sand-800 mb-1">27ナクシャトラ図鑑</h3><p class="text-[12.5px] text-sand-500 leading-relaxed">月の通り道27区分の意味をまとめて見られます。</p></div></a>
+      </div>
+    </section>
+
+    <section class="mb-6 mt-10">
+      <h2 class="jp-title text-base text-sand-700 mb-3 flex items-center gap-2"><span class="text-aura-sky">👥</span> 登録人物一覧</h2>
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5" id="rosterCard"></div>
+    </section>
+
+    <section class="mt-6" id="sampleSection">
+      <button id="sampleBtn" class="block w-full bg-white card rounded-2xl border border-sand-200 p-6 text-center hover:border-aura-sky transition">
+        <p class="text-[11px] font-bold text-aura-navy eyebrow mb-2">SAMPLE</p>
+        <h2 class="jp-title text-lg text-sand-800 mb-2">自分の情報がわからない人は、サンプル人物から始められます</h2>
+        <p class="text-[12.5px] text-sand-500 leading-relaxed">架空の人物「さくらさん」のホロスコープ情報を使って、同じ手順で学習できます。</p>
+      </button>
+    </section>
+  </main>
+
+  <script src="assets/vedic-data.js?v=10"></script>
+  <script>
+    const opening = document.getElementById('openingScreen');
+    function getOpeningSeen(){
+      try { return window.sessionStorage && window.sessionStorage.getItem('vedicOpeningSeen') === '1'; }
+      catch(e){ return false; }
+    }
+    function setOpeningSeen(){
+      try { if(window.sessionStorage) window.sessionStorage.setItem('vedicOpeningSeen', '1'); }
+      catch(e){}
+    }
+    const hasSeenOpening = getOpeningSeen();
+    function closeOpening(){
+      setOpeningSeen();
+      opening.classList.add('is-hidden');
+      setTimeout(() => opening.remove(), 700);
+    }
+    if(hasSeenOpening){
+      opening.remove();
+    } else {
+      document.getElementById('openingEnter').addEventListener('click', closeOpening);
+      document.getElementById('openingSkip').addEventListener('click', closeOpening);
+      setTimeout(() => opening.classList.add('is-ready'), 80);
+    }
+
+    document.getElementById('senseiHome').innerHTML = sensei(`
+      <p>ふむ。ガジャ先生です。ゆっくり見ていきましょう。</p>
+      <p>これから一緒に、インド占星術（ジョーティッシュ）を学んでいきます。難しい暗記はいりません。<b>まずあなた自身のホロスコープから</b>、少しずつ言葉を覚えていきましょう。</p>
+      <p>各STEPで「今はここだけ見ればよし」という所を出していきます。急がず、図と照らし合わせながら進めましょう。</p>
+    `);
+
+    function renderProgress(){
+      const me = getMe();
+      const p = getProgress();
+      const box = document.getElementById('progressCard');
+      if(!me){
+        box.innerHTML = `<p class="text-[12.5px] text-sand-500 leading-relaxed">まだホロスコープが生成されていません。まずはSTEP0から始めましょう。</p><a href="step0.html" class="mt-3 inline-flex bg-aura-navy text-white font-bold rounded-full px-6 py-3 text-sm">STEP0を始める →</a>`;
+        return;
+      }
+      const doneList = p.length ? p.slice().sort((a,b)=>a-b).map(n=>`STEP${n}`).join('・') : 'まだありません';
+      box.innerHTML = `
+        <p class="text-[12.5px] text-sand-500 leading-relaxed mb-3">${me.name}さんとして学習中です。完了したSTEP：${doneList}</p>
+        <a href="${nextStepUrl()}" class="inline-flex bg-aura-navy text-white font-bold rounded-full px-6 py-3 text-sm">前回の続きから始める →</a>`;
+    }
+    function renderRoster(){
+      const roster = getRoster();
+      const box = document.getElementById('rosterCard');
+      if(!roster.length){ box.innerHTML = `<p class="text-[12.5px] text-sand-500">まだ人物情報がありません。STEP0で自分自身のホロスコープを生成してみましょう。</p>`; return; }
+      box.innerHTML = `<div class="space-y-3">` + roster.map((r, i) => {
+        const chartId = `homeRosterChart${i}`;
+        const hasChart = !!r.chart;
+        return `
+          <details class="other-chart-card">
+            <summary>
+              <div class="other-chart-card__head">
+                <div>
+                  <b class="text-[13px] text-sand-800">${r.name}</b>
+                  <p class="text-[11.5px] text-sand-500 mt-0.5">ラグナ：${r.lagna||'未入力'}／月の星座：${r.moonSign||'未入力'}／ナクシャトラ：${r.moonNakshatra||'未入力'}</p>
+                </div>
+                <span class="my-chart-panel__link"><span class="toggle-open">ホロスコープを開く</span><span class="toggle-close">閉じる</span></span>
+              </div>
+            </summary>
+            <div class="other-chart-card__body">
+              ${hasChart ? `
+                <div class="generated-chart-wrap">
+                  <div id="${chartId}"></div>
+                  <div>${buildPlanetTable(r.chart)}</div>
+                </div>
+              ` : `<p class="subtle-note">出生時刻と出生地まで入力すると、この人のホロスコープを生成できます。</p>`}
+            </div>
+          </details>`;
+      }).join('') + `</div>`;
+      requestAnimationFrame(() => {
+        roster.forEach((r, i) => {
+          if(r.chart) renderGeneratedNorthIndianChart(`homeRosterChart${i}`, r.chart);
+        });
+      });
+    }
+    function renderSampleSection(){
+      const me = getMe();
+      const section = document.getElementById('sampleSection');
+      if(me && me.lagna){
+        section.style.display = 'none';
+        return;
+      }
+      section.style.display = 'block';
+    }
+    document.getElementById('sampleBtn').addEventListener('click', () => {
+      setMe(samplePerson);
+      renderProgress(); renderRoster(); renderSampleSection();
+      window.location.href = 'step0.html';
+    });
+    renderProgress();
+    renderRoster();
+    renderSampleSection();
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

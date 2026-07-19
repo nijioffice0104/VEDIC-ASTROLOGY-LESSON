@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>STEP5 12星座を読む｜やさしく読めるインド占星術</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { sand:{50:'#fafaf9',100:'#f5f5f4',200:'#e7e5e4',300:'#d6d3d1',400:'#a8a29e',500:'#78716c',600:'#57534e',700:'#44403c',800:'#292524',900:'#1c1917'}, aura:{navy:'#1E3A5F',sky:'#5FA8C7',gold:'#C6A15B',coral:'#FF8F73'} },
+      fontFamily: { serif:['Georgia','Times New Roman','serif'], sans:['-apple-system','Hiragino Kaku Gothic ProN','Yu Gothic','YuGothic','Meiryo','sans-serif'], jp:['Yu Mincho','YuMincho','Hiragino Mincho ProN','Hiragino Mincho Pro','serif'] }
+    } } }
+  </script>
+  <link rel="stylesheet" href="assets/vedic-style.css?v=16">
+</head>
+<body>
+  <nav class="border-b border-sand-100"><div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between"><div class="flex items-center gap-2"><span class="ks-logo" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span><span class="font-extrabold text-sand-800">やさしく読めるインド占星術</span></div><a href="index.html" class="day-pill">🏠 ホーム</a></div></nav>
+  <div class="day-nav"><div class="day-nav__inner" id="dayNav"></div></div>
+
+  <main class="max-w-4xl mx-auto px-6 pb-20 w-full">
+    <div class="hero-panel text-center mb-10">
+      <span class="part-badge">第1部：自分のホロスコープを読む</span>
+      <div class="eyebrow text-[11px] text-sand-400 mb-3">STEP 5</div>
+      <h1 class="jp-title font-extrabold text-sand-800 text-xl">12星座を読む</h1>
+      <p class="text-sm text-sand-500 leading-relaxed mt-2">星座を「惑星の性格や行動スタイルを決めるフィルター」として、もう一段深く理解しましょう。</p>
+    </div>
+
+    <section class="mb-8">
+      <h2 class="jp-title text-base text-sand-700 mb-3 flex items-center gap-2"><span class="text-aura-gold">🎯</span> 今回学ぶこと</h2>
+      <div class="grid sm:grid-cols-2 gap-3 text-[12px]">
+        <div class="field-card"><b>星座の役割のおさらい</b><p>星座が惑星に対してどう働くかを、もう一度整理します。</p></div>
+        <div class="field-card"><b>4つの元素</b><p>火・地・風・水という元素の分類がわかります。</p></div>
+        <div class="field-card"><b>3つの性質</b><p>活動宮・不動宮・双体宮という、星座の動きやすさの分類がわかります。</p></div>
+        <div class="field-card"><b>自分の星座の元素・性質</b><p>あなたのラグナと月の星座を、元素・性質の面からも見てみます。</p></div>
+      </div>
+    </section>
+
+    <section class="mb-8"><div id="senseiOpen"></div></section>
+    <section class="mb-8" id="lessonTalk"></section>
+
+    <section class="mb-10">
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5 sm:p-7 long-read">
+        <h3>星座とは何か（おさらい）</h3>
+        <p>STEP2でも触れましたが、あらためて確認しておきましょう。<span class="wavy">星座</span>とは、黄道（惑星が通る道）を12等分した区分のことです。牡羊座から魚座まで12種類あり、それぞれの星座には固有の性質があります。惑星がどの星座に位置しているかによって、その惑星の性格や行動スタイルが変わって表れます。物語の例えでいえば、星座は「登場人物（惑星）がまとう衣装や演技スタイル」にあたります。</p>
+
+        <h3>星座の4つの元素</h3>
+        <p>12星座は、まず<span class="wavy">火・地・風・水</span>という4つの元素に分類されます。火の星座（牡羊座・獅子座・射手座）は情熱的でエネルギッシュ、地の星座（牡牛座・乙女座・山羊座）は現実的で着実、風の星座（双子座・天秤座・水瓶座）は知的でコミュニケーション重視、水の星座（蟹座・蠍座・魚座）は感受性が豊かで感情を大切にする、という特徴があります。この元素の分類は、STEP3のラグナ図鑑ですでに一度登場していましたね。</p>
+
+        <h3>星座の3つの性質（活動宮・不動宮・双体宮）</h3>
+        <p>星座には、元素とは別に、<span class="wavy">活動宮・不動宮・双体宮</span>という3つの性質による分類もあります。これは「動きやすさ」の分類です。<b>活動宮</b>（牡羊座・蟹座・天秤座・山羊座）は物事を始める力に優れ、<b>不動宮</b>（牡牛座・獅子座・蠍座・水瓶座）はじっくり継続する力に優れ、<b>双体宮</b>（双子座・乙女座・射手座・魚座）は状況に応じて柔軟に切り替える力に優れます。元素と性質を組み合わせることで、12星座それぞれの個性がより立体的に見えてきます。</p>
+
+        <h3>星座は「フィルター」——同じ惑星でも星座で変わる</h3>
+        <p>STEP4で学んだ惑星と、この星座を組み合わせると、読み方がぐっと具体的になります。たとえば同じ「月」という惑星でも、蟹座にある月は感受性豊かで面倒見が良く、山羊座にある月は感情を表に出さず落ち着いて対応する、というように表れ方が変わります。<span class="plain-mark">星座は、惑星という「役者」がどんな演技スタイルで演じるかを決める衣装のようなもの</span>と考えると理解しやすくなります。</p>
+
+        <h3>読むときの注意点：星座だけで決めつけない</h3>
+        <p>星座は大切な要素ですが、星座の情報だけで「この人はこういう人だ」と決めつけないようにしましょう。同じ星座でも、そこにどの惑星が入っているか、どのハウスにあるかによって、実際の表れ方は変わります。星座は、あくまで惑星やハウスと組み合わせて読む「材料の一つ」だと考えてください。</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-sky">🎭</span> 身近な例：役者と衣装に例えてみる</h2>
+      <div class="example-box">
+        <p>惑星と星座の関係は、舞台に立つ「役者」と、その役者が着る「衣装」の関係によく似ています。同じ役者（惑星）でも、王様の衣装（獅子座）を着れば堂々とした演技になり、旅人の衣装（射手座）を着れば自由で身軽な演技になります。役者自身の個性（惑星の意味）は変わりませんが、衣装（星座）によって表現のされ方が変わる——これが「星座はフィルター」という考え方です。</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-gold">🌿</span> 4つの元素と3つの性質をイメージで見る</h2>
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5 sm:p-6">
+        <p class="text-[12.5px] text-sand-500 leading-relaxed mb-4">元素は「どんな気質か」、性質は「どう動き出すか」を見るための分類です。まずは表を覚えるより、色とイメージでつかんでみましょう。</p>
+        <div class="element-visual-grid">
+          <div class="element-visual-card" style="--tone:#FF8F73;--soft:#fff1eb;--ink:#9f3412">
+            <span class="element-icon">火</span>
+            <b>火の元素</b>
+            <p>ひらめき、情熱、勢い。まず動いて、熱を広げていくタイプ。</p>
+          </div>
+          <div class="element-visual-card" style="--tone:#C6A15B;--soft:#fdf5df;--ink:#854d0e">
+            <span class="element-icon">地</span>
+            <b>地の元素</b>
+            <p>現実感、安定、積み重ね。形にする力や継続力を表します。</p>
+          </div>
+          <div class="element-visual-card" style="--tone:#5FA8C7;--soft:#eef7fb;--ink:#1E3A5F">
+            <span class="element-icon">風</span>
+            <b>風の元素</b>
+            <p>知性、言葉、情報。考えを交換し、軽やかにつなげます。</p>
+          </div>
+          <div class="element-visual-card" style="--tone:#c4b5fd;--soft:#f5f3ff;--ink:#5b21b6">
+            <span class="element-icon">水</span>
+            <b>水の元素</b>
+            <p>感情、共感、記憶。心で受け取り、深くなじませる力です。</p>
+          </div>
+        </div>
+        <div class="quality-flow mt-4">
+          <div class="quality-card">
+            <div class="quality-gesture"><span class="quality-dot"></span><span class="quality-dot"></span><span class="quality-dot"></span></div>
+            <b>活動宮：はじめる力</b>
+            <p>新しい流れを起こす性質。きっかけを作り、前へ進みます。</p>
+          </div>
+          <div class="quality-card">
+            <div class="quality-gesture"><span class="quality-dot"></span><span class="quality-dot"></span><span class="quality-dot"></span></div>
+            <b>不動宮：続ける力</b>
+            <p>一度決めたものを守り、育てる性質。安定感と粘り強さがあります。</p>
+          </div>
+          <div class="quality-card">
+            <div class="quality-gesture"><span class="quality-dot"></span><span class="quality-dot"></span><span class="quality-dot"></span></div>
+            <b>双体宮：変える力</b>
+            <p>状況に合わせて調整する性質。柔軟に切り替え、橋渡しします。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10" id="myInfo">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-navy">🧭</span> あなたの星座を、元素・性質で見てみましょう</h2>
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5" id="myInfoCard"></div>
+    </section>
+
+    <section class="mb-10" id="encyclopedia">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-gold">📖</span> 元素・性質の整理表</h2>
+      <p class="text-[12.5px] text-sand-500 mb-4">12星座を、元素（縦）と性質（横）で整理するとこうなります。</p>
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5 overflow-x-auto">
+        <table class="compare-table" id="matrixTable"></table>
+      </div>
+    </section>
+
+    <section class="mb-10" id="signDetails">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-gold">♈</span> 12星座それぞれの性質</h2>
+      <p class="text-[12.5px] text-sand-500 mb-4">星座ごとの性質を、まずは短い言葉でつかんでおきましょう。詳しい読み方は、カードを開くSTEP3のラグナ図鑑でも確認できます。</p>
+      <div class="sign-mini-grid" id="signMiniGrid"></div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-sky">🔎</span> 具体例で見てみましょう</h2>
+      <div class="personal-reading" id="personalSignReading"></div>
+    </section>
+
+    <section class="mb-8" id="senseiSummarySection"></section>
+
+    <section class="mb-10" id="quizSection">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-gold">📝</span> ガジャ先生からの理解度チェック</h2>
+      <div id="senseiQuizIntro"></div>
+      <div id="quizMountGeneral"></div>
+    </section>
+
+    <section class="mb-10" id="promptSection">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-sky">💬</span> ChatGPT用プロンプト作成</h2>
+      <div id="senseiPrompt"></div>
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5 mt-3">
+        <p class="text-[12px] text-sand-500 mb-3">ラグナの元素・性質を使って、行動スタイルを説明してもらうプロンプトを作成できます。</p>
+        <button id="genPromptBtn" class="bg-aura-navy text-white font-bold rounded-full px-6 py-3 text-sm">プロンプトを作成する</button>
+        <textarea id="promptArea" class="copy-area w-full mt-4 border border-sand-200 rounded-xl p-4 text-[12px] text-sand-700 bg-sand-50" style="display:none;min-height:200px"></textarea>
+        <button id="copyBtn" class="mt-3 border border-sand-200 rounded-full px-5 py-2.5 text-[12px] font-bold text-sand-600" style="display:none">コピーする</button>
+        <p id="copyMsg" class="text-[11px] text-aura-navy mt-2" style="display:none">コピーしました！</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="jp-title text-base text-sand-700 mb-3 flex items-center gap-2"><span class="text-aura-gold">✅</span> 今日のまとめ</h2>
+      <div class="guide-box gold text-[12.5px] text-sand-600">
+        <ul class="check-list">
+          <li>星座は、惑星の性格や行動スタイルを決める「フィルター」のような存在。</li>
+          <li>星座には火・地・風・水の4元素と、活動宮・不動宮・双体宮の3性質がある。</li>
+          <li>同じ惑星でも、乗っている星座によって表れ方が変わる。</li>
+          <li>星座だけで決めつけず、惑星・ハウスと組み合わせて読む。</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="day-footer-nav">
+      <a href="step4.html"><span class="label-sm">BACK</span><b>← STEP4 9つの惑星を読む</b></a>
+      <a href="step6.html" class="next"><span class="label-sm">NEXT</span><b>STEP6 12ハウスを読む →</b></a>
+    </div>
+  </main>
+
+  <script src="assets/vedic-data.js?v=10"></script>
+  <script>
+    __currentStepNum = 5;
+    renderDayNav('dayNav', 5);
+    const realMe = getMe();
+    const me = (realMe && realMe.lagna) ? realMe : Object.assign({}, samplePerson, realMe ? {name:realMe.name, birthDate:realMe.birthDate} : {});
+    const usingSample = !(realMe && realMe.lagna);
+
+    document.getElementById('senseiOpen').innerHTML = sensei(`
+      <p>${realMe ? realMe.name+'さん' : 'あなた'}、STEP5では星座そのものを、もう少しだけ深く見ていきましょう。</p>
+      <p>少し難しく見えても、元素と性質の2つに分ければ大丈夫。だいぶ見やすくなります。</p>
+    `);
+    document.getElementById('lessonTalk').innerHTML = lessonDialog([
+      {who:'student', html:'<p>星座って、結局「牡羊座だからこういう性格」みたいに読むんですか？</p>'},
+      {who:'teacher', html:'<p>そこは少し違います。星座だけで性格を決めるのではなく、<b>惑星の力がどんな雰囲気で出るか</b>を見る感じです。</p>'},
+      {who:'student', html:'<p>じゃあ、同じ月でも星座が違うと心の出方が変わるんですね。</p>'},
+      {who:'teacher', html:'<p>その通りです。同じ「月」でも、蟹座なら共感的に、山羊座なら落ち着いて現実的に、というように表れ方が変わります。</p>'}
+    ]);
+
+    const lagnaSign = bySignName(me.lagna);
+    const moonSign = me.moonSign ? bySignName(me.moonSign) : null;
+    document.getElementById('myInfoCard').innerHTML = `
+      <div class="grid sm:grid-cols-2 gap-3 text-[12.5px] text-sand-600">
+        <div class="deep-card"><b>${usingSample?'サンプル人物のラグナ':me.name+'さんのラグナ'}：${lagnaSign.name}</b><p class="mt-1">元素：${lagnaSign.element}／性質：${getModality(lagnaSign.name)}（${modalityInfo[getModality(lagnaSign.name)].keyword}）</p></div>
+        ${moonSign ? `<div class="deep-card"><b>${usingSample?'サンプル人物の月の星座':me.name+'さんの月の星座'}：${moonSign.name}</b><p class="mt-1">元素：${moonSign.element}／性質：${getModality(moonSign.name)}（${modalityInfo[getModality(moonSign.name)].keyword}）</p></div>` : `<div class="deep-card"><b>月の星座：未算出</b><p class="mt-1">STEP0で出生情報からホロスコープを生成すると、自動で反映されます。</p></div>`}
+      </div>`;
+
+    const elements = ['火','地','風','水'];
+    const modalities = ['活動宮','不動宮','双体宮'];
+    const elementTone = {
+      '火': {soft:'#fff1eb', ink:'#9f3412'},
+      '地': {soft:'#fdf5df', ink:'#854d0e'},
+      '風': {soft:'#eef7fb', ink:'#1E3A5F'},
+      '水': {soft:'#f5f3ff', ink:'#5b21b6'}
+    };
+    let thead = '<thead><tr><th></th>' + modalities.map(m=>`<th>${m}</th>`).join('') + '</tr></thead>';
+    let tbody = '<tbody>' + elements.map(el => {
+      const cells = modalities.map(mo => {
+        const found = signs.find(s => s.element===el && getModality(s.name)===mo);
+        return `<td>${found ? `<span class="element-cell" style="--soft:${elementTone[el].soft};--ink:${elementTone[el].ink}"><span>${found.symbol}</span>${found.name}</span>` : ''}</td>`;
+      }).join('');
+      return `<tr><th style="--soft:${elementTone[el].soft};--ink:${elementTone[el].ink}">${el}</th>${cells}</tr>`;
+    }).join('') + '</tbody>';
+    document.getElementById('matrixTable').classList.add('element-matrix');
+    document.getElementById('matrixTable').innerHTML = thead + tbody;
+
+    document.getElementById('signMiniGrid').innerHTML = signs.map(x => `
+      <div class="sign-mini-card">
+        <b><span class="sign-symbol">${x.symbol}</span>${x.name}</b>
+        <p>${x.feature}</p>
+      </div>`).join('');
+
+    document.getElementById('personalSignReading').innerHTML = `<p>${usingSample?'サンプル人物':me.name+'さん'}のラグナは${lagnaSign.name}です。${lagnaSign.name}は「${lagnaSign.element}」の元素と「${getModality(lagnaSign.name)}」の性質を持ちます。つまり、${lagnaSign.feature}${lagnaSign.element}の気質が土台にあり、${modalityInfo[getModality(lagnaSign.name)].desc}という動き方が重なります。月の星座や惑星の配置は後のSTEPで重ねて読むので、ここではまず「星座がその人の表現スタイルを作る」という感覚を持てれば大丈夫です。</p>`;
+
+    document.getElementById('senseiSummarySection').innerHTML = sensei(`
+      <p>元素は「4つの気質」、性質は「3つの動きやすさ」。この2軸を掛け合わせると12星座になる、というイメージが持てれば今日はOKです。</p>
+      <p>それでは、クイズで確認してみましょう。</p>
+    `);
+
+    document.getElementById('senseiQuizIntro').innerHTML = sensei(`<p>元素と性質について、クイズで確認してみましょう。</p>`);
+    mountQuiz('quizMountGeneral', stepQuizzes.step5, (score,total) => {
+      markStepDone(5);
+      const msg = score === total ? '全問正解です。元素と性質、ちゃんと整理できています。' : score >= 3 ? `${score}/${total}問正解！いい感じです。` : `${score}/${total}問正解でした。上の整理表をもう一度見返してみてくださいね。`;
+      return sensei(`<p>${msg}</p><p>それではSTEP6で、12ハウスを見ていきましょう。</p>`);
+    });
+
+    document.getElementById('senseiPrompt').innerHTML = sensei(`<p>ラグナの元素・性質を使って、行動スタイルをChatGPTに説明してもらうプロンプトを作ってみましょう。</p>`);
+    document.getElementById('genPromptBtn').addEventListener('click', () => {
+      const prompt = buildPrompt({
+        person: me,
+        elements: [
+          `ラグナ：${lagnaSign.name}（元素：${lagnaSign.element}、性質：${getModality(lagnaSign.name)}）`,
+          `元素の意味：${lagnaSign.element === '火' ? '情熱的でエネルギッシュ' : lagnaSign.element === '地' ? '現実的で着実' : lagnaSign.element === '風' ? '知的でコミュニケーション重視' : '感受性が豊かで感情を大切にする'}`,
+          `性質の意味：${modalityInfo[getModality(lagnaSign.name)].desc}`
+        ],
+        theme: 'この人の行動スタイルを、星座の元素と性質の観点から説明する',
+        length: '300〜400字程度',
+        tone: 'やさしく、親しみやすい雰囲気'
+      });
+      const area = document.getElementById('promptArea');
+      area.value = prompt; area.style.display='block';
+      document.getElementById('copyBtn').style.display='inline-flex';
+    });
+    document.getElementById('copyBtn').addEventListener('click', () => {
+      const area = document.getElementById('promptArea');
+      area.select(); document.execCommand('copy');
+      const msg = document.getElementById('copyMsg'); msg.style.display='block';
+      setTimeout(()=>msg.style.display='none', 2000);
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

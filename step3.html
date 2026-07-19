@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>STEP3 自分のラグナを読む｜やさしく読めるインド占星術</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { sand:{50:'#fafaf9',100:'#f5f5f4',200:'#e7e5e4',300:'#d6d3d1',400:'#a8a29e',500:'#78716c',600:'#57534e',700:'#44403c',800:'#292524',900:'#1c1917'}, aura:{navy:'#1E3A5F',sky:'#5FA8C7',gold:'#C6A15B',coral:'#FF8F73'} },
+      fontFamily: { serif:['Georgia','Times New Roman','serif'], sans:['-apple-system','Hiragino Kaku Gothic ProN','Yu Gothic','YuGothic','Meiryo','sans-serif'], jp:['Yu Mincho','YuMincho','Hiragino Mincho ProN','Hiragino Mincho Pro','serif'] }
+    } } }
+  </script>
+  <link rel="stylesheet" href="assets/vedic-style.css?v=16">
+</head>
+<body>
+  <nav class="border-b border-sand-100"><div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between"><div class="flex items-center gap-2"><span class="ks-logo" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span><span class="font-extrabold text-sand-800">やさしく読めるインド占星術</span></div><a href="index.html" class="day-pill">🏠 ホーム</a></div></nav>
+  <div class="day-nav"><div class="day-nav__inner" id="dayNav"></div></div>
+
+  <main class="max-w-4xl mx-auto px-6 pb-20 w-full">
+    <div class="hero-panel text-center mb-10">
+      <span class="part-badge">第1部：自分のホロスコープを読む</span>
+      <div class="eyebrow text-[11px] text-sand-400 mb-3">STEP 3</div>
+      <h1 class="jp-title font-extrabold text-sand-800 text-xl">自分のラグナを読む</h1>
+      <p class="text-sm text-sand-500 leading-relaxed mt-2">ラグナの意味を理解し、あなたのラグナを深掘りしていきましょう。</p>
+    </div>
+
+    <section class="mb-8"><div id="senseiOpen"></div></section>
+    <section class="mb-8" id="lessonTalk"></section>
+
+    <section class="mb-10">
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5 sm:p-7 long-read">
+        <h3>ラグナとは何か</h3>
+        <p>ラグナとは、生まれた瞬間に東の地平線から昇っていた星座のことです。地球は1日に1回転しているため、東の地平線に見える星座は約2時間ごとに入れ替わっていきます。そのため、同じ日に生まれた人でも、生まれた時刻が違えばラグナも変わります。</p>
+
+        <h3>ラグナが表すもの</h3>
+        <p>ラグナは、その人の基本的な行動傾向や人生の方向性を表します。太陽星座が「社会の中でどう輝こうとするか」、月の星座が「心がどう反応するか」を表すのに対し、ラグナは<span class="wavy">第一印象だけでなく、物事へどう向き合っていくか</span>という、その人の土台になる部分を表します。</p>
+
+        <h3>ホロスコープの中での役割</h3>
+        <p>北インド式チャートでは、ラグナが入る星座が第1ハウスの起点になります。つまり、ラグナの星座が決まると、そこを第1ハウスとして、残りの星座が2ハウス、3ハウス……と順番に、決まった並び方で配置されていきます。STEP2で見た図の中で、第1ハウスに入っていた星座が、まさにあなたのラグナです。</p>
+
+        <h3>出生時刻の大切さ</h3>
+        <div class="guide-box gold">
+          <p class="text-[12.5px]">ラグナは約2時間ごとに切り替わるため、<b>出生時刻の正確さ</b>がとても重要です。出生時刻があいまいな場合、実際のラグナと1つずれた星座が出てしまう可能性があります。母子手帳や出生証明書などで、できるだけ正確な時刻を確認しておくと安心です。</p>
+        </div>
+
+        <h3>似ている要素との違い</h3>
+        <div class="grid sm:grid-cols-3 gap-3 mt-2">
+          <div class="deep-card"><b>ラグナ</b><p class="text-[12.5px] mt-1">物事への向き合い方、人生のスタート地点。出生時刻で決まる。</p></div>
+          <div class="deep-card"><b>太陽星座</b><p class="text-[12.5px] mt-1">社会的な自己表現、目指す方向性。生年月日でおおよそ決まる。</p></div>
+          <div class="deep-card"><b>月の星座</b><p class="text-[12.5px] mt-1">心の反応、安心の仕方。生年月日・時刻でおおよそ決まる。</p></div>
+        </div>
+
+        <h3>読むときの注意点</h3>
+        <p>ラグナは大切な要素ですが、<span class="plain-mark">ラグナだけでその人のすべてを決めつけないこと</span>が重要です。実際の鑑定では、ラグナに加えて惑星・月の星座・ハウスなどを組み合わせて総合的に読みます。ラグナは、あくまで「その人らしさの土台となる部分」を教えてくれる要素だと考えてください。</p>
+      </div>
+    </section>
+
+    <section class="mb-10" id="myLagna">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-navy">🧭</span> ラグナの確認</h2>
+      <div class="hero-panel text-center" id="myLagnaHero" style="margin:0"></div>
+    </section>
+
+    <section class="mb-10" id="encyclopedia">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-gold">📖</span> ラグナ図鑑（12星座）</h2>
+      <p class="text-[12.5px] text-sand-500 mb-4">カードをタップすると詳しい説明が開きます。あなたのラグナのカードには印がついています。</p>
+      <div class="grid sm:grid-cols-2 gap-3" id="signGrid"></div>
+    </section>
+
+    <section class="mb-10" id="miniWork">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-sky">✍️</span> ミニワーク</h2>
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5">
+        <p class="text-[12.5px] text-sand-600 mb-3" id="miniWorkQ"></p>
+        <div class="flex flex-wrap gap-2" id="miniWorkBtns">
+          <button class="mini-work-btn" data-v="当てはまる">当てはまる</button>
+          <button class="mini-work-btn" data-v="少し当てはまる">少し当てはまる</button>
+          <button class="mini-work-btn" data-v="まだわからない">まだわからない</button>
+        </div>
+        <p class="text-[12px] text-sand-500 mt-3" id="miniWorkResult"></p>
+      </div>
+    </section>
+
+    <section class="mb-10" id="quizSection">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-gold">📝</span> ガジャ先生からの理解度チェック</h2>
+      <div id="senseiQuizIntro"></div>
+      <div id="quizMountGeneral"></div>
+      <div class="mt-6" id="quizMountLagnaWrap" style="display:none">
+        <div id="senseiQuizLagnaIntro" class="mb-3"></div>
+        <div id="quizMountLagna"></div>
+      </div>
+    </section>
+
+    <div class="day-footer-nav">
+      <a href="step2.html"><span class="label-sm">BACK</span><b>← STEP2 ホロスコープの全体像</b></a>
+      <a href="step4.html" class="next"><span class="label-sm">NEXT</span><b>STEP4 9つの惑星を読む →</b></a>
+    </div>
+  </main>
+
+  <script src="assets/vedic-data.js?v=10"></script>
+  <script>
+    __currentStepNum = 3;
+    renderDayNav('dayNav', 3);
+    const realMe = getMe();
+    const usingSample = !(realMe && realMe.lagna);
+    const me = usingSample ? Object.assign({}, samplePerson, realMe ? {name:realMe.name, birthDate:realMe.birthDate} : {}) : realMe;
+    const myLagnaName = me.lagna;
+    const s = bySignName(myLagnaName);
+
+    document.getElementById('senseiOpen').innerHTML = sensei(`
+      <p>${realMe ? realMe.name+'さん' : 'あなた'}、ここからラグナを見ていきます。むずかしそうですが、入口だけ見れば大丈夫。</p>
+      <p>最初から全部覚えなくて大丈夫です。STEP0で生成したあなた自身のラグナを見ながら、上の解説と照らし合わせてみましょう。</p>
+    `);
+    document.getElementById('lessonTalk').innerHTML = lessonDialog([
+      {who:'student', html:'<p>ラグナって、太陽星座や月の星座と何が違うんですか？</p>'},
+      {who:'teacher', html:'<p>ラグナは、その人がこの世界に入ってきた入口のようなものです。第一印象だけでなく、物事への向き合い方や人生の始まり方を見ます。</p>'},
+      {who:'student', html:'<p>出生時刻が大事なのは、ラグナが変わるからなんですね。</p>'},
+      {who:'teacher', html:'<p>その通りです。ラグナは約2時間ごとに変わるので、ここだけはできるだけ正確な出生時刻で見たいところです。</p>'}
+    ]);
+
+    document.getElementById('myLagnaHero').innerHTML = usingSample ? `
+      <div class="eyebrow text-[11px] text-sand-400 mb-2">SAMPLE</div>
+      <p class="jp-title text-xl text-sand-800 mb-1">サンプル人物「${samplePerson.name}」のラグナは、<span class="text-aura-navy">${s.symbol} ${s.name}</span>です</p>
+      <p class="text-[12.5px] text-sand-500 mt-2">支配星：${s.ruler}／元素：${s.element}</p>
+      <p class="text-[11.5px] text-sand-400 mt-2">あなた自身の内容で学ぶ場合は、STEP0で出生情報からホロスコープを生成してください。</p>` : `
+      <div class="eyebrow text-[11px] text-sand-400 mb-2">YOUR LAGNA</div>
+      <p class="jp-title text-2xl text-sand-800 mb-1">${me.name}さんのラグナは、<span class="text-aura-navy">${s.symbol} ${s.name}</span>です</p>
+      <p class="text-[12.5px] text-sand-500 mt-2">支配星：${s.ruler}／元素：${s.element}</p>`;
+
+    document.getElementById('signGrid').innerHTML = signs.map(x => `
+      <details class="sign-card ${x.name===myLagnaName?'is-me':''}">
+        <summary class="flex items-center justify-between">
+          <span class="flex items-center gap-2"><span class="sign-symbol">${x.symbol}</span><b class="text-[13px] text-sand-800">${x.name}</b>${x.name===myLagnaName?'<span class="term-chip">あなたのラグナ</span>':''}</span>
+          <span class="text-sand-400 text-xs">開く →</span>
+        </summary>
+        <div class="mt-3 text-[12.5px] text-sand-600 leading-relaxed space-y-2">
+          <p><b class="text-sand-800">支配星：</b>${x.ruler}／<b class="text-sand-800">元素：</b>${x.element}</p>
+          <p><b class="text-sand-800">基本的な性質：</b>${x.feature}</p>
+          <p><b class="text-sand-800">第一印象：</b>${x.first}</p>
+          <p><b class="text-sand-800">人生で大切にしやすいこと：</b>${x.values}</p>
+          <p><b class="text-sand-800">得意なこと：</b>${x.gift}</p>
+          <p><b class="text-sand-800">バランスを崩したとき：</b>${x.shadow}</p>
+          <p><b class="text-sand-800">学びのテーマ：</b>${x.theme}</p>
+          <div class="mini-example">${sensei(`<p>${x.sensei}</p>`)}</div>
+        </div>
+      </details>`).join('');
+
+    document.getElementById('miniWorkQ').textContent = usingSample ? `「${s.feature}」——サンプル人物のラグナの特徴です。あなた自身のホロスコープをSTEP0で生成したら、同じ質問であなたの実感を確かめてみましょう。` : `「${s.feature}」——${me.name}さんのラグナの特徴について、今の実感はいかがですか？`;
+    document.querySelectorAll('.mini-work-btn').forEach(btn => btn.addEventListener('click', (e) => {
+      document.querySelectorAll('.mini-work-btn').forEach(b=>b.classList.remove('is-selected'));
+      e.target.classList.add('is-selected');
+      const v = e.target.dataset.v;
+      const msgs = { '当てはまる':'いいですね！その感覚を、これから鑑定文を作るときの手がかりにしていきましょう。', '少し当てはまる':'完全に一致しなくても大丈夫です。ラグナは土台となる部分で、他の要素と組み合わさって個性になります。', 'まだわからない':'焦らなくて大丈夫です。惑星や月の星座を学んでいくと、少しずつ実感がわいてくることが多いですよ。' };
+      document.getElementById('miniWorkResult').textContent = msgs[v];
+    }));
+
+    document.getElementById('senseiQuizIntro').innerHTML = sensei(`<p>まずはラグナの基本についてのクイズです。続けて、${usingSample?'サンプル人物':me.name+'さん'}のラグナに合わせたオリジナルクイズもご用意しています。</p>`);
+    mountQuiz('quizMountGeneral', stepQuizzes.step3, (score,total) => {
+      const msg = score === total ? '全問正解です。ラグナの基本、いい感じにつかめています。' : score >= 2 ? `${score}/${total}問正解！いい感じです。` : `${score}/${total}問正解でした。上の解説を読み返してみてくださいね。`;
+      document.getElementById('quizMountLagnaWrap').style.display = 'block';
+      document.getElementById('senseiQuizLagnaIntro').innerHTML = sensei(`<p>${msg}</p><p>続いて、${usingSample?'サンプル人物':me.name+'さん'}のラグナ（${s.name}）に合わせたクイズにも挑戦してみましょう。</p>`);
+      mountQuiz('quizMountLagna', buildLagnaQuiz(me), (score2,total2) => {
+        return sensei(`<p>${usingSample?'サンプル人物':me.name+'さん'}のラグナについて、${score2}/${total2}問正解でした。</p><p>この調子で、次は惑星の役割を見ていきましょう。</p>`);
+      });
+      return '';
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>STEP8 惑星・星座・ハウスを組み合わせる｜やさしく読めるインド占星術</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { sand:{50:'#fafaf9',100:'#f5f5f4',200:'#e7e5e4',300:'#d6d3d1',400:'#a8a29e',500:'#78716c',600:'#57534e',700:'#44403c',800:'#292524',900:'#1c1917'}, aura:{navy:'#1E3A5F',sky:'#5FA8C7',gold:'#C6A15B',coral:'#FF8F73'} },
+      fontFamily: { serif:['Georgia','Times New Roman','serif'], sans:['-apple-system','Hiragino Kaku Gothic ProN','Yu Gothic','YuGothic','Meiryo','sans-serif'], jp:['Yu Mincho','YuMincho','Hiragino Mincho ProN','Hiragino Mincho Pro','serif'] }
+    } } }
+  </script>
+  <link rel="stylesheet" href="assets/vedic-style.css?v=16">
+</head>
+<body>
+  <nav class="border-b border-sand-100"><div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between"><div class="flex items-center gap-2"><span class="ks-logo" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span><span class="font-extrabold text-sand-800">やさしく読めるインド占星術</span></div><a href="index.html" class="day-pill">🏠 ホーム</a></div></nav>
+  <div class="day-nav"><div class="day-nav__inner" id="dayNav"></div></div>
+
+  <main class="max-w-4xl mx-auto px-6 pb-20 w-full">
+    <div class="hero-panel text-center mb-10">
+      <span class="part-badge">第1部：自分のホロスコープを読む</span>
+      <div class="eyebrow text-[11px] text-sand-400 mb-3">STEP 8</div>
+      <h1 class="jp-title font-extrabold text-sand-800 text-xl">惑星・星座・ハウスを組み合わせる</h1>
+      <p class="text-sm text-sand-500 leading-relaxed mt-2">第1部の総仕上げ。バラバラに学んだ要素を、1つの文章につなげる練習をします。</p>
+    </div>
+
+    <section class="mb-8">
+      <h2 class="jp-title text-base text-sand-700 mb-3 flex items-center gap-2"><span class="text-aura-gold">🎯</span> 今回学ぶこと</h2>
+      <div class="grid sm:grid-cols-2 gap-3 text-[12px]">
+        <div class="field-card"><b>組み合わせの基本の型</b><p>惑星・星座・ハウスを1つの文章にする型がわかります。</p></div>
+        <div class="field-card"><b>ハウスの数え方</b><p>ラグナから、他の要素が何ハウス目にあるかを数える方法がわかります。</p></div>
+        <div class="field-card"><b>矛盾する情報の扱い方</b><p>複数の要素が食い違って見えるときの考え方がわかります。</p></div>
+        <div class="field-card"><b>組み合わせワーク</b><p>惑星・星座・ハウスを自由に選んで、文章が作れるようになります。</p></div>
+      </div>
+    </section>
+
+    <section class="mb-8"><div id="senseiOpen"></div></section>
+    <section class="mb-8" id="lessonTalk"></section>
+
+    <section class="mb-10">
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5 sm:p-7 long-read">
+        <h3>おさらい：惑星・星座・ハウスの役割</h3>
+        <p>ここまで学んできた3つの要素を振り返りましょう。<span class="wavy">惑星</span>は物語の登場人物（STEP4）、<span class="wavy">星座</span>は登場人物の性格や行動スタイル（STEP5）、<span class="wavy">ハウス</span>は登場人物が活躍する舞台（STEP6）でした。この3つを組み合わせて初めて、「誰が」「どんな性格で」「どこで」働いているかがわかります。</p>
+
+        <h3>3点セットの型（組み合わせの基本文型）</h3>
+        <p>組み合わせて読むときの基本の文型は、次の通りです。</p>
+        <div class="must-learn"><strong>「［惑星］が［星座］にあることで、［星座の性質］を通して働きます。この配置は［ハウス］にあるため、［そのハウスが表す人生の分野］に関するテーマとして表れやすいと読みます。」</strong></div>
+        <p>この型に当てはめるだけで、鑑定文の骨組みが完成します。あとは表現をやわらかく整えれば、初心者にも伝わる鑑定文になります。</p>
+
+        <h3>実際にやってみる：月の場合</h3>
+        <p>STEP0で算出された<span class="wavy">月の星座</span>を例に、実際にやってみましょう。月がどのハウスにあるかは、<span class="plain-mark">ラグナ（第1ハウス）から数えて、月の星座が何番目にあたるか</span>で決まります。たとえばラグナが牡羊座で、月が獅子座にある場合、牡羊座を1番目として数えると、獅子座は5番目。つまり月は第5ハウス（恋愛・創造性・子供）にある、と読みます。下の「あなたの場合」で、実際に計算してみましょう。</p>
+
+        <h3>複数の要素を組み合わせるときの考え方</h3>
+        <p>実際の鑑定では、太陽・月・ラグナなど複数の要素を同時に読むため、情報が一見矛盾しているように感じることがあります。たとえば「ラグナは社交的な星座なのに、月は内向的な星座」ということもよくあります。このようなときは、<span class="wavy">どちらか一方を無視するのではなく、「外に見える顔（ラグナ）と、内側の心（月）は違うことがある」</span>という自然なこととして受け止めましょう。人間の性質は一つの側面だけで語れるものではない、という前提を持つことが大切です。</p>
+
+        <h3>鑑定文にするときの言い換えのコツ</h3>
+        <p>3点セットの型そのままでは、少し硬い印象になります。実際の鑑定文にするときは、「〜という性質を通して働きます」を「〜という一面がありますね」のように、話し言葉に近づけて言い換えるとやわらかくなります。また、専門用語（ハウス名など）を使ったら、すぐ後に短い説明を添えることも忘れずに。</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-sky">🍳</span> 身近な例：料理のレシピに例えてみる</h2>
+      <div class="example-box">
+        <p>惑星・星座・ハウスの組み合わせは、料理のレシピに似ています。惑星は「食材」（何を使うか）、星座は「調理法」（どう調理するか＝煮る・焼く・生で食べるなど）、ハウスは「盛り付ける器」（どの場面で提供するか）にあたります。同じ食材（惑星）でも、調理法（星座）と盛り付け（ハウス）が変われば、まったく違う一皿に仕上がる——これが組み合わせの面白さです。</p>
+      </div>
+    </section>
+
+    <section class="mb-10" id="myCombo">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-navy">🧭</span> あなたの場合：月の組み合わせを計算してみる</h2>
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5" id="myComboCard"></div>
+    </section>
+
+    <section class="mb-10" id="comboWork">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-gold">✍️</span> 組み合わせワーク</h2>
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5">
+        <p class="text-[12.5px] text-sand-600 mb-3">惑星・星座・ハウスを自由に選んで、文章がどう変わるか練習してみましょう。実在するあなたの配置である必要はありません。組み合わせの感覚をつかむための練習です。</p>
+        <div class="grid sm:grid-cols-3 gap-3">
+          <div>
+            <label class="block text-[12px] font-bold text-sand-500 mb-2">惑星</label>
+            <select id="wPlanet" class="w-full border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky"></select>
+          </div>
+          <div>
+            <label class="block text-[12px] font-bold text-sand-500 mb-2">星座</label>
+            <select id="wSign" class="w-full border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky"></select>
+          </div>
+          <div>
+            <label class="block text-[12px] font-bold text-sand-500 mb-2">ハウス</label>
+            <select id="wHouse" class="w-full border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky"></select>
+          </div>
+        </div>
+        <button id="comboBtn" class="mt-4 bg-aura-navy text-white font-bold rounded-full px-6 py-3 text-sm">文章を作ってみる</button>
+        <div id="comboResult" class="mt-4"></div>
+      </div>
+    </section>
+
+    <section class="mb-8" id="senseiSummarySection"></section>
+
+    <section class="mb-10" id="quizSection">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-gold">📝</span> ガジャ先生からの理解度チェック</h2>
+      <div id="senseiQuizIntro"></div>
+      <div id="quizMountGeneral"></div>
+    </section>
+
+    <section class="mb-10" id="promptSection">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-sky">💬</span> ChatGPT用プロンプト作成</h2>
+      <div id="senseiPrompt"></div>
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5 mt-3">
+        <p class="text-[12px] text-sand-500 mb-3">ラグナ・月（星座・ハウス・ナクシャトラ）をすべて組み合わせた、第1部の集大成プロンプトを作成できます。</p>
+        <button id="genPromptBtn" class="bg-aura-navy text-white font-bold rounded-full px-6 py-3 text-sm">プロンプトを作成する</button>
+        <textarea id="promptArea" class="copy-area w-full mt-4 border border-sand-200 rounded-xl p-4 text-[12px] text-sand-700 bg-sand-50" style="display:none;min-height:240px"></textarea>
+        <button id="copyBtn" class="mt-3 border border-sand-200 rounded-full px-5 py-2.5 text-[12px] font-bold text-sand-600" style="display:none">コピーする</button>
+        <p id="copyMsg" class="text-[11px] text-aura-navy mt-2" style="display:none">コピーしました！</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="jp-title text-base text-sand-700 mb-3 flex items-center gap-2"><span class="text-aura-gold">✅</span> 今日のまとめ</h2>
+      <div class="guide-box gold text-[12.5px] text-sand-600">
+        <ul class="check-list">
+          <li>組み合わせの基本文型：「［惑星］が［星座］で働き、［ハウス］のテーマに表れる」。</li>
+          <li>ハウスの位置は、ラグナ（第1ハウス）から数えて決まる。</li>
+          <li>矛盾する情報も、どちらも人間の自然な多面性として受け止める。</li>
+          <li>これで第1部（自分のホロスコープを読む）は完了。次からは第2部、ほかの人を読む学習です。</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="day-footer-nav">
+      <a href="step7.html"><span class="label-sm">BACK</span><b>← STEP7 ナクシャトラを読む</b></a>
+      <a href="step9.html" class="next"><span class="label-sm">NEXT</span><b>STEP9 家族や友人を登録する →</b></a>
+    </div>
+  </main>
+
+  <script src="assets/vedic-data.js?v=10"></script>
+  <script>
+    __currentStepNum = 8;
+    renderDayNav('dayNav', 8);
+    const realMe = getMe();
+    const usingSample = !(realMe && realMe.lagna && realMe.moonSign);
+    const me = usingSample ? Object.assign({}, samplePerson, realMe ? {name:realMe.name, birthDate:realMe.birthDate, lagna: realMe.lagna || samplePerson.lagna, moonSign: realMe.moonSign || samplePerson.moonSign, moonNakshatra: realMe.moonNakshatra || samplePerson.moonNakshatra} : {}) : realMe;
+
+    document.getElementById('senseiOpen').innerHTML = sensei(`
+      <p>${realMe ? realMe.name+'さん' : 'あなた'}、STEP8は第1部の総仕上げです。惑星・星座・ハウスを、1つの文章につなげてみましょう。</p>
+      <p>難しく考えなくて大丈夫です。まずは型にぽん、と当てはめてみましょう。</p>
+    `);
+    document.getElementById('lessonTalk').innerHTML = lessonDialog([
+      {who:'student', html:'<p>惑星・星座・ハウスを全部合わせると、急に難しく感じます。</p>'},
+      {who:'teacher', html:'<p>最初は自然です。まずは「誰が」「どんなふうに」「どこで」の3つに分けて、一文にするだけで十分ですよ。</p>'},
+      {who:'student', html:'<p>鑑定文にするときは、専門用語をそのまま使っていいんですか？</p>'},
+      {who:'teacher', html:'<p>学習中は用語を使って大丈夫です。ただ、お客様に伝える文では「第5ハウス」だけで終わらせず、「恋愛や創造性の分野」のように意味を添えると親切です。</p>'}
+    ]);
+
+    const houseN = houseOfSign(me.lagna, me.moonSign);
+    const combo = buildCombinationReading('月', me.moonSign, houseN);
+    document.getElementById('myComboCard').innerHTML = `
+      <p class="text-[12.5px] text-sand-600 mb-3">${usingSample?'サンプル人物':me.name+'さん'}のラグナは<b>${me.lagna}</b>、月の星座は<b>${me.moonSign}</b>でしたね。ラグナを1番目として数えると、月は第${houseN}ハウスにあります。</p>
+      <div class="insight-box"><p class="text-[12.5px]">${combo}</p></div>`;
+
+    ['月','太陽','火星','水星','木星','金星','土星','ラーフ','ケートゥ'].forEach(name => {
+      const o = document.createElement('option'); o.value = name; o.textContent = name; document.getElementById('wPlanet').appendChild(o);
+    });
+    signs.forEach(s => { const o = document.createElement('option'); o.value = s.name; o.textContent = `${s.symbol} ${s.name}`; document.getElementById('wSign').appendChild(o); });
+    for(let i=1;i<=12;i++){ const o = document.createElement('option'); o.value = i; o.textContent = `第${i}ハウス`; document.getElementById('wHouse').appendChild(o); }
+    document.getElementById('comboBtn').addEventListener('click', () => {
+      const p = document.getElementById('wPlanet').value, s = document.getElementById('wSign').value, h = Number(document.getElementById('wHouse').value);
+      document.getElementById('comboResult').innerHTML = `<div class="insight-box"><p class="text-[12.5px]">${buildCombinationReading(p, s, h)}</p></div>`;
+    });
+
+    document.getElementById('senseiSummarySection').innerHTML = sensei(`
+      <p>組み合わせワーク、いろいろな惑星・星座・ハウスで試してみると、型に慣れてきますよ。</p>
+      <p>それでは、クイズで確認してみましょう。</p>
+    `);
+
+    document.getElementById('senseiQuizIntro').innerHTML = sensei(`<p>組み合わせの考え方について、クイズで確認してみましょう。</p>`);
+    mountQuiz('quizMountGeneral', stepQuizzes.step8, (score,total) => {
+      markStepDone(8);
+      const msg = score === total ? '全問正解です。組み合わせの型、ちゃんと使えています。' : score >= 2 ? `${score}/${total}問正解！いい感じです。` : `${score}/${total}問正解でした。上の解説を読み返してみてくださいね。`;
+      return sensei(`<p>${msg}</p><p>これで第1部は完了です！STEP9からは第2部、ほかの人を読む学習に進みましょう。</p>`);
+    });
+
+    document.getElementById('senseiPrompt').innerHTML = sensei(`<p>第1部で学んだラグナ・月（星座・ハウス・ナクシャトラ）をすべて組み合わせた、集大成のプロンプトを作ってみましょう。</p>`);
+    document.getElementById('genPromptBtn').addEventListener('click', () => {
+      const nk = byNakshatraName(me.moonNakshatra);
+      const prompt = buildPrompt({
+        person: me,
+        elements: [
+          `ラグナ：${me.lagna}`,
+          `月の星座：${me.moonSign}（第${houseN}ハウスに相当）`,
+          `月のナクシャトラ：${nk.name}（支配星：${nakshatraRuler(nk)}）`,
+          '組み合わせの型：惑星が星座の性質で働き、ハウスが表す人生の分野にテーマとして表れること'
+        ],
+        theme: 'この人の基本的な性格を、ラグナ・月・ナクシャトラを組み合わせて総合的に説明する',
+        length: '500字程度',
+        tone: 'やさしく、あたたかい雰囲気'
+      });
+      const area = document.getElementById('promptArea');
+      area.value = prompt; area.style.display='block';
+      document.getElementById('copyBtn').style.display='inline-flex';
+    });
+    document.getElementById('copyBtn').addEventListener('click', () => {
+      const area = document.getElementById('promptArea');
+      area.select(); document.execCommand('copy');
+      const msg = document.getElementById('copyMsg'); msg.style.display='block';
+      setTimeout(()=>msg.style.display='none', 2000);
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

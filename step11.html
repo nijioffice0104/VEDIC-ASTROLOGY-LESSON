@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>STEP11 相性の基本を学ぶ｜やさしく読めるインド占星術</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { sand:{50:'#fafaf9',100:'#f5f5f4',200:'#e7e5e4',300:'#d6d3d1',400:'#a8a29e',500:'#78716c',600:'#57534e',700:'#44403c',800:'#292524',900:'#1c1917'}, aura:{navy:'#1E3A5F',sky:'#5FA8C7',gold:'#C6A15B',coral:'#FF8F73'} },
+      fontFamily: { serif:['Georgia','Times New Roman','serif'], sans:['-apple-system','Hiragino Kaku Gothic ProN','Yu Gothic','YuGothic','Meiryo','sans-serif'], jp:['Yu Mincho','YuMincho','Hiragino Mincho ProN','Hiragino Mincho Pro','serif'] }
+    } } }
+  </script>
+  <link rel="stylesheet" href="assets/vedic-style.css?v=16">
+</head>
+<body>
+  <nav class="border-b border-sand-100"><div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between"><div class="flex items-center gap-2"><span class="ks-logo" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span><span class="font-extrabold text-sand-800">やさしく読めるインド占星術</span></div><a href="index.html" class="day-pill">🏠 ホーム</a></div></nav>
+  <div class="day-nav"><div class="day-nav__inner" id="dayNav"></div></div>
+
+  <main class="max-w-4xl mx-auto px-6 pb-20 w-full">
+    <div class="hero-panel text-center mb-10">
+      <span class="part-badge">第2部：ほかの人を読む</span>
+      <div class="eyebrow text-[11px] text-sand-400 mb-3">STEP 11</div>
+      <h1 class="jp-title font-extrabold text-sand-800 text-xl">相性の基本を学ぶ</h1>
+      <p class="text-sm text-sand-500 leading-relaxed mt-2">第2部の総仕上げ。二人のホロスコープを重ねて、相性の見方を学びます。</p>
+    </div>
+
+    <section class="mb-8">
+      <h2 class="jp-title text-base text-sand-700 mb-3 flex items-center gap-2"><span class="text-aura-gold">🎯</span> 今回学ぶこと</h2>
+      <div class="grid sm:grid-cols-2 gap-3 text-[12px]">
+        <div class="field-card"><b>相性の基本的な考え方</b><p>「合う・合わない」を決めつけない考え方がわかります。</p></div>
+        <div class="field-card"><b>ラグナ同士の距離</b><p>ラグナの位置関係から見る相性の傾向がわかります。</p></div>
+        <div class="field-card"><b>元素同士の相性</b><p>火・地・風・水の組み合わせによる傾向がわかります。</p></div>
+        <div class="field-card"><b>実践</b><p>登録した二人を選んで、相性の文章を作ってみます。</p></div>
+      </div>
+    </section>
+
+    <section class="mb-8"><div id="senseiOpen"></div></section>
+
+    <section class="mb-10">
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5 sm:p-7 long-read">
+        <h3>相性の基本的な考え方（決めつけない）</h3>
+        <p>インド占星術における相性の基本は、<span class="wavy">「合う・合わない」を一方的に決めつけないこと</span>です。どんな組み合わせにも、重なり合う部分と、ずれやすい部分があります。相性を見る目的は、二人の関係の「重なる所」と「補い合う所」「ずれやすい所」を知り、距離感を整えるヒントを得ることです。</p>
+
+        <h3>ラグナ同士の距離で見る相性</h3>
+        <p>相性を見る手がかりの一つが、二人のラグナの位置関係（距離）です。12星座を円のように並べたとき、ラグナ同士が近い位置にあれば似たエネルギーを持ちやすく、離れているほど違いが際立ちます。同じラグナどうしなら深く共感し合える反面、同じ弱点でつまずきやすく、大きく離れていると刺激や学びの多い関係になりやすい、という傾向があります。</p>
+
+        <h3>元素同士の相性</h3>
+        <p>STEP5で学んだ<span class="wavy">火・地・風・水</span>の元素も、相性を見る手がかりになります。同じ元素どうしは似た気質を持つため居心地が良く、火と風、地と水はお互いを高め合いやすい組み合わせ、火と水、地と風は違いが目立ちやすい組み合わせとされます。ただし、これも「絶対にうまくいかない」という意味ではなく、「意識して歩み寄る必要がある」という手がかりとして読みます。</p>
+
+        <h3>月同士でみる、心の相性</h3>
+        <p>ラグナが「見た目・行動の相性」だとすれば、<span class="wavy">月の星座</span>は「心の相性」を見る手がかりになります。二人の月が同じ元素にあれば、感情表現のリズムが自然と合いやすく、異なる元素にあれば、感情の伝え方や距離の取り方に工夫が必要になることがあります。</p>
+
+        <h3>相性を伝えるときの注意点</h3>
+        <p>相性を伝えるときは、「別れた方がいい」「絶対にうまくいく」といった断定は避けましょう。<span class="plain-mark">相性は関係を良くするための手がかりであり、関係を裁くためのものではありません</span>。良い面と、意識して歩み寄りたい面の両方をやさしく伝えることが、良い鑑定文の条件です。</p>
+      </div>
+    </section>
+
+    <section class="mb-10" id="compatSection">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-sky">💞</span> 相性を見てみる</h2>
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div><label class="block text-[12px] font-bold text-sand-500 mb-2">一人目</label><select id="personA" class="w-full border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky"></select></div>
+          <div><label class="block text-[12px] font-bold text-sand-500 mb-2">二人目</label><select id="personB" class="w-full border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky"></select></div>
+        </div>
+        <div id="compatResult" class="mt-4"></div>
+      </div>
+    </section>
+
+    <section class="mb-8" id="senseiSummarySection"></section>
+
+    <section class="mb-10" id="quizSection">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-gold">📝</span> ガジャ先生からの理解度チェック</h2>
+      <div id="senseiQuizIntro"></div>
+      <div id="quizMountGeneral"></div>
+    </section>
+
+    <section class="mb-10" id="promptSection">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-sky">💬</span> ChatGPT用プロンプト作成</h2>
+      <div id="senseiPrompt"></div>
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5 mt-3">
+        <p class="text-[12px] text-sand-500 mb-3">選んだ二人のラグナ・月の星座を使って、相性を説明してもらうプロンプトを作成できます。</p>
+        <button id="genPromptBtn" class="bg-aura-navy text-white font-bold rounded-full px-6 py-3 text-sm">プロンプトを作成する</button>
+        <textarea id="promptArea" class="copy-area w-full mt-4 border border-sand-200 rounded-xl p-4 text-[12px] text-sand-700 bg-sand-50" style="display:none;min-height:220px"></textarea>
+        <button id="copyBtn" class="mt-3 border border-sand-200 rounded-full px-5 py-2.5 text-[12px] font-bold text-sand-600" style="display:none">コピーする</button>
+        <p id="copyMsg" class="text-[11px] text-aura-navy mt-2" style="display:none">コピーしました！</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="jp-title text-base text-sand-700 mb-3 flex items-center gap-2"><span class="text-aura-gold">✅</span> 今日のまとめ</h2>
+      <div class="guide-box gold text-[12.5px] text-sand-600">
+        <ul class="check-list">
+          <li>相性は「合う・合わない」を決めつけず、重なる所とずれる所を見るもの。</li>
+          <li>ラグナの距離、元素の組み合わせ、月同士の関係が手がかりになる。</li>
+          <li>伝えるときは断定を避け、良い面と歩み寄りたい面の両方をやさしく伝える。</li>
+          <li>これで第2部（ほかの人を読む）は完了。次は第3部、鑑定としてまとめる学習です。</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="day-footer-nav">
+      <a href="step10.html"><span class="label-sm">BACK</span><b>← STEP10 ほかの人の基本性質を読む</b></a>
+      <a href="step12.html" class="next"><span class="label-sm">NEXT</span><b>STEP12 相談テーマ別の読み方 →</b></a>
+    </div>
+  </main>
+
+  <script src="assets/vedic-data.js?v=10"></script>
+  <script>
+    __currentStepNum = 11;
+    renderDayNav('dayNav', 11);
+    const realMe = getMe();
+
+    document.getElementById('senseiOpen').innerHTML = sensei(`
+      <p>${realMe ? realMe.name+'さん' : 'あなた'}、STEP11では相性の基本を学びます。二人の関係を、優劣ではなく「重なりとずれ」として見る練習をしましょう。</p>
+      <p>相性占いというと点数やランキングを想像しがちですが、インド占星術ではもっとやさしい視点で読んでいきますよ。</p>
+    `);
+
+    const people = [];
+    if(realMe) people.push(realMe);
+    getOthers().forEach(p => people.push(p));
+    if(people.length < 2) people.push(samplePerson);
+    if(people.length < 2){ people.push(Object.assign({}, samplePerson, {name:'さくらさん（サンプルB）', lagna:'蟹座', moonSign:'魚座'})); }
+
+    [document.getElementById('personA'), document.getElementById('personB')].forEach((sel, selIdx) => {
+      people.forEach((p,i) => { const o = document.createElement('option'); o.value = i; o.textContent = p.name; sel.appendChild(o); });
+      sel.value = selIdx === 0 ? 0 : Math.min(1, people.length-1);
+    });
+
+    function renderCompat(){
+      const a = people[Number(document.getElementById('personA').value)];
+      const b = people[Number(document.getElementById('personB').value)];
+      document.getElementById('compatResult').innerHTML = `<div class="insight-box"><p class="text-[12.5px]">${buildCompatReading(a,b)}</p></div>`;
+    }
+    document.getElementById('personA').addEventListener('change', renderCompat);
+    document.getElementById('personB').addEventListener('change', renderCompat);
+    renderCompat();
+
+    document.getElementById('senseiSummarySection').innerHTML = sensei(`
+      <p>いろいろな組み合わせで試してみると、ラグナの距離や元素によって、文章の雰囲気が変わることが実感できると思います。</p>
+      <p>それでは、クイズで確認してみましょう。</p>
+    `);
+
+    document.getElementById('senseiQuizIntro').innerHTML = sensei(`<p>相性の基本的な考え方について、クイズで確認してみましょう。</p>`);
+    mountQuiz('quizMountGeneral', stepQuizzes.step11, (score,total) => {
+      markStepDone(11);
+      const msg = score === total ? '全問正解です。相性の基本、つかめています。' : `${score}/${total}問正解でした。上の解説を読み返してみてくださいね。`;
+      return sensei(`<p>${msg}</p><p>これで第2部は完了です！STEP12からは第3部、鑑定としてまとめる学習に進みましょう。</p>`);
+    });
+
+    document.getElementById('senseiPrompt').innerHTML = sensei(`<p>選んだ二人のラグナ・月の星座を使って、相性のプロンプトを作ってみましょう。</p>`);
+    document.getElementById('genPromptBtn').addEventListener('click', () => {
+      const a = people[Number(document.getElementById('personA').value)];
+      const b = people[Number(document.getElementById('personB').value)];
+      const elements = [`${a.name}さんのラグナ：${a.lagna||'未入力'}`, `${b.name}さんのラグナ：${b.lagna||'未入力'}`];
+      if(a.moonSign) elements.push(`${a.name}さんの月の星座：${a.moonSign}`);
+      if(b.moonSign) elements.push(`${b.name}さんの月の星座：${b.moonSign}`);
+      const prompt = buildPrompt({
+        person: a,
+        elements,
+        theme: `${a.name}さんと${b.name}さんの相性を、重なる所とずれやすい所の両方からやさしく説明する`,
+        length: '400〜500字程度',
+        tone: 'やさしく、あたたかい雰囲気'
+      });
+      const area = document.getElementById('promptArea');
+      area.value = prompt; area.style.display='block';
+      document.getElementById('copyBtn').style.display='inline-flex';
+    });
+    document.getElementById('copyBtn').addEventListener('click', () => {
+      const area = document.getElementById('promptArea');
+      area.select(); document.execCommand('copy');
+      const msg = document.getElementById('copyMsg'); msg.style.display='block';
+      setTimeout(()=>msg.style.display='none', 2000);
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

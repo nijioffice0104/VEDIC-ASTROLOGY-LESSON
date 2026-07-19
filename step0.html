@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>STEP0 自分の星の地図を生成する｜やさしく読めるインド占星術</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { sand:{50:'#fafaf9',100:'#f5f5f4',200:'#e7e5e4',300:'#d6d3d1',400:'#a8a29e',500:'#78716c',600:'#57534e',700:'#44403c',800:'#292524',900:'#1c1917'}, aura:{navy:'#1E3A5F',sky:'#5FA8C7',gold:'#C6A15B',coral:'#FF8F73'} },
+      fontFamily: { serif:['Georgia','Times New Roman','serif'], sans:['-apple-system','Hiragino Kaku Gothic ProN','Yu Gothic','YuGothic','Meiryo','sans-serif'], jp:['Yu Mincho','YuMincho','Hiragino Mincho ProN','Hiragino Mincho Pro','serif'] }
+    } } }
+  </script>
+  <link rel="stylesheet" href="assets/vedic-style.css?v=16">
+</head>
+<body>
+  <nav class="border-b border-sand-100"><div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between"><div class="flex items-center gap-2"><span class="ks-logo" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span><span class="font-extrabold text-sand-800">やさしく読めるインド占星術</span></div><a href="index.html" class="day-pill">🏠 ホーム</a></div></nav>
+  <div class="day-nav"><div class="day-nav__inner" id="dayNav"></div></div>
+
+  <main class="max-w-4xl mx-auto px-6 pb-20 w-full">
+    <div class="hero-panel text-center mb-10">
+      <span class="part-badge">第1部：自分のホロスコープを読む</span>
+      <div class="eyebrow text-[11px] text-sand-400 mb-3">STEP 0 ／ はじめに</div>
+      <h1 class="jp-title font-extrabold text-sand-800 text-xl">自分の星の地図を生成する</h1>
+      <p class="text-sm text-sand-500 leading-relaxed mt-2">この講座では最後まで「ガジャ先生」が案内役として登場します。まずは生年月日・出生時刻・出生地から、あなた自身のホロスコープを生成するところから始めましょう。</p>
+    </div>
+
+    <section class="mb-10" id="intro"><div id="senseiIntro"></div></section>
+
+    <section class="mb-10">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-gold">📋</span> この教材で学べること</h2>
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5 sm:p-7 long-read">
+        <p>この教材は、インド占星術を初めて学ぶ方のための教材です。専門用語だらけの解説ではなく、<span class="wavy">あなた自身のホロスコープを生成して、その図を見ながら</span>、一つずつ意味を理解していく形で進めます。</p>
+        <ul class="check-list mt-3">
+          <li>最初は自分自身を鑑定例にすること。生年月日・出生時刻・出生地を入力すると、ラグナ、月の星座、月のナクシャトラ、D1ラーシチャートが自動で表示されます。</li>
+          <li>すべてを一度に暗記しなくてよいこと。ガジャ先生が「今はここだけ覚えれば大丈夫です」と、要点を都度整理します。</li>
+          <li><b class="text-sand-800">専門用語は、あとから少しずつ理解すれば大丈夫です。</b>このSTEPでは、ラグナやナクシャトラの意味をまだ知らなくても問題ありません。まず結果を出しておき、STEP3でラグナ、STEP7でナクシャトラというように、順番に意味を学んでいきます。</li>
+          <li>ホロスコープ情報は自動で生成されること。この教材では、入力した出生情報をもとに学習用の星の配置を計算し、講座内で使える形で保存します。</li>
+          <li>出生時刻が分からない場合は、正午で仮計算できること。ただし、ラグナは出生時刻の影響を受けやすいため、正確に見たい場合は母子手帳などで時刻を確認するのがおすすめです。</li>
+          <li>入力内容はこの端末（ブラウザ）内のみに保存されること。外部には送信されません。</li>
+          <li>後から家族や友人も登録できること（第2部・STEP9以降で扱います）。</li>
+          <li>まずは自分の情報で進めること。どうしても出生情報がわからない場合だけ、サンプル人物で流れを確認できます。</li>
+        </ul>
+        <h3>この教材の学習の流れ</h3>
+        <div class="grid sm:grid-cols-3 gap-3 text-[12px] mt-2">
+          <div class="field-card"><b>第1部（STEP0〜8）</b><p>生成した自分のホロスコープを、ラグナ・惑星・星座・ハウス・ナクシャトラの順に読めるようになります。</p></div>
+          <div class="field-card"><b>第2部（STEP9〜11）</b><p>家族や友人のホロスコープも登録し、基本性質や相性の基本を学びます。</p></div>
+          <div class="field-card"><b>第3部（STEP12〜14）</b><p>相談テーマ別の読み方、鑑定文の組み立て方、総合鑑定用プロンプトの作り方を学びます。</p></div>
+        </div>
+        <div class="insight-box mt-3"><p class="text-[12.5px]">ガジャ先生からのお願い：このSTEPで入力するのは、生年月日・出生時刻・出生地だけです。「ラグナって何？」と思っても心配いりません。意味はこのあと一緒に確認していきましょう。</p></div>
+      </div>
+    </section>
+
+    <section class="mb-10" id="calc">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-sky">✨</span> まずは基本情報を入力しよう</h2>
+      <div class="guide-box gold text-[12px] text-sand-600 mb-4">生まれた瞬間の星の配置を調べるには、生年月日・出生時刻・出生地の3つが必要です。ここで入力すると、学習用のD1ラーシチャート、ラグナ、月の星座、ナクシャトラを自動で生成します。</div>
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div><label class="block text-[12px] font-bold text-sand-500 mb-2">お名前</label><input id="fName" class="w-full border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky" placeholder="例：さくら"></div>
+          <div><label class="block text-[12px] font-bold text-sand-500 mb-2">生年月日</label><input id="fDate" type="date" class="w-full border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky" min="1925-01-01" max="2030-12-31"></div>
+          <div><label class="block text-[12px] font-bold text-sand-500 mb-2">出生時刻</label><input id="fTime" type="time" class="w-full border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky"></div>
+          <div><label class="block text-[12px] font-bold text-sand-500 mb-2">出生地</label><select id="fPlace" class="w-full border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky"></select></div>
+        </div>
+        <button id="regBtn" class="mt-4 bg-aura-navy text-white font-bold rounded-full px-6 py-3 text-sm hover:opacity-90 transition">ホロスコープを生成する</button>
+        <p class="text-[11px] text-sand-400 mt-2">出生時刻が不明な場合は正午で仮計算します。精密鑑定では母子手帳などの時刻確認がおすすめです。</p>
+      </div>
+    </section>
+
+    <section class="mb-10" id="resultSection" style="display:none">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-gold">🗺️</span> 生成された基本情報</h2>
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5 mb-4" id="resultCard"></div>
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5 mb-4" id="chartCard" style="display:none"></div>
+      <div id="senseiResult"></div>
+      <a href="step1.html" id="startBtn" class="mt-4 inline-flex bg-aura-navy text-white font-bold rounded-full px-6 py-3 text-sm">この人で学習を始める →</a>
+    </section>
+
+    <div class="day-footer-nav">
+      <span></span>
+      <a href="step1.html" class="next"><span class="label-sm">NEXT</span><b>STEP1 インド占星術とは？ →</b></a>
+    </div>
+  </main>
+
+  <script src="assets/vedic-data.js?v=10"></script>
+  <script>
+    __currentStepNum = 0;
+    renderDayNav('dayNav', 0);
+
+    document.getElementById('senseiIntro').innerHTML = sensei(`
+      <p>ふむ。ガジャ先生です。ゆっくり見ていきましょう。</p>
+      <p>インド占星術は、あわてて覚えなくて大丈夫です。<b>まずあなた自身を鑑定例にして</b>、図を見ながら少しずつ読んでいきましょう。</p>
+      <p>「ラグナ」や「月の星座」は、今はまだ知らなくて大丈夫です。まずは名前・生年月日・出生時刻・出生地だけ入れてみましょう。意味はあとで、ちゃんとほどいていきます。</p>
+    `);
+
+    function renderPlaceOptions(){
+      const select = document.getElementById('fPlace');
+      select.innerHTML = birthPlaces.map(p => `<option value="${p.prefecture} ${p.name}">${p.prefecture} ${p.name}</option>`).join('');
+      select.value = '東京都 東京23区';
+    }
+
+    function renderResult(entry){
+      document.getElementById('resultSection').style.display = 'block';
+      document.getElementById('resultCard').innerHTML = `
+        <div class="grid sm:grid-cols-2 gap-3 text-[12.5px] text-sand-600">
+          <p><b class="text-sand-800">名前：</b>${entry.name}</p>
+          <p><b class="text-sand-800">生年月日：</b>${entry.birthDate || '未入力'}</p>
+          <p><b class="text-sand-800">出生時刻：</b>${entry.birthTime || '未入力'}</p>
+          <p><b class="text-sand-800">出生地：</b>${entry.birthPlace || '未入力'}</p>
+        </div>`;
+      const chartCard = document.getElementById('chartCard');
+      if(entry.chart){
+        chartCard.style.display = 'block';
+        chartCard.innerHTML = `
+          <div class="mb-4">
+            <p class="text-[11px] font-bold text-aura-navy eyebrow mb-2">GENERATED HOROSCOPE</p>
+            <h3 class="jp-title text-lg text-sand-800">D1 ラーシチャート</h3>
+          </div>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="result-chip">ラグナ：${entry.lagna} ${formatDeg(entry.chart.lagnaDegree)}</span>
+            <span class="result-chip">月の星座：${entry.moonSign}</span>
+            <span class="result-chip">月のナクシャトラ：${entry.moonNakshatra} 第${entry.chart.moonPada}パダ</span>
+          </div>
+          <div class="generated-chart-wrap">
+            <div id="generatedChart"></div>
+            <div>${buildPlanetTable(entry.chart)}</div>
+          </div>
+          <p class="subtle-note mt-4">このホロスコープは、講座内で学習しやすいようにブラウザ上で計算したものです。最終鑑定や有料サービスでは、出生時刻・出生地を確認したうえで、専門の天文計算エンジンで再確認してください。</p>`;
+        renderGeneratedNorthIndianChart('generatedChart', entry.chart);
+      } else {
+        chartCard.style.display = 'none';
+        chartCard.innerHTML = '';
+      }
+      document.getElementById('senseiResult').innerHTML = sensei(`
+        <p>${entry.name}さんのホロスコープを生成しました。</p>
+        <p>ここで出たラグナ・月の星座・ナクシャトラを使って、次のSTEPから読み方を少しずつ見ていきましょう。</p>
+      `);
+      markStepDone(0);
+    }
+    document.getElementById('regBtn').addEventListener('click', () => {
+      const name = document.getElementById('fName').value || 'あなた';
+      const birthDate = document.getElementById('fDate').value;
+      if(!birthDate){
+        alert('生年月日を入力してください。');
+        return;
+      }
+      const birthTime = document.getElementById('fTime').value || '12:00';
+      const birthPlace = document.getElementById('fPlace').value;
+      const chart = calculateVedicChart({birthDate, birthTime, placeName:birthPlace});
+      const existing = getMe() || {};
+      const entry = Object.assign({}, existing, {
+        name,
+        birthDate,
+        birthTime,
+        birthPlace,
+        lagna: chart.lagnaSign,
+        moonSign: chart.moonSign,
+        moonNakshatra: chart.moonNakshatra,
+        chart
+      });
+      setMe(entry);
+      renderResult(entry);
+    });
+    renderPlaceOptions();
+    const existing = getMe();
+    if(existing){
+      document.getElementById('fName').value = existing.name === 'あなた' ? '' : (existing.name || '');
+      document.getElementById('fDate').value = existing.birthDate || '';
+      document.getElementById('fTime').value = existing.birthTime || '';
+      if(existing.birthPlace && [...document.getElementById('fPlace').options].some(o => o.value === existing.birthPlace)){
+        document.getElementById('fPlace').value = existing.birthPlace;
+      }
+      renderResult(existing);
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

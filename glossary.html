@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>用語集｜やさしく読めるインド占星術</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { sand:{50:'#fafaf9',100:'#f5f5f4',200:'#e7e5e4',300:'#d6d3d1',400:'#a8a29e',500:'#78716c',600:'#57534e',700:'#44403c',800:'#292524',900:'#1c1917'}, aura:{navy:'#1E3A5F',sky:'#5FA8C7',gold:'#C6A15B',coral:'#FF8F73'} },
+      fontFamily: { serif:['Georgia','Times New Roman','serif'], sans:['-apple-system','Hiragino Kaku Gothic ProN','Yu Gothic','YuGothic','Meiryo','sans-serif'], jp:['Yu Mincho','YuMincho','Hiragino Mincho ProN','Hiragino Mincho Pro','serif'] }
+    } } }
+  </script>
+  <link rel="stylesheet" href="assets/vedic-style.css?v=16">
+</head>
+<body>
+  <nav class="border-b border-sand-100"><div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between"><div class="flex items-center gap-2"><span class="ks-logo" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span><span class="font-extrabold text-sand-800">やさしく読めるインド占星術</span></div><a href="index.html" class="day-pill">🏠 ホーム</a></div></nav>
+
+  <main class="max-w-4xl mx-auto px-6 pb-20 w-full">
+    <div class="hero-panel text-center mb-10">
+      <div class="eyebrow text-[11px] text-sand-400 mb-3">GLOSSARY</div>
+      <h1 class="jp-title font-extrabold text-sand-800 text-xl">用語集</h1>
+      <p class="text-sm text-sand-500 leading-relaxed mt-2">この教材で使うインド占星術の用語をまとめました。学習中にわからなくなったら、いつでもここに戻ってきてくださいね。</p>
+    </div>
+
+    <section class="mb-10" id="senseiIntro"></section>
+
+    <section class="mb-10 space-y-4" id="termList"></section>
+
+    <div class="day-footer-nav">
+      <a href="index.html"><span class="label-sm">BACK</span><b>← ホームへ戻る</b></a>
+      <span></span>
+    </div>
+  </main>
+
+  <script src="assets/vedic-data.js?v=10"></script>
+  <script>
+    document.getElementById('senseiIntro').innerHTML = sensei(`
+      <p>専門用語は、出てきたSTEPでその都度説明していますが、忘れてしまってもここで確認できます。</p>
+      <p>ぜんぶ暗記しなくて大丈夫です。必要なときに開いて、「ああ、これか」と確認できれば十分。</p>
+    `);
+    document.getElementById('termList').innerHTML = glossaryTerms.map(t => `
+      <details class="sign-card">
+        <summary class="flex items-center justify-between"><span class="term-chip">${t.word}</span><span class="text-sand-400 text-xs">タップで詳しく →</span></summary>
+        <p class="text-[12.5px] text-sand-600 leading-relaxed mt-3">${t.easy}</p>
+        <p class="text-[12px] text-sand-500 leading-relaxed mt-2 border-t border-sand-100 pt-2">${t.detail}</p>
+      </details>`).join('');
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>STEP4 9つの惑星を読む｜やさしく読めるインド占星術</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { sand:{50:'#fafaf9',100:'#f5f5f4',200:'#e7e5e4',300:'#d6d3d1',400:'#a8a29e',500:'#78716c',600:'#57534e',700:'#44403c',800:'#292524',900:'#1c1917'}, aura:{navy:'#1E3A5F',sky:'#5FA8C7',gold:'#C6A15B',coral:'#FF8F73'} },
+      fontFamily: { serif:['Georgia','Times New Roman','serif'], sans:['-apple-system','Hiragino Kaku Gothic ProN','Yu Gothic','YuGothic','Meiryo','sans-serif'], jp:['Yu Mincho','YuMincho','Hiragino Mincho ProN','Hiragino Mincho Pro','serif'] }
+    } } }
+  </script>
+  <link rel="stylesheet" href="assets/vedic-style.css?v=16">
+</head>
+<body>
+  <nav class="border-b border-sand-100"><div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between"><div class="flex items-center gap-2"><span class="ks-logo" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span><span class="font-extrabold text-sand-800">やさしく読めるインド占星術</span></div><a href="index.html" class="day-pill">🏠 ホーム</a></div></nav>
+  <div class="day-nav"><div class="day-nav__inner" id="dayNav"></div></div>
+
+  <main class="max-w-4xl mx-auto px-6 pb-20 w-full">
+    <div class="hero-panel text-center mb-10">
+      <span class="part-badge">第1部：自分のホロスコープを読む</span>
+      <div class="eyebrow text-[11px] text-sand-400 mb-3">STEP 4</div>
+      <h1 class="jp-title font-extrabold text-sand-800 text-xl">9つの惑星を読む</h1>
+      <p class="text-sm text-sand-500 leading-relaxed mt-2">ホロスコープに登場する9人の「登場人物」、惑星について学びます。</p>
+    </div>
+
+    <section class="mb-8">
+      <h2 class="jp-title text-base text-sand-700 mb-3 flex items-center gap-2"><span class="text-aura-gold">🎯</span> 今回学ぶこと</h2>
+      <div class="grid sm:grid-cols-2 gap-3 text-[12px]">
+        <div class="field-card"><b>惑星（グラハ）とは何か</b><p>インド占星術で使う9つの惑星の全体像がわかります。</p></div>
+        <div class="field-card"><b>各惑星の基本的な意味</b><p>9惑星それぞれが何を象徴するのか、良い面と乱れた面の両方がわかります。</p></div>
+        <div class="field-card"><b>ラーフ・ケートゥという特殊な点</b><p>実在の天体ではない2つの感受点について、基本の考え方がわかります。</p></div>
+        <div class="field-card"><b>自分のチャートに反映して読む</b><p>STEP0で生成したホロスコープ情報を使い、惑星の意味を自分ごととして確認します。</p></div>
+      </div>
+    </section>
+
+    <section class="mb-8"><div id="senseiOpen"></div></section>
+
+    <section class="mb-10">
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5 sm:p-7 long-read">
+        <h3>惑星（グラハ）とは何か</h3>
+        <p>インド占星術でいう<span class="wavy">惑星</span>とは、サンスクリット語で<span class="wavy">「グラハ」</span>と呼ばれる存在です。グラハは「つかむもの」という意味を持ち、私たちの人生に影響を与える力のかたまりのようなものだと考えられています。天文学上の惑星とは少し違い、太陽・月・そして後で説明する2つの特殊な点も含めて「惑星」として扱うのが、インド占星術の大きな特徴です。</p>
+
+        <h3>9つの惑星（ナヴァグラハ）の全体像</h3>
+        <p>インド占星術で使う惑星は、全部で9つ。これを<span class="wavy">「ナヴァグラハ」</span>（ナヴァ＝9、グラハ＝惑星）と呼びます。内訳は、太陽・月・火星・水星・木星・金星・土星という7つの天体に、ラーフ・ケートゥという2つの感受点を加えた9つです。西洋占星術で使われる天王星・海王星・冥王星は、伝統的なインド占星術では基本的に使いません。</p>
+        <div class="must-learn"><strong>惑星は、物語の登場人物にあたります。</strong>STEP2で学んだ例えの通り、どの登場人物（惑星）が、どの性格（星座）で、どの舞台（ハウス）に立っているかを見ていくのが、ホロスコープを読むということでしたね。</div>
+
+        <h3>惑星の「良い状態」と「乱れた状態」</h3>
+        <p>それぞれの惑星には、力がバランスよく働いている状態と、崩れている状態の両方があります。たとえば火星は、良く働けば「勇気」ですが、乱れると「怒りっぽさ」として表れます。<span class="plain-mark">同じ惑星でも、良い面と注意したい面の両方がある</span>という視点を持つことが、鑑定文を作るうえでとても大切です。良い面だけ、あるいは悪い面だけを伝えるのではなく、両方をやさしく伝えることを心がけましょう。</p>
+
+        <h3>太陽と月の特別な関係</h3>
+        <p>9惑星の中でも、太陽と月は特別な存在です。太陽はその人の魂・本質的な自己を、月はその人の心・日常の感情の動きを表します。西洋占星術では太陽星座を中心に読むことが多いですが、インド占星術では<span class="wavy">月をより重視して読む</span>ことが伝統的なやり方です。これは、STEP1で学んだ「西洋占星術との違い」の一つでもありました。</p>
+
+        <h3>ラーフ・ケートゥという特殊な感受点</h3>
+        <p>ラーフとケートゥは、実在する天体ではありません。<span class="wavy">感受点</span>（かんじゅてん）と呼ばれる、天体の動きが作り出す「点」です。具体的には、月が地球の周りを回る軌道（白道）と、太陽が地球の周りを回るように見える軌道（黄道）が交差する2つの点を指します。ラーフは今世で強く惹かれる未知の方向性、ケートゥはすでに慣れ親しんだ手放しのテーマを表すとされ、インド占星術ならではの独特な視点です。</p>
+
+        <div class="insight-box"><p class="text-[12.5px]">9惑星をすべて一度に暗記する必要はありません。まずは「太陽＝魂」「月＝心」という2つの軸だけ覚えておけば、この先の学習がぐっとスムーズになりますよ。</p></div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-sky">🏢</span> 身近な例：会社の役員会議に例えてみる</h2>
+      <div class="example-box">
+        <p>9つの惑星は、会社の役員会議に集まった9人の役員に例えられます。太陽は社長（会社の顔・方向性を決める人）、月はムードメーカーの役員（社内の空気や人間関係に敏感な人）、火星は営業担当（行動力で結果を出す人）、水星は広報担当（言葉で伝える人）、木星は顧問（知恵を与え、物事を広げる助言者）、金星はデザイン担当（美しさや心地よさを追求する人）、土星は経理担当（時間をかけてコツコツ管理する人）というように考えると、それぞれの役割がイメージしやすくなります。</p>
+      </div>
+    </section>
+
+    <section class="mb-10" id="myPlanetInfoSection">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-gold">🪐</span> あなたのチャートにある9惑星</h2>
+      <div id="moonResult"></div>
+    </section>
+
+    <section class="mb-10" id="encyclopedia">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-gold">📖</span> 9惑星図鑑</h2>
+      <p class="text-[12.5px] text-sand-500 mb-4">カードをタップすると詳しい説明が開きます。</p>
+      <div class="grid sm:grid-cols-2 gap-3" id="planetGrid"></div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-sky">🔎</span> 具体例で見てみましょう</h2>
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5 long-read">
+        <p>たとえば同じ人を読むときでも、太陽を見ると「その人が何によって自分らしさを発揮するか」、月を見ると「心がどう反応し、何に安心するか」、火星を見ると「どんな場面で行動力が出るか」というように、切り口が変わります。STEP4では、星座の意味を読む前に、まず<span class="wavy">惑星それぞれが何を担当しているのか</span>を覚えます。星座によって表れ方がどう変わるかは、次のSTEP5で扱います。</p>
+      </div>
+    </section>
+
+    <section class="mb-8" id="senseiSummarySection"></section>
+
+    <section class="mb-10" id="quizSection">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-gold">📝</span> ガジャ先生からの理解度チェック</h2>
+      <div id="senseiQuizIntro"></div>
+      <div id="quizMountGeneral"></div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="jp-title text-base text-sand-700 mb-3 flex items-center gap-2"><span class="text-aura-gold">✅</span> 今日のまとめ</h2>
+      <div class="guide-box gold text-[12.5px] text-sand-600">
+        <ul class="check-list">
+          <li>惑星（グラハ）は全部で9つ。太陽・月・火星・水星・木星・金星・土星の7天体と、ラーフ・ケートゥという2つの感受点。</li>
+          <li>惑星は物語の登場人物。それぞれに良い面と乱れた面がある。</li>
+          <li>インド占星術では、太陽より月を重視して読むことが多い。</li>
+          <li>ラーフ・ケートゥは実在の天体ではなく、月と太陽の軌道が交わる感受点。</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="day-footer-nav">
+      <a href="step3.html"><span class="label-sm">BACK</span><b>← STEP3 自分のラグナを読む</b></a>
+      <a href="step5.html" class="next"><span class="label-sm">NEXT</span><b>STEP5 12星座を読む →</b></a>
+    </div>
+  </main>
+
+  <script src="assets/vedic-data.js?v=10"></script>
+  <script>
+    __currentStepNum = 4;
+    renderDayNav('dayNav', 4);
+    const realMe = getMe();
+    const me = realMe || samplePerson;
+
+    document.getElementById('senseiOpen').innerHTML = sensei(`
+      <p>${realMe ? realMe.name+'さん' : 'あなた'}、STEP4では9つの惑星を学んでいきます。少し多く感じるかもしれませんが、一つずつ見ていけば大丈夫です。</p>
+      <p>今日はまず「太陽＝魂」「月＝心」。この2つだけで十分です。欲ばらなくて大丈夫。</p>
+    `);
+
+    const chartPlanets = me.chart && me.chart.positions ? me.chart.positions : [];
+    const planetChips = chartPlanets.length ? chartPlanets.map(p => `<span class="result-chip">${p.symbol} ${p.name}</span>`).join('') : '';
+    document.getElementById('moonResult').innerHTML = realMe && chartPlanets.length ? `
+      <div class="insight-box">
+        <p class="text-[12.5px]"><b>${me.name}さんのホロスコープにも、9惑星が配置されています。</b>STEP4では「どの星座にあるか」より先に、太陽・月・火星など、それぞれの惑星が何を担当するのかを学びます。</p>
+        <div class="flex flex-wrap gap-2 mt-3">${planetChips}</div>
+      </div>` : `
+      <div class="insight-box"><p class="text-[12.5px]">STEP4では、太陽・月・火星など9惑星の役割を学びます。あなた自身のホロスコープを使って学ぶ場合は、STEP0で出生情報を入力すると、この先のSTEPで自動反映されます。</p></div>`;
+
+    document.getElementById('planetGrid').innerHTML = planets.map(p => `
+      <details class="sign-card">
+        <summary class="flex items-center justify-between">
+          <span class="flex items-center gap-2"><span class="sign-symbol">${p.symbol}</span><b class="text-[13px] text-sand-800">${p.name}</b><span class="text-[10px] text-sand-400">（${p.sanskrit}）</span></span>
+          <span class="text-sand-400 text-xs">開く →</span>
+        </summary>
+        <div class="mt-3 text-[12.5px] text-sand-600 leading-relaxed space-y-2">
+          <p><b class="text-sand-800">キーワード：</b>${p.keyword}</p>
+          <p><b class="text-sand-800">基本的な意味：</b>${p.feature}</p>
+          <p><b class="text-sand-800">ホロスコープでの役割：</b>${p.role}</p>
+          <p><b class="text-sand-800">良く働くと：</b>${p.positive}</p>
+          <p><b class="text-sand-800">バランスを崩すと：</b>${p.imbalance}</p>
+          <p><b class="text-sand-800">具体例：</b>${p.example}</p>
+          <div class="mini-example">${sensei(`<p>${p.sensei}</p>`)}</div>
+        </div>
+      </details>`).join('');
+
+    document.getElementById('senseiSummarySection').innerHTML = sensei(`
+      <p>9惑星を一度に覚えなくて大丈夫です。図鑑は、必要なときにちらっと見返しましょう。</p>
+      <p>それでは最後に、クイズで確認してみましょう。</p>
+    `);
+
+    document.getElementById('senseiQuizIntro').innerHTML = sensei(`<p>まずは惑星の基本についてのクイズです。</p>`);
+    mountQuiz('quizMountGeneral', stepQuizzes.step4, (score,total) => {
+      const msg = score === total ? '全問正解です。9惑星の基本、いい感じです。' : score >= 3 ? `${score}/${total}問正解！いい感じです。` : `${score}/${total}問正解でした。上の解説を読み返してみてくださいね。`;
+      return sensei(`<p>${msg}</p><p>次のSTEP5で、惑星が入っている星座の性質を見ていきましょう。</p>`);
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>STEP14 総合鑑定用のChatGPTプロンプトを作る｜やさしく読めるインド占星術</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { sand:{50:'#fafaf9',100:'#f5f5f4',200:'#e7e5e4',300:'#d6d3d1',400:'#a8a29e',500:'#78716c',600:'#57534e',700:'#44403c',800:'#292524',900:'#1c1917'}, aura:{navy:'#1E3A5F',sky:'#5FA8C7',gold:'#C6A15B',coral:'#FF8F73'} },
+      fontFamily: { serif:['Georgia','Times New Roman','serif'], sans:['-apple-system','Hiragino Kaku Gothic ProN','Yu Gothic','YuGothic','Meiryo','sans-serif'], jp:['Yu Mincho','YuMincho','Hiragino Mincho ProN','Hiragino Mincho Pro','serif'] }
+    } } }
+  </script>
+  <link rel="stylesheet" href="assets/vedic-style.css?v=16">
+</head>
+<body>
+  <nav class="border-b border-sand-100"><div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between"><div class="flex items-center gap-2"><span class="ks-logo" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span><span class="font-extrabold text-sand-800">やさしく読めるインド占星術</span></div><a href="index.html" class="day-pill">🏠 ホーム</a></div></nav>
+  <div class="day-nav"><div class="day-nav__inner" id="dayNav"></div></div>
+
+  <main class="max-w-4xl mx-auto px-6 pb-20 w-full">
+    <div class="hero-panel text-center mb-10">
+      <span class="part-badge">第3部：鑑定としてまとめる</span>
+      <div class="eyebrow text-[11px] text-sand-400 mb-3">STEP 14 ／ 最終STEP</div>
+      <h1 class="jp-title font-extrabold text-sand-800 text-xl">総合鑑定用のChatGPTプロンプトを作る</h1>
+      <p class="text-sm text-sand-500 leading-relaxed mt-2">これまで学んだすべての要素を組み合わせた、集大成のプロンプトを完成させましょう。</p>
+    </div>
+
+    <section class="mb-8">
+      <h2 class="jp-title text-base text-sand-700 mb-3 flex items-center gap-2"><span class="text-aura-gold">🎯</span> 今回学ぶこと</h2>
+      <div class="grid sm:grid-cols-2 gap-3 text-[12px]">
+        <div class="field-card"><b>学習の振り返り</b><p>STEP0から積み上げてきた内容を、まとめて振り返ります。</p></div>
+        <div class="field-card"><b>総合鑑定に含める要素</b><p>ラグナ・月・ナクシャトラ・テーマ・構成をすべて組み合わせます。</p></div>
+        <div class="field-card"><b>情報が足りない部分の扱い方</b><p>未算出の項目がある場合の、誠実な対応方法がわかります。</p></div>
+        <div class="field-card"><b>この先の学び方</b><p>この教材の続き（準備中のSTEP）について案内します。</p></div>
+      </div>
+    </section>
+
+    <section class="mb-8"><div id="senseiOpen"></div></section>
+
+    <section class="mb-10">
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5 sm:p-7 long-read">
+        <h3>これまでの学習の振り返り</h3>
+        <p>STEP0でホロスコープを生成してから、ここまで本当によく学んでこられましたね。<span class="wavy">ラグナ</span>（STEP3）、<span class="wavy">9つの惑星</span>（STEP4）、<span class="wavy">12星座の元素と性質</span>（STEP5）、<span class="wavy">12ハウス</span>（STEP6）、<span class="wavy">27のナクシャトラ</span>（STEP7）、そしてそれらを<span class="wavy">組み合わせる型</span>（STEP8）を学び、第2部では家族や友人を占い（STEP9・10）、相性の基本（STEP11）まで学びました。第3部では、相談テーマ別の読み方（STEP12）、鑑定文の組み立て方（STEP13）を学んできました。</p>
+
+        <h3>総合鑑定プロンプトに含める要素</h3>
+        <p>このSTEPで作る総合鑑定プロンプトには、次の要素をすべて盛り込みます。①ラグナ（基本的な行動傾向）、②月の星座（心の反応）、③月のナクシャトラ（心の奥深くの性質）、④相談テーマ（恋愛・仕事など）、⑤鑑定文の構成（導入・本文・注意点・締めくくり）。この5つを組み合わせることで、これまでのSTEPで学んだ内容を漏れなく反映した、総合的な鑑定文をChatGPTに作ってもらうことができます。</p>
+
+        <h3>情報が足りない部分の扱い方</h3>
+        <p>月の星座やナクシャトラがまだ算出されていない場合でも、心配いりません。<span class="plain-mark">わかっている情報だけでプロンプトを作り、わからない部分は無理に埋めない</span>ことが、誠実な鑑定文作りの基本です。あとから出生情報がわかったときは、STEP0でホロスコープを生成し直し、このSTEPであらためてプロンプトを作り直すこともできます。</p>
+
+        <h3>プロンプトの使い方（ChatGPTへの貼り付け方）</h3>
+        <p>下で作成したプロンプトは、そのままChatGPTなどの生成AIチャットに貼り付けて使うことができます。生成された文章は、そのまま使ってもよいですし、自分の言葉で少し手を加えて、オリジナリティを出すのもおすすめです。プロンプト中の【条件】は、専門用語の説明・断定表現を避けることなど、この教材で大切にしてきたルールをそのまま反映しています。</p>
+
+        <h3>この先の学び方</h3>
+        <p>この教材は、ホーム画面のSTEP一覧にある通り、STEP4〜STEP14まで一通りの学習ができる状態になっています。より詳しい実占鑑定の練習や、ダシャー（人生の時期を見る技法）、ヨーガ（特別な配置の組み合わせ）といったさらに専門的な内容は、この教材の範囲を超える、次の学習ステップになります。まずはここまでの内容を、実際に家族や友人に試しながら、自分のペースで定着させていってくださいね。</p>
+      </div>
+    </section>
+
+    <section class="mb-10" id="finalPromptSection">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-sky">💬</span> 総合鑑定用プロンプトを作成する</h2>
+      <div class="bg-white card rounded-2xl border border-sand-200 p-5">
+        <p class="text-[12px] text-sand-500 mb-3">900〜1200字程度の完成された鑑定文をChatGPTに作ってもらうプロンプトです。バーナム効果を意識したあたたかい表現、読みやすい改行、短所も含めることなどの条件を自動で付け加えます。生成された文章はそのままコピーして使えます。</p>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <div><label class="block text-[12px] font-bold text-sand-500 mb-2">誰を鑑定しますか？</label><select id="personSelect" class="w-full border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky"></select></div>
+          <div><label class="block text-[12px] font-bold text-sand-500 mb-2">相談テーマ</label><select id="themeSelect" class="w-full border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky"></select></div>
+          <div><label class="block text-[12px] font-bold text-sand-500 mb-2">文章の雰囲気</label>
+            <select id="toneSelect" class="w-full border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky">
+              <option value="やさしく、あたたかい雰囲気">やさしく、あたたかい雰囲気</option>
+              <option value="落ち着いた、丁寧な雰囲気">落ち着いた、丁寧な雰囲気</option>
+              <option value="明るく、親しみやすい雰囲気">明るく、親しみやすい雰囲気</option>
+            </select>
+          </div>
+        </div>
+        <button id="genPromptBtn" class="mt-4 bg-aura-navy text-white font-bold rounded-full px-6 py-3 text-sm">総合鑑定プロンプトを作成する</button>
+        <textarea id="promptArea" class="copy-area w-full mt-4 border border-sand-200 rounded-xl p-4 text-[12px] text-sand-700 bg-sand-50" style="display:none;min-height:280px"></textarea>
+        <button id="copyBtn" class="mt-3 border border-sand-200 rounded-full px-5 py-2.5 text-[12px] font-bold text-sand-600" style="display:none">コピーする</button>
+        <p id="copyMsg" class="text-[11px] text-aura-navy mt-2" style="display:none">コピーしました！</p>
+      </div>
+    </section>
+
+    <section class="mb-8" id="senseiSummarySection"></section>
+
+    <section class="mb-10" id="quizSection">
+      <h2 class="jp-title text-base text-sand-700 mb-4 flex items-center gap-2"><span class="text-aura-gold">📝</span> 卒業前の総復習クイズ</h2>
+      <div id="senseiQuizIntro"></div>
+      <div id="quizMountGeneral"></div>
+    </section>
+
+    <section class="mb-10" id="graduationSection" style="display:none">
+      <div class="hero-panel text-center">
+        <div class="eyebrow text-[11px] text-sand-400 mb-3">CONGRATULATIONS</div>
+        <h2 class="jp-title text-xl text-sand-800 mb-2">🎉 STEP0〜14、お疲れさまでした！</h2>
+        <p class="text-sm text-sand-500 leading-relaxed mt-2" id="graduationMsg"></p>
+        <div class="flex flex-wrap gap-3 justify-center mt-4">
+          <a href="bonus.html" class="inline-flex bg-aura-navy text-white font-bold rounded-full px-6 py-3 text-sm">🎁 巻末特典：鑑定書テンプレートを使う →</a>
+          <a href="index.html" class="inline-flex border border-sand-200 rounded-full px-6 py-3 text-sm font-bold text-sand-600">ホームに戻る</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="day-footer-nav">
+      <a href="step13.html"><span class="label-sm">BACK</span><b>← STEP13 鑑定文の組み立て方</b></a>
+      <a href="index.html" class="next"><span class="label-sm">FINISH</span><b>🏠 ホームへ戻る</b></a>
+    </div>
+  </main>
+
+  <script src="assets/vedic-data.js?v=10"></script>
+  <script>
+    __currentStepNum = 14;
+    renderDayNav('dayNav', 14);
+    const realMe = getMe();
+
+    document.getElementById('senseiOpen').innerHTML = sensei(`
+      <p>${realMe ? realMe.name+'さん' : 'あなた'}、ついに最終STEPです。ここまで本当によく頑張ってこられましたね。</p>
+      <p>最後は、これまで学んだ要素を1つのプロンプトにまとめます。ここまで来たら、あと少しです。</p>
+    `);
+
+    const people = [];
+    if(realMe) people.push(realMe);
+    getOthers().forEach(p => people.push(p));
+    if(!people.length) people.push(samplePerson);
+    const pSel = document.getElementById('personSelect');
+    people.forEach((p,i) => { const o = document.createElement('option'); o.value = i; o.textContent = p.name; pSel.appendChild(o); });
+    const tSel = document.getElementById('themeSelect');
+    Object.keys(themeGuides).forEach(t => { const o = document.createElement('option'); o.value = t; o.textContent = t; tSel.appendChild(o); });
+
+    document.getElementById('senseiSummarySection').innerHTML = sensei(`
+      <p>総合プロンプト、作ってみましたか？これがあれば、いつでもChatGPTに鑑定文を作ってもらえますよ。</p>
+      <p>最後に、総復習クイズに挑戦してみましょう。</p>
+    `);
+
+    document.getElementById('senseiQuizIntro').innerHTML = sensei(`<p>STEP0からの内容を振り返る、最後のクイズです。落ち着いて進めてください！</p>`);
+    mountQuiz('quizMountGeneral', stepQuizzes.step14, (score,total) => {
+      markStepDone(14);
+      document.getElementById('graduationSection').style.display = 'block';
+      const name = realMe ? realMe.name+'さん' : 'あなた';
+      document.getElementById('graduationMsg').textContent = score === total
+        ? `${name}、全問正解です！インド占星術の基礎を、しっかり身につけられましたね。これからもホロスコープを見ながら、自分や周りの人を大切にする材料として使ってみてくださいね。`
+        : `${name}、${score}/${total}問正解でした。わからなかった所は、いつでもホームから各STEPに戻って読み返せます。ここまで学んだ内容は、もう十分に「自分を占える」レベルです。自信を持ってくださいね。`;
+      return '';
+    });
+
+    document.getElementById('genPromptBtn').addEventListener('click', () => {
+      const p = people[Number(pSel.value)];
+      const theme = tSel.value;
+      const elements = [`ラグナ：${p.lagna || '未入力（わかる範囲で読んでください）'}`];
+      elements.push(p.moonSign ? `月の星座：${p.moonSign}` : '月の星座：未入力');
+      if(p.moonNakshatra){
+        const nk = byNakshatraName(p.moonNakshatra);
+        elements.push(`月のナクシャトラ：${nk.name}（支配星：${nakshatraRuler(nk)}）`);
+      } else {
+        elements.push('月のナクシャトラ：未入力');
+      }
+      elements.push(`相談テーマ：${theme}`);
+      elements.push('鑑定文の構成：①導入（感謝と概要）②本文（ラグナ・月・ナクシャトラの説明）③注意点・開運のヒント④締めくくり、の4パートで書くこと');
+      const prompt = buildPrompt({
+        person: p,
+        elements,
+        theme: `${theme}を中心に、この人の基本性質から鑑定文を総合的に作る`,
+        length: '900〜1200字程度',
+        tone: document.getElementById('toneSelect').value,
+        extraRules: finalReadingRules
+      });
+      const area = document.getElementById('promptArea');
+      area.value = prompt; area.style.display='block';
+      document.getElementById('copyBtn').style.display='inline-flex';
+    });
+    document.getElementById('copyBtn').addEventListener('click', () => {
+      const area = document.getElementById('promptArea');
+      area.select(); document.execCommand('copy');
+      const msg = document.getElementById('copyMsg'); msg.style.display='block';
+      setTimeout(()=>msg.style.display='none', 2000);
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
