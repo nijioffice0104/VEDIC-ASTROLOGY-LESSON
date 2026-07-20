@@ -589,14 +589,14 @@ function renderDayNav(containerId, current){
   el.innerHTML = stepMeta.map(s => `<a href="step${s.n}.html" class="day-pill${s.n===current?' is-current':''}">${s.label}</a>`).join('');
 }
 
-// ==== ガジャ先生ふきだし ====
+// ==== ガネーシャ先生ふきだし ====
 function sensei(html){
-  return `<div class="sensei-row"><div class="sensei-avatar" aria-hidden="true"><img class="gaja-avatar-img" src="assets/gaja-sensei.png?v=3" alt=""></div><div class="sensei-bubble-wrap"><div class="sensei-name">ガジャ先生</div><div class="sensei-bubble">${html}</div></div></div>`;
+  return `<div class="sensei-row"><div class="sensei-avatar" aria-hidden="true"><img class="gaja-avatar-img" src="assets/gaja-sensei.png?v=3" alt=""></div><div class="sensei-bubble-wrap"><div class="sensei-name">ガネーシャ先生</div><div class="sensei-bubble">${html}</div></div></div>`;
 }
 function lessonDialog(lines){
   return `<div class="lesson-dialog">${lines.map(line => {
     const who = line.who === 'student' ? 'student' : 'teacher';
-    const name = who === 'student' ? '生徒さん' : 'ガジャ先生';
+    const name = who === 'student' ? '生徒さん' : 'ガネーシャ先生';
     const avatar = who === 'teacher' ? `<div class="dialog-avatar" aria-hidden="true"><img class="gaja-avatar-img" src="assets/gaja-sensei.png?v=3" alt=""></div>` : '';
     return `<div class="dialog-line is-${who}">${avatar}<div class="dialog-bubble-wrap"><div class="dialog-name">${name}</div><div class="dialog-bubble">${line.html}</div></div></div>`;
   }).join('')}</div>`;
