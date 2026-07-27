@@ -56,7 +56,7 @@ function initInstallBanner(){
         <img class="pwa-install-strip__icon" src="assets/icon-192.png" alt="">
         <div>
           <b>スマホのホーム画面に追加できます</b>
-          <p>PDFから来た方は、SafariまたはChromeで開いてから追加すると迷いにくいです。</p>
+          <p>うまく追加できない時は、SafariまたはChromeで開いてください。</p>
         </div>
       </div>
       <div class="pwa-install-strip__actions">
