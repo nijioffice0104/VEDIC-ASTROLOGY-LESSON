@@ -22,6 +22,72 @@ const modalityInfo = {
   '双体宮':{keyword:'切り替える力', desc:'状況に応じて柔軟に対応する性質です。複数の物事を同時にこなしたり、臨機応変に立ち回るのが得意です。反面、一貫性に欠けたり、優柔不断に見えることがあります。'}
 };
 
+// ==== スマホのホーム画面追加（PWA） ====
+let deferredInstallPrompt = null;
+function isStandaloneApp(){
+  return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+}
+function registerServiceWorker(){
+  if(!('serviceWorker' in navigator)) return;
+  if(location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') return;
+  navigator.serviceWorker.register('./service-worker.js').catch(() => {});
+}
+function initInstallBanner(){
+  registerServiceWorker();
+  window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    deferredInstallPrompt = event;
+    const btn = document.getElementById('installNowBtn');
+    if(btn) btn.hidden = false;
+  });
+  if(isStandaloneApp()) return;
+  if(location.pathname.endsWith('/install.html') || location.pathname.endsWith('install.html')) return;
+  try {
+    if(localStorage.getItem('vedic_install_strip_closed') === '1') return;
+  } catch(e){}
+  const nav = document.querySelector('nav');
+  if(!nav || document.getElementById('pwaInstallStrip')) return;
+  const strip = document.createElement('div');
+  strip.className = 'pwa-install-strip';
+  strip.id = 'pwaInstallStrip';
+  strip.innerHTML = `
+    <div class="pwa-install-strip__inner">
+      <div class="pwa-install-strip__text">
+        <img class="pwa-install-strip__icon" src="assets/icon-192.png" alt="">
+        <div>
+          <b>スマホのホーム画面に追加できます</b>
+          <p>PDFから来た方は、SafariまたはChromeで開いてから追加すると迷いにくいです。</p>
+        </div>
+      </div>
+      <div class="pwa-install-strip__actions">
+        <a class="pwa-install-strip__button" href="install.html">手順を見る</a>
+        <button class="pwa-install-strip__dismiss" type="button" aria-label="閉じる">×</button>
+      </div>
+    </div>`;
+  nav.insertAdjacentElement('afterend', strip);
+  strip.querySelector('button').addEventListener('click', () => {
+    strip.remove();
+    try { localStorage.setItem('vedic_install_strip_closed', '1'); } catch(e){}
+  });
+}
+function initInstallPage(){
+  const btn = document.getElementById('installNowBtn');
+  if(!btn) return;
+  btn.addEventListener('click', async () => {
+    if(!deferredInstallPrompt) return;
+    deferredInstallPrompt.prompt();
+    await deferredInstallPrompt.userChoice;
+    deferredInstallPrompt = null;
+    btn.hidden = true;
+  });
+}
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', () => { initInstallBanner(); initInstallPage(); });
+} else {
+  initInstallBanner();
+  initInstallPage();
+}
+
 // ==== 9つの惑星（ナヴァグラハ）データ ====
 const planets = [
   {n:1,name:'太陽',sanskrit:'スーリヤ',symbol:'☉',keyword:'自己・魂・権威・生命力',feature:'太陽は、その人の魂や本質的な自己、そして生きる力そのものを表す惑星です。9惑星の中心的な存在で、他の惑星たちがその周りを回るように、太陽はその人の「核」になる部分を示します。社会的な地位や父親との関係、権威あるものとの関わり方にも表れます。',role:'ホロスコープの中では、太陽がどの星座・どのハウスにあるかで、その人が「何によって自分らしさを発揮するか」「どこで自信を育てていくか」を見ます。ラグナが土台なら、太陽は魂の目的地にあたります。',positive:'強く働くと、リーダーシップ・自信・意志の強さとして表れます。周囲を照らし、まとめていく力になります。',imbalance:'バランスを崩すと、自己中心的になったり、権威を振りかざしたり、逆に自信を失って萎縮したりすることがあります。',example:'たとえば太陽が獅子座にある人は、太陽自身が支配する星座にあるため力強く働きやすく、堂々とした自己表現が自然にできる傾向があります。',sensei:'太陽は9つの惑星の王様のような存在。まずは「この人が何によって自分らしくいられるか」を見るときに使うと考えてくださいね。'},

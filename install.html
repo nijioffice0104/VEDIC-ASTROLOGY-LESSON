@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>スマホに追加する｜やさしく読めるインド占星術</title>
+  <meta name="description" content="インド占星術レッスンをスマホのホーム画面に追加するための、iPhone・Android別の初心者向け手順です。" />
+  <meta name="theme-color" content="#1E3A5F">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="assets/favicon-32.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { sand:{50:'#fafaf9',100:'#f5f5f4',200:'#e7e5e4',300:'#d6d3d1',400:'#a8a29e',500:'#78716c',600:'#57534e',700:'#44403c',800:'#292524',900:'#1c1917'}, aura:{navy:'#1E3A5F',sky:'#5FA8C7',gold:'#C6A15B',coral:'#FF8F73'} },
+      fontFamily: { serif:['Georgia','Times New Roman','serif'], sans:['-apple-system','Hiragino Kaku Gothic ProN','Yu Gothic','YuGothic','Meiryo','sans-serif'], jp:['Yu Mincho','YuMincho','Hiragino Mincho ProN','Hiragino Mincho Pro','serif'] }
+    } } }
+  </script>
+  <link rel="stylesheet" href="assets/vedic-style.css?v=17">
+</head>
+<body>
+  <nav class="border-b border-sand-100">
+    <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2"><img src="assets/icon-192.png" alt="" class="install-nav-icon"><span class="font-extrabold text-sand-800">やさしく読めるインド占星術</span></div>
+      <a href="index.html" class="day-pill">ホーム</a>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-6 pb-20 w-full">
+    <div class="hero-panel install-hero text-center mb-10">
+      <img src="assets/icon-192.png" alt="" class="install-hero-icon">
+      <div class="eyebrow text-[11px] text-sand-400 mb-3">ADD TO HOME SCREEN</div>
+      <h1 class="jp-title font-extrabold text-sand-800 text-2xl">スマホのホーム画面に追加する</h1>
+      <p class="text-sm text-sand-500 leading-relaxed mt-3 max-w-lg mx-auto">PDFのリンクやQRコードから一度サイトを開き、ホーム画面に追加すると、次回からアプリのようにすぐ開けます。</p>
+    </div>
+
+    <section class="mb-8">
+      <div class="install-notice">
+        <b>最初にここだけ確認してください</b>
+        <p>PDF・LINE・Instagram・Gmailなどの中で開いた画面では、ホーム画面に追加できないことがあります。うまくいかない時は、iPhoneならSafari、AndroidならChromeで開き直してください。</p>
+      </div>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="jp-title text-base text-sand-700 mb-4">iPhoneの方</h2>
+      <div class="install-steps">
+        <div class="install-step"><span>1</span><p>このページを<strong>Safari</strong>で開きます。PDFやLINE内で開いている場合は、共有メニューから「Safariで開く」を選びます。</p></div>
+        <div class="install-step"><span>2</span><p>画面下の<strong>共有ボタン</strong>を押します。四角から上向き矢印が出ているマークです。</p></div>
+        <div class="install-step"><span>3</span><p>メニューの中から<strong>ホーム画面に追加</strong>を選びます。</p></div>
+        <div class="install-step"><span>4</span><p>右上の<strong>追加</strong>を押すと、ホーム画面にアイコンが表示されます。</p></div>
+      </div>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="jp-title text-base text-sand-700 mb-4">Androidの方</h2>
+      <div class="install-steps">
+        <div class="install-step"><span>1</span><p>このページを<strong>Chrome</strong>で開きます。PDFやLINE内で開いている場合は、右上メニューから「Chromeで開く」を選びます。</p></div>
+        <div class="install-step"><span>2</span><p>画面に<strong>アプリをインストール</strong>または<strong>ホーム画面に追加</strong>が出たら押します。</p></div>
+        <div class="install-step"><span>3</span><p>表示された確認画面で<strong>インストール</strong>または<strong>追加</strong>を押します。</p></div>
+        <div class="install-step"><span>4</span><p>ホーム画面にアイコンが表示されたら完了です。</p></div>
+      </div>
+      <button id="installNowBtn" class="install-main-btn mt-4" type="button" hidden>このスマホにインストールする</button>
+      <p id="installHint" class="subtle-note mt-3">ボタンが出ない場合は、Chromeの右上メニューから「アプリをインストール」または「ホーム画面に追加」を選んでください。</p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="jp-title text-base text-sand-700 mb-4">PDFから開いた方へ</h2>
+      <div class="guide-box gold text-[12.5px] text-sand-600">
+        <p class="leading-relaxed">PDFから直接アプリになるわけではありません。まずPDFのURLやQRコードからこのサイトを開き、そのあとSafariまたはChromeでホーム画面に追加します。</p>
+        <p class="leading-relaxed mt-2">一度ホーム画面に追加できれば、次回からはPDFを開かなくても、スマホのアイコンから直接レッスンを開けます。</p>
+      </div>
+    </section>
+
+    <div class="day-footer-nav">
+      <a href="index.html"><span class="label-sm">HOME</span><b>ホームへ戻る</b></a>
+      <a href="step0.html" class="next"><span class="label-sm">START</span><b>STEP0から始める</b></a>
+    </div>
+  </main>
+
+  <script src="assets/vedic-data.js?v=12"></script>
+</body>
+</html>

@@ -45,6 +45,27 @@ body { margin:0; color:#44403c; background:#fff; font-family:-apple-system,"Hira
 .day-pill { display:inline-flex; align-items:center; justify-content:center; border:1px solid #e7e5e4; border-radius:999px; padding:.4rem .85rem; font-size:12px; font-weight:700; color:#57534e; background:#fff; flex:0 0 auto; }
 .day-pill.is-current { border-color:#5FA8C7; color:#1E3A5F; background:#eef7fb; }
 .day-pill.is-home { background:#1E3A5F; color:#fff; border-color:#1E3A5F; }
+.install-nav-icon { width:32px; height:32px; border-radius:10px; box-shadow:0 4px 12px rgba(30,58,95,.14); }
+.pwa-install-strip { border-bottom:1px solid #e7e5e4; background:linear-gradient(135deg,#fff,#f7fbfd); }
+.pwa-install-strip__inner { max-width:56rem; margin:0 auto; padding:.7rem 1.5rem; display:flex; gap:.85rem; align-items:center; justify-content:space-between; }
+.pwa-install-strip__text { display:flex; gap:.7rem; align-items:center; min-width:0; }
+.pwa-install-strip__icon { width:42px; height:42px; border-radius:12px; flex:0 0 auto; box-shadow:0 6px 14px rgba(30,58,95,.14); }
+.pwa-install-strip b { display:block; color:#292524; font-size:12.5px; }
+.pwa-install-strip p { margin:.08rem 0 0; color:#78716c; font-size:11.5px; line-height:1.55; }
+.pwa-install-strip__actions { display:flex; gap:.45rem; align-items:center; flex:0 0 auto; }
+.pwa-install-strip__button { display:inline-flex; align-items:center; justify-content:center; border:1px solid #1E3A5F; background:#1E3A5F; color:#fff; border-radius:999px; padding:.48rem .9rem; font-size:11.5px; font-weight:800; white-space:nowrap; }
+.pwa-install-strip__dismiss { border:0; background:transparent; color:#a8a29e; font-size:18px; line-height:1; padding:.25rem; }
+.install-hero { padding-top:2rem; }
+.install-hero-icon { width:92px; height:92px; border-radius:24px; margin:0 auto 1rem; box-shadow:0 14px 34px rgba(30,58,95,.16); position:relative; z-index:1; }
+.install-notice { border:1px solid #bcd9e6; background:#f7fbfd; border-radius:18px; padding:1rem; }
+.install-notice b { display:block; color:#1E3A5F; font-size:13px; margin-bottom:.35rem; }
+.install-notice p { margin:0; color:#57534e; font-size:12.5px; line-height:1.8; }
+.install-steps { display:grid; gap:.75rem; }
+.install-step { display:grid; grid-template-columns:auto 1fr; gap:.8rem; align-items:start; border:1px solid #e7e5e4; background:#fff; border-radius:16px; padding:1rem; }
+.install-step span { width:2rem; height:2rem; border-radius:999px; display:inline-flex; align-items:center; justify-content:center; background:#eef7fb; border:1px solid #bcd9e6; color:#1E3A5F; font-size:12px; font-weight:900; }
+.install-step p { margin:0; color:#57534e; font-size:12.8px; line-height:1.85; }
+.install-step strong { color:#292524; background:linear-gradient(transparent 58%,#f5ecd6 58%); }
+.install-main-btn { display:inline-flex; align-items:center; justify-content:center; border:1px solid #1E3A5F; background:#1E3A5F; color:#fff; border-radius:999px; padding:.8rem 1.2rem; font-size:13px; font-weight:900; box-shadow:0 10px 24px rgba(30,58,95,.18); }
 .hero-panel { max-width:56rem; margin:1.6rem auto 0; border:1px solid #e7e5e4; border-radius:24px; padding:2.6rem 1.5rem; background:linear-gradient(115deg,rgba(95,168,199,.10),rgba(255,255,255,.9),rgba(198,161,91,.10)); position:relative; overflow:hidden; }
 .hero-panel:before { content:""; position:absolute; inset:0; background-image:linear-gradient(#e7e5e4 1px,transparent 1px),linear-gradient(90deg,#e7e5e4 1px,transparent 1px); background-size:28px 28px; opacity:.22; }
 .hero-panel > * { position:relative; z-index:1; }
@@ -85,6 +106,9 @@ body { margin:0; color:#44403c; background:#fff; font-family:-apple-system,"Hira
 .day-card:hover { border-color:#5FA8C7; }
 .day-card.is-disabled { opacity:.5; pointer-events:none; }
 @media (max-width:720px) {
+  .pwa-install-strip__inner { align-items:flex-start; padding:.75rem 1rem; }
+  .pwa-install-strip__actions { flex-direction:column; align-items:flex-end; }
+  .pwa-install-strip p { display:none; }
   .hero-panel { margin:1rem; padding:2rem 1.2rem; border-radius:20px; }
   .day-footer-nav { grid-template-columns:1fr; }
 }

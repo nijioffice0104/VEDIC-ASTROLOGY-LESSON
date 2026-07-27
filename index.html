@@ -12,7 +12,11 @@
       fontFamily: { serif:['Georgia','Times New Roman','serif'], sans:['-apple-system','Hiragino Kaku Gothic ProN','Yu Gothic','YuGothic','Meiryo','sans-serif'], jp:['Yu Mincho','YuMincho','Hiragino Mincho ProN','Hiragino Mincho Pro','serif'] }
     } } }
   </script>
-  <link rel="stylesheet" href="assets/vedic-style.css?v=16">
+  <meta name="theme-color" content="#1E3A5F">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="assets/favicon-32.png">
+  <link rel="stylesheet" href="assets/vedic-style.css?v=17">
 </head>
 <body>
   <div class="opening-screen" id="openingScreen" aria-label="オープニング">
@@ -199,7 +203,7 @@
     </section>
   </main>
 
-  <script src="assets/vedic-data.js?v=11"></script>
+  <script src="assets/vedic-data.js?v=12"></script>
   <script>
     const opening = document.getElementById('openingScreen');
     function getOpeningSeen(){
