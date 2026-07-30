@@ -63,7 +63,11 @@
           <div><label class="block text-[12px] font-bold text-sand-500 mb-2">お名前</label><input id="fName" class="w-full border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky" placeholder="例：さくら"></div>
           <div><label class="block text-[12px] font-bold text-sand-500 mb-2">生年月日</label><input id="fDate" type="date" class="w-full border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky" min="1925-01-01" max="2030-12-31"></div>
           <div><label class="block text-[12px] font-bold text-sand-500 mb-2">出生時刻</label><input id="fTime" type="time" class="w-full border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky"></div>
-          <div><label class="block text-[12px] font-bold text-sand-500 mb-2">出生地</label><select id="fPlace" class="w-full border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky"></select></div>
+          <div>
+            <label class="block text-[12px] font-bold text-sand-500 mb-2">出生地</label>
+            <select id="fPlace" class="w-full border border-sand-200 rounded-xl px-4 py-3 text-sand-800 bg-sand-50 outline-none focus:border-aura-sky"></select>
+            <p class="text-[11px] text-sand-400 mt-2 leading-relaxed">一覧に出生地がない場合は、同じ都道府県内、または一番近い都市を選んでください。この講座では学習用の目安として使います。</p>
+          </div>
         </div>
         <button id="regBtn" class="mt-4 bg-aura-navy text-white font-bold rounded-full px-6 py-3 text-sm hover:opacity-90 transition">ホロスコープを生成する</button>
         <p class="text-[11px] text-sand-400 mt-2">出生時刻が不明な場合は正午で仮計算します。精密鑑定では母子手帳などの時刻確認がおすすめです。</p>
@@ -84,7 +88,7 @@
     </div>
   </main>
 
-  <script src="assets/vedic-data.js?v=12"></script>
+  <script src="assets/vedic-data.js?v=13"></script>
   <script>
     __currentStepNum = 0;
     renderDayNav('dayNav', 0);

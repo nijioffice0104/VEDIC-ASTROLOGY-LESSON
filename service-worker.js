@@ -1,10 +1,10 @@
-const CACHE_NAME = 'vedic-astrology-lesson-v1';
+const CACHE_NAME = 'vedic-astrology-lesson-v2';
 const CORE_ASSETS = [
   './',
   './index.html',
   './install.html',
   './assets/vedic-style.css?v=17',
-  './assets/vedic-data.js?v=12',
+  './assets/vedic-data.js?v=13',
   './assets/icon-192.png',
   './assets/icon-512.png',
   './assets/apple-touch-icon.png'

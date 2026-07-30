@@ -631,16 +631,65 @@ function updateRosterPerson(name, fields){
 }
 function getOthers(){ const me = getMe(); return getRoster().filter(r => !me || r.name !== me.name); }
 function addOtherPerson(entry){ addToRoster(entry); return entry; }
-function getProgress(){ try{ return JSON.parse(localStorage.getItem('vedicProgress') || '[]'); }catch(e){ return []; } }
+function normalizeProgress(raw){
+  if(!Array.isArray(raw)) return [];
+  const out = [];
+  raw.forEach(item => {
+    let key = item;
+    if(typeof key === 'string' && /^\d+$/.test(key)) key = Number(key);
+    if((Number.isInteger(key) && key >= 0 && key <= 14) || key === 'bonus'){
+      if(!out.includes(key)) out.push(key);
+    }
+  });
+  return out;
+}
+function getProgress(){
+  try{ return normalizeProgress(JSON.parse(localStorage.getItem('vedicProgress') || '[]')); }catch(e){ return []; }
+}
 function markStepDone(n){
   const p = getProgress();
-  if(!p.includes(n)){ p.push(n); try{ localStorage.setItem('vedicProgress', JSON.stringify(p)); }catch(e){} }
+  if(!p.includes(n)){
+    p.push(n);
+    try{ localStorage.setItem('vedicProgress', JSON.stringify(p)); }catch(e){}
+  }
+}
+function formatProgressList(list){
+  const p = normalizeProgress(list);
+  if(!p.length) return 'まだありません';
+  const nums = p.filter(Number.isInteger).sort((a,b)=>a-b).map(n=>`STEP${n}`);
+  if(p.includes('bonus')) nums.push('巻末特典');
+  return nums.join('・');
 }
 function nextStepUrl(){
-  const p = getProgress();
-  if(p.length === 0) return 'step0.html';
-  const max = Math.max(...p);
-  return `step${Math.min(max+1,14)}.html`;
+  const done = getProgress().filter(Number.isInteger);
+  const next = stepMeta.find(s => !done.includes(s.n));
+  return next ? `step${next.n}.html` : 'bonus.html';
+}
+function trackStepEngagement(){
+  if(__currentStepNum === null) return;
+  if(__currentStepNum === 0 || __currentStepNum === 9) return;
+  let marked = false;
+  const mark = () => {
+    if(marked) return;
+    marked = true;
+    markStepDone(__currentStepNum);
+    cleanup();
+  };
+  const timer = setTimeout(mark, 25000);
+  const eventTypes = ['click','input','change','submit'];
+  const scrollHandler = () => {
+    const doc = document.documentElement;
+    const pageHeight = Math.max(doc.scrollHeight, document.body.scrollHeight, window.innerHeight);
+    const ratio = (window.scrollY + window.innerHeight) / pageHeight;
+    if(ratio >= 0.45) mark();
+  };
+  function cleanup(){
+    clearTimeout(timer);
+    eventTypes.forEach(type => document.removeEventListener(type, mark, true));
+    window.removeEventListener('scroll', scrollHandler);
+  }
+  eventTypes.forEach(type => document.addEventListener(type, mark, true));
+  window.addEventListener('scroll', scrollHandler, {passive:true});
 }
 
 // ==== STEPナビゲーション ====
@@ -652,7 +701,11 @@ const stepMeta = [
 function renderDayNav(containerId, current){
   const el = document.getElementById(containerId);
   if(!el) return;
-  el.innerHTML = stepMeta.map(s => `<a href="step${s.n}.html" class="day-pill${s.n===current?' is-current':''}">${s.label}</a>`).join('');
+  const tools = [
+    '<a href="glossary.html" class="day-pill">用語集</a>',
+    '<a href="index.html#librarySection" class="day-pill">図鑑</a>'
+  ];
+  el.innerHTML = tools.join('') + stepMeta.map(s => `<a href="step${s.n}.html" class="day-pill${s.n===current?' is-current':''}">${s.label}</a>`).join('');
 }
 
 // ==== ガネーシャ先生ふきだし ====
@@ -883,6 +936,7 @@ document.addEventListener('DOMContentLoaded', () => {
   addPersonalReadingIfUseful();
   addStepSummaryIfMissing();
   addMyChartPanel();
+  trackStepEngagement();
   queueKeywordHighlight();
   const main = document.querySelector('main');
   if(main){
