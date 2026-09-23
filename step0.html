@@ -70,6 +70,7 @@
           </div>
         </div>
         <button id="regBtn" class="mt-4 bg-aura-navy text-white font-bold rounded-full px-6 py-3 text-sm hover:opacity-90 transition">ホロスコープを生成する</button>
+        <p role="note" class="subtle-note mt-4"><strong>学習用教材としてのご利用について</strong><br>このアプリは、ホロスコープの読み方を練習するための学習用教材です。有料鑑定やお客様への正式な鑑定には、本アプリの計算結果をそのまま使用せず、信頼できる専門の占星術サイト・ソフトで出生日時・出生地・計算設定を確認して算出したホロスコープをご使用ください。</p>
         <p class="text-[11px] text-sand-400 mt-2">出生時刻が不明な場合は正午で仮計算します。精密鑑定では母子手帳などの時刻確認がおすすめです。</p>
       </div>
     </section>
@@ -88,9 +89,13 @@
     </div>
   </main>
 
-  <script src="assets/vedic-data.js?v=13"></script>
+  <script src="assets/vedic-data.js?v=16"></script>
   <script>
+    (async () => {
+      await ensureVedicStorageReady();
+
     __currentStepNum = 0;
+    addBirthDetailControls();
     renderDayNav('dayNav', 0);
 
     document.getElementById('senseiIntro').innerHTML = sensei(`
@@ -109,7 +114,7 @@
       document.getElementById('resultSection').style.display = 'block';
       document.getElementById('resultCard').innerHTML = `
         <div class="grid sm:grid-cols-2 gap-3 text-[12.5px] text-sand-600">
-          <p><b class="text-sand-800">名前：</b>${entry.name}</p>
+          <p><b class="text-sand-800">名前：</b>${escapeVedicText(entry.name)}</p>
           <p><b class="text-sand-800">生年月日：</b>${entry.birthDate || '未入力'}</p>
           <p><b class="text-sand-800">出生時刻：</b>${entry.birthTime || '未入力'}</p>
           <p><b class="text-sand-800">出生地：</b>${entry.birthPlace || '未入力'}</p>
@@ -131,34 +136,41 @@
             <div id="generatedChart"></div>
             <div>${buildPlanetTable(entry.chart)}</div>
           </div>
-          <p class="subtle-note mt-4">このホロスコープは、講座内で学習しやすいようにブラウザ上で計算したものです。最終鑑定や有料サービスでは、出生時刻・出生地を確認したうえで、専門の天文計算エンジンで再確認してください。</p>`;
+           `;
         renderGeneratedNorthIndianChart('generatedChart', entry.chart);
       } else {
         chartCard.style.display = 'none';
         chartCard.innerHTML = '';
       }
       document.getElementById('senseiResult').innerHTML = sensei(`
-        <p>${entry.name}さんのホロスコープを生成しました。</p>
+        <p>${escapeVedicText(entry.name)}さんのホロスコープを生成しました。${entry.chart?.timeAssumed?'出生時刻が不明のため、正午の仮計算です。':''}</p>
         <p>ここで出たラグナ・月の星座・ナクシャトラを使って、次のSTEPから読み方を少しずつ見ていきましょう。</p>
       `);
       markStepDone(0);
+      document.getElementById('myChartPanel')?.remove();
+      addMyChartPanel();
     }
-    document.getElementById('regBtn').addEventListener('click', () => {
+    document.getElementById('regBtn').addEventListener('click', async () => {
       const name = document.getElementById('fName').value || 'あなた';
       const birthDate = document.getElementById('fDate').value;
       if(!birthDate){
         alert('生年月日を入力してください。');
         return;
       }
-      const birthTime = document.getElementById('fTime').value || '12:00';
+      const birthTime = document.getElementById('fTime').value;
       const birthPlace = document.getElementById('fPlace').value;
-      const chart = calculateVedicChart({birthDate, birthTime, placeName:birthPlace});
+      const button = document.getElementById('regBtn');
+      button.disabled = true;
+      try {
+        const birthDetails = readBirthDetails();
+        const chart = await calculateVedicChart({birthDate, birthTime, placeName:birthPlace,...birthDetails});
       const existing = getMe() || {};
       const entry = Object.assign({}, existing, {
         name,
         birthDate,
         birthTime,
         birthPlace,
+        ...birthDetails,
         lagna: chart.lagnaSign,
         moonSign: chart.moonSign,
         moonNakshatra: chart.moonNakshatra,
@@ -166,25 +178,33 @@
       });
       setMe(entry);
       renderResult(entry);
+      } catch(error) {
+        console.error(error);
+        alert(error.message || '計算に失敗しました。接続を確認して再読み込みしてください。');
+      } finally {
+        button.disabled = false;
+      }
     });
     renderPlaceOptions();
     const existing = getMe();
     if(existing){
+      restoreBirthDetails(existing);
       document.getElementById('fName').value = existing.name === 'あなた' ? '' : (existing.name || '');
       document.getElementById('fDate').value = existing.birthDate || '';
       document.getElementById('fTime').value = existing.birthTime || '';
       if(existing.birthPlace && [...document.getElementById('fPlace').options].some(o => o.value === existing.birthPlace)){
         document.getElementById('fPlace').value = existing.birthPlace;
       }
-      renderResult(existing);
+      if(existing.chart && existing.chart.engineVersion === VEDIC_ENGINE_VERSION){
+        renderResult(existing);
+      }
     }
-  </script>
+  
+    })().catch(error => { console.error(error); const notice=document.createElement("p"); notice.setAttribute("role","alert"); notice.textContent="保存情報を読み込めませんでした。ブラウザの保存設定を確認してください。"; document.querySelector("main")?.prepend(notice); });
+</script>
+<footer data-engine-edition style="text-align:center;padding:20px;font-size:12px">Astronomy Engine版・2026年9月23日更新 · <a href="license.html">計算仕様・ライセンス</a></footer>
 </body>
 </html>
-
-
-
-
 
 
 

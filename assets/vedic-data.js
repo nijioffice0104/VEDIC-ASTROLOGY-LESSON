@@ -504,60 +504,84 @@ const birthPlaces = [
   {name:'那覇市', prefecture:'沖縄県', lat:26.2124, lon:127.6792, tz:9}
 ];
 const planetSeeds = [
-  {key:'Su', name:'太陽', symbol:'☉', period:365.256, base:280.47},
-  {key:'Mo', name:'月', symbol:'☽', period:27.3217, base:218.32},
-  {key:'Ma', name:'火星', symbol:'♂', period:686.98, base:355.43},
-  {key:'Me', name:'水星', symbol:'☿', period:87.969, base:252.25},
-  {key:'Ju', name:'木星', symbol:'♃', period:4332.59, base:34.35},
-  {key:'Ve', name:'金星', symbol:'♀', period:224.701, base:181.98},
-  {key:'Sa', name:'土星', symbol:'♄', period:10759.22, base:50.08},
-  {key:'Ra', name:'ラーフ', symbol:'☊', period:-6798.38, base:125.04}
+  {key:'Su', name:'太陽', symbol:'☉'},
+  {key:'Mo', name:'月', symbol:'☽'},
+  {key:'Ma', name:'火星', symbol:'♂'},
+  {key:'Me', name:'水星', symbol:'☿'},
+  {key:'Ju', name:'木星', symbol:'♃'},
+  {key:'Ve', name:'金星', symbol:'♀'},
+  {key:'Sa', name:'土星', symbol:'♄'},
+  {key:'Ra', name:'ラーフ', symbol:'☊'}
 ];
 function norm360(v){ return ((v % 360) + 360) % 360; }
-function julianDay(dateStr, timeStr, tz){
-  const [y,m,d] = dateStr.split('-').map(Number);
-  const [hh,mm] = (timeStr || '12:00').split(':').map(Number);
-  const utcHour = hh + (mm || 0) / 60 - tz;
-  let yy = y, mo = m;
-  if(mo <= 2){ yy -= 1; mo += 12; }
-  const A = Math.floor(yy / 100);
-  const B = 2 - A + Math.floor(A / 4);
-  return Math.floor(365.25 * (yy + 4716)) + Math.floor(30.6001 * (mo + 1)) + d + B - 1524.5 + utcHour / 24;
-}
-function lahiriAyanamsa(jd){
-  const years = (jd - 2451545.0) / 365.2425;
-  return 23.85675 + years * 0.013968;
-}
 function signFromLongitude(lon){
   return signs[Math.floor(norm360(lon) / 30) % 12];
 }
 function nakshatraFromLongitude(lon){
-  const n = Math.floor(norm360(lon) / (360 / 27));
-  const pada = Math.floor((norm360(lon) % (360 / 27)) / (360 / 108)) + 1;
+  const segment = Math.floor(norm360(lon) * 108 / 360);
+  const n = Math.floor(segment / 4);
+  const pada = segment % 4 + 1;
   return {name:nakshatras[n].name, pada};
 }
-function ascendantLongitude(jd, lat, lon, ayanamsa){
-  const T = (jd - 2451545.0) / 36525;
-  const gmst = norm360(280.46061837 + 360.98564736629 * (jd - 2451545.0) + 0.000387933 * T * T - T * T * T / 38710000);
-  const ramc = norm360(gmst + lon) * Math.PI / 180;
-  const eps = (23.439291 - 0.0130042 * T) * Math.PI / 180;
-  const phi = lat * Math.PI / 180;
-  const asc = Math.atan2(-Math.cos(ramc), Math.sin(ramc) * Math.cos(eps) + Math.tan(phi) * Math.sin(eps)) * 180 / Math.PI;
-  return norm360(asc - ayanamsa);
+const VEDIC_ENGINE_VERSION = 'astronomy-engine-2.1.19-lahiri-true-node-v1';
+const vedicDataBase = typeof document !== 'undefined' && document.currentScript
+  ? new URL('.', document.currentScript.src).href : null;
+function ensureVedicEngine(){
+  if(!window.__vedicAstronomyReady){
+    window.__vedicAstronomyReady = import(new URL('vedic-engine.mjs',vedicDataBase).href)
+      .then(module => module.initialize()).catch(error => { window.__vedicAstronomyReady = null; throw error; });
+  }
+  return window.__vedicAstronomyReady;
 }
-function planetLongitude(seed, jd, ayanamsa){
-  const days = jd - 2451545.0;
-  const tropical = norm360(seed.base + days * 360 / seed.period);
-  return norm360(tropical - ayanamsa);
+
+function birthDateToUtcDate(birthDate, birthTime, tz){
+  const [y,m,d] = birthDate.split('-').map(Number);
+  const [hh,mm] = (birthTime || '12:00').split(':').map(Number);
+  return new Date(Date.UTC(y, m - 1, d, hh - tz, mm || 0, 0));
 }
-function calculateVedicChart({birthDate, birthTime, placeName}){
-  const place = birthPlaces.find(p => `${p.prefecture} ${p.name}` === placeName) || birthPlaces[4];
-  const jd = julianDay(birthDate, birthTime || '12:00', place.tz);
-  const ayanamsa = lahiriAyanamsa(jd);
-  const lagnaLon = ascendantLongitude(jd, place.lat, place.lon, ayanamsa);
+
+function validateBirthInput(birthDate,birthTime){
+  if(typeof birthDate !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(birthDate) || birthDate < '1925-01-01' || birthDate > '2030-12-31') throw new Error('生年月日は1925年1月1日〜2030年12月31日で入力してください。');
+  const date = new Date(birthDate+'T00:00:00Z');
+  if(!Number.isFinite(date.getTime()) || date.toISOString().slice(0,10)!==birthDate) throw new Error('存在しない日付です。');
+  if(birthTime && !/^([01]\d|2[0-3]):[0-5]\d$/.test(birthTime)) throw new Error('出生時刻は00:00〜23:59で入力してください。');
+}
+function resolveUtcOffset(birthDate,birthTime,place,override){
+  if(override !== undefined && override !== null && override !== '' && override !== 'auto'){
+    const value = Number(override);
+    if(![9,10].includes(value)) throw new Error('日本の標準時（UTC+9）または夏時間（UTC+10）を選んでください。');
+    return value;
+  }
+  if(place.prefecture === '沖縄県' && birthDate < '1972-05-15') throw new Error('復帰前の沖縄の時刻制度は自動判定できません。詳細設定で当時の時差を確認して選んでください。');
+  const format = new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'});
+  const candidates=[9,10].filter(tz=>{
+    const parts=Object.fromEntries(format.formatToParts(birthDateToUtcDate(birthDate,birthTime,tz)).map(p=>[p.type,p.value]));
+    return `${parts.year}-${parts.month}-${parts.day}`===birthDate && `${parts.hour}:${parts.minute}`===birthTime;
+  });
+  if(candidates.length!==1) throw new Error('夏時間の切替時刻です。詳細設定で当時の時差（UTC+9／UTC+10）を確認して選んでください。');
+  return candidates[0];
+}
+async function calculateVedicChart({birthDate, birthTime, placeName, latitude, longitude, utcOffset}){
+  validateBirthInput(birthDate,birthTime);
+  const listedPlace = birthPlaces.find(p => `${p.prefecture} ${p.name}` === placeName);
+  if(!listedPlace) throw new Error('出生地を一覧から選択してください。');
+  const place = {...listedPlace};
+  const hasLat=latitude!==undefined && latitude!==null && latitude!=='';
+  const hasLon=longitude!==undefined && longitude!==null && longitude!=='';
+  if(hasLat!==hasLon) throw new Error('緯度と経度は両方入力してください。');
+  if(hasLat){
+    if(!Number.isFinite(Number(latitude)) || !Number.isFinite(Number(longitude)) || Number(latitude)<20 || Number(latitude)>46 || Number(longitude)<122 || Number(longitude)>154) throw new Error('この教材の詳細座標は日本国内（北緯20〜46度・東経122〜154度）を指定してください。');
+    place.lat=Number(latitude); place.lon=Number(longitude);
+  }
+  place.tz = resolveUtcOffset(birthDate,birthTime || '12:00',place,utcOffset);
+  const engine = await ensureVedicEngine();
+  const computed = engine.compute(birthDateToUtcDate(birthDate, birthTime || '12:00', place.tz),place.lat,place.lon);
+  const {jd,ayanamsa} = computed;
+  const lagnaLon = computed.lagnaLongitude;
   const lagnaSign = signFromLongitude(lagnaLon);
   const positions = planetSeeds.map(seed => {
-    const lon = planetLongitude(seed, jd, ayanamsa);
+    const lon = computed.longitudes[seed.key];
+    if(!Number.isFinite(lon))throw new Error('天体の計算結果が不正です。');
     const sign = signFromLongitude(lon);
     const house = houseOfSign(lagnaSign.name, sign.name);
     const nk = nakshatraFromLongitude(lon);
@@ -569,9 +593,76 @@ function calculateVedicChart({birthDate, birthTime, placeName}){
   const ketuNk = nakshatraFromLongitude(ketuLon);
   positions.push({key:'Ke', name:'ケートゥ', symbol:'☋', longitude:ketuLon, sign:ketuSign.name, degree:ketuLon % 30, house:houseOfSign(lagnaSign.name, ketuSign.name), nakshatra:ketuNk.name, pada:ketuNk.pada});
   const moon = positions.find(p => p.key === 'Mo');
-  return {place, jd, ayanamsa, lagnaLongitude:lagnaLon, lagnaSign:lagnaSign.name, lagnaDegree:lagnaLon % 30, moonSign:moon.sign, moonNakshatra:moon.nakshatra, moonPada:moon.pada, positions};
+  return {engineVersion:VEDIC_ENGINE_VERSION, ephemeris:'Astronomy Engine 2.1.19', ayanamsaSystem:'Lahiri IAE1985 epoch / AE precession-nutation', nodeMode:'true-osculating', houseSystem:'Whole sign', timeAssumed:!birthTime, timeStandard:'UT approximation of civil UTC', place, jd, ayanamsa, lagnaLongitude:lagnaLon, lagnaSign:lagnaSign.name, lagnaDegree:lagnaLon % 30, moonSign:moon.sign, moonNakshatra:moon.nakshatra, moonPada:moon.pada, positions};
+}
+function chartBoundaryWarnings(chart){
+  const near=(angle,step)=>{const rem=norm360(angle)%step;return Math.min(rem,step-rem)<1/60;};
+  const warnings=[];
+  if(chart.timeAssumed)warnings.push('出生時刻が不明なため正午の仮計算です。ラグナ・ハウスは確定結果ではありません。');
+  if(near(chart.lagnaLongitude,30))warnings.push('ラグナが星座の境目に近いため、出生時刻・座標・計算条件の確認が必要です。');
+  for(const p of chart.positions){
+    if(near(p.longitude,30))warnings.push(`${p.name}が星座の境目に近いため、別の計算条件では星座が変わる可能性があります。`);
+    if(near(p.longitude,360/108))warnings.push(`${p.name}がナクシャトラ／パダの境目に近いため、追加確認が必要です。`);
+  }
+  return warnings;
+}
+function calculationNotice(chart){
+  return `<p role="note" class="subtle-note mt-4"><strong>学習用教材としてのご利用について</strong><br>このアプリは、ホロスコープの読み方を練習するための学習用教材です。有料鑑定やお客様への正式な鑑定には、本アプリの計算結果をそのまま使用せず、信頼できる専門の占星術サイト・ソフトで出生日時・出生地・計算設定を確認して算出したホロスコープをご使用ください。</p><p class="subtle-note mt-4">Astronomy Engine 2.1.19／ラヒリ基準（IAE1985の基準値＋AEの歳差・章動モデル）／真ノード／ホールサイン。北インド式で表示します。他ソフトと度分まで常に一致するものではありません。</p>`+
+    chartBoundaryWarnings(chart).map(text=>`<p role="note" class="subtle-note">⚠ ${escapeVedicText(text)}</p>`).join('');
 }
 function formatDeg(v){ return `${Math.floor(v)}°${String(Math.floor((v % 1) * 60)).padStart(2,'0')}′`; }
+function readBirthDetails(){
+  return {latitude:document.getElementById('fLatitude')?.value || '',longitude:document.getElementById('fLongitude')?.value || '',utcOffset:document.getElementById('fUtcOffset')?.value || 'auto'};
+}
+function addBirthDetailControls(){
+  const button=document.getElementById('regBtn');
+  if(!button || document.getElementById('fLatitude'))return;
+  const details=document.createElement('details');
+  details.className='mt-4 text-sm';
+  details.innerHTML='<summary>出生地・時差の詳細設定（別のチャートと照合するとき）</summary><p>一覧は都市の代表座標です。別のアプリと照合する場合は同じ緯度・経度を指定してください。日本国内に対応しています。</p><label for="fLatitude">北緯</label> <input id="fLatitude" type="number" min="20" max="46" step="any" placeholder="例：35.6895"><label for="fLongitude">東経</label> <input id="fLongitude" type="number" min="122" max="154" step="any" placeholder="例：139.6917"><label for="fUtcOffset">出生時の時差</label> <select id="fUtcOffset"><option value="auto">自動（日本の歴史的な夏時間を考慮）</option><option value="9">UTC+9（標準時）</option><option value="10">UTC+10（夏時間）</option></select>';
+  button.before(details);
+}
+function restoreBirthDetails(entry){
+  for(const [id,key] of [['fLatitude','latitude'],['fLongitude','longitude'],['fUtcOffset','utcOffset']]){
+    const el=document.getElementById(id); if(el)el.value=entry[key] ?? (key==='utcOffset'?'auto':'');
+  }
+}
+function escapeVedicText(value){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
+let vedicMigrationPromise;
+function ensureVedicStorageReady(){
+  if(vedicMigrationPromise)return vedicMigrationPromise;
+  vedicMigrationPromise=(async()=>{
+    const me=getMe(), roster=getRoster();
+    const stale=p=>p && p.chart && p.chart.engineVersion!==VEDIC_ENGINE_VERSION;
+    if(!stale(me) && !roster.some(stale))return;
+    const backupKey='vedicCalculationBackup-before-astronomy-v1';
+    if(!localStorage.getItem(backupKey))localStorage.setItem(backupKey,JSON.stringify({me,roster}));
+    const upgraded=new Map();
+    async function upgrade(p){
+      if(!stale(p))return p;
+      const key=JSON.stringify(p);
+      if(upgraded.has(key))return upgraded.get(key);
+      let result;
+      try{
+        const chart=await calculateVedicChart({birthDate:p.birthDate,birthTime:p.birthTime,placeName:p.birthPlace,latitude:p.latitude,longitude:p.longitude,utcOffset:p.utcOffset});
+        result={...p,chart,lagna:chart.lagnaSign,moonSign:chart.moonSign,moonNakshatra:chart.moonNakshatra,calculationError:null};
+      }catch(error){
+        result={...p,chart:null,lagna:'',moonSign:'',moonNakshatra:'',calculationError:error.message};
+      }
+      upgraded.set(key,result); return result;
+    }
+    const nextMe=await upgrade(me), nextRoster=[];
+    for(const p of roster)nextRoster.push(await upgrade(p));
+    if(nextMe)localStorage.setItem('vedicMe',JSON.stringify(nextMe));
+    localStorage.setItem('vedicRoster',JSON.stringify(nextRoster));
+    if([nextMe,...nextRoster].some(p=>p?.calculationError)){
+      const warning=document.createElement('p'); warning.setAttribute('role','alert');
+      warning.textContent='再計算できない登録情報があります。旧データはバックアップ済みです。STEP0／STEP9で出生情報と詳細設定を確認して再登録してください。';
+      document.querySelector('main')?.prepend(warning);
+    }
+  })().catch(error=>{vedicMigrationPromise=null;throw error;});
+  return vedicMigrationPromise;
+}
 function renderGeneratedNorthIndianChart(containerId, chart){
   const el = document.getElementById(containerId);
   if(!el || !chart) return;
@@ -605,14 +696,14 @@ function renderGeneratedNorthIndianChart(containerId, chart){
 function buildPlanetTable(chart){
   return `<table class="planet-table"><thead><tr><th>惑星</th><th>星座</th><th>ハウス</th><th>ナクシャトラ</th></tr></thead><tbody>` +
     chart.positions.map(p => `<tr><td>${p.symbol} ${p.name}</td><td>${p.sign}<br><span class="chart-degree">${formatDeg(p.degree)}</span></td><td>第${p.house}</td><td>${p.nakshatra}<br><span class="chart-degree">第${p.pada}パダ</span></td></tr>`).join('') +
-    `</tbody></table>`;
+    `</tbody></table>` + calculationNotice(chart);
 }
 
 // ==== localStorage ====
 function getMe(){ try{ return JSON.parse(localStorage.getItem('vedicMe') || 'null'); }catch(e){ return null; } }
 function setMe(entry){ try{ localStorage.setItem('vedicMe', JSON.stringify(entry)); }catch(e){} addToRoster(entry); return entry; }
 function updateMe(fields){ const cur = getMe() || {name:'あなた'}; const merged = Object.assign({}, cur, fields); return setMe(merged); }
-function getRoster(){ try{ return JSON.parse(localStorage.getItem('vedicRoster') || '[]'); }catch(e){ return []; } }
+function getRoster(){ try{ const roster=JSON.parse(localStorage.getItem('vedicRoster') || '[]'); return Array.isArray(roster)?roster:[]; }catch(e){ return []; } }
 function addToRoster(entry){
   const roster = getRoster();
   const idx = roster.findIndex(r => r.name === entry.name);
@@ -929,7 +1020,8 @@ function addMyChartPanel(){
   const footerNav = main.querySelector('.day-footer-nav');
   main.insertBefore(section, footerNav || null);
 }
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  try { await ensureVedicStorageReady(); } catch(error) { console.error(error); return; }
   if(__currentStepNum !== 14){
     document.querySelectorAll('#promptSection').forEach(el => el.remove());
   }
@@ -987,7 +1079,3 @@ function buildPrompt({person, elements, theme, length, tone, extraRules}){
   lines.push('上記の配置をもとに、鑑定文を作成してください。');
   return lines.join('\n');
 }
-
-
-
-

@@ -108,8 +108,11 @@
     </div>
   </main>
 
-  <script src="assets/vedic-data.js?v=13"></script>
+  <script src="assets/vedic-data.js?v=16"></script>
   <script>
+    (async () => {
+      await ensureVedicStorageReady();
+
     __currentStepNum = 9;
     renderDayNav('dayNav', 9);
     const realMe = getMe();
@@ -165,21 +168,27 @@
         });
       });
     }
-    document.getElementById('regBtn').addEventListener('click', () => {
+    addBirthDetailControls();
+    document.getElementById('regBtn').addEventListener('click', async () => {
       const name = document.getElementById('fName').value;
       if(!name){ alert('お名前を入力してください'); return; }
       const birthDate = document.getElementById('fDate').value;
       const birthTime = document.getElementById('fTime').value;
       const birthPlace = document.getElementById('fPlace').value;
+      const birthDetails = readBirthDetails();
+      const button = document.getElementById('regBtn');
+      button.disabled = true;
+      try {
       let chart = null;
       if(birthDate && birthTime && birthPlace){
-        chart = calculateVedicChart({birthDate, birthTime, placeName:birthPlace});
+        chart = await calculateVedicChart({birthDate, birthTime, placeName:birthPlace,...birthDetails});
       }
       const entry = {
         name,
         birthDate,
         birthTime,
         birthPlace,
+        ...birthDetails,
         lagna: chart ? chart.lagnaSign : '',
         moonSign: chart ? chart.moonSign : '',
         moonNakshatra: chart ? chart.moonNakshatra : '',
@@ -189,6 +198,8 @@
       markStepDone(9);
       document.getElementById('fName').value = '';
       renderRoster();
+      } catch(error) { alert(error.message || '計算できませんでした。'); }
+      finally { button.disabled = false; }
     });
     renderRoster();
 
@@ -202,10 +213,12 @@
       const msg = score === total ? '全問正解です。他の人を見るときの心構え、ちゃんと持てています。' : `${score}/${total}問正解でした。上の注意点をもう一度読み返してみてくださいね。`;
       return sensei(`<p>${msg}</p><p>それではSTEP10で、実際にほかの人の基本性質を読んでみましょう。</p>`);
     });
-  </script>
+  
+    })().catch(error => { console.error(error); const notice=document.createElement("p"); notice.setAttribute("role","alert"); notice.textContent="保存情報を読み込めませんでした。ブラウザの保存設定を確認してください。"; document.querySelector("main")?.prepend(notice); });
+</script>
+<footer data-engine-edition style="text-align:center;padding:20px;font-size:12px">Astronomy Engine版・2026年9月23日更新 · <a href="license.html">計算仕様・ライセンス</a></footer>
 </body>
 </html>
-
 
 
 

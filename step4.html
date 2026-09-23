@@ -114,8 +114,11 @@
     </div>
   </main>
 
-  <script src="assets/vedic-data.js?v=13"></script>
+  <script src="assets/vedic-data.js?v=16"></script>
   <script>
+    (async () => {
+      await ensureVedicStorageReady();
+
     __currentStepNum = 4;
     renderDayNav('dayNav', 4);
     const realMe = getMe();
@@ -162,7 +165,10 @@
       const msg = score === total ? '全問正解です。9惑星の基本、いい感じです。' : score >= 3 ? `${score}/${total}問正解！いい感じです。` : `${score}/${total}問正解でした。上の解説を読み返してみてくださいね。`;
       return sensei(`<p>${msg}</p><p>次のSTEP5で、惑星が入っている星座の性質を見ていきましょう。</p>`);
     });
-  </script>
+  
+    })().catch(error => { console.error(error); const notice=document.createElement("p"); notice.setAttribute("role","alert"); notice.textContent="保存情報を読み込めませんでした。ブラウザの保存設定を確認してください。"; document.querySelector("main")?.prepend(notice); });
+</script>
+<footer data-engine-edition style="text-align:center;padding:20px;font-size:12px">Astronomy Engine版・2026年9月23日更新 · <a href="license.html">計算仕様・ライセンス</a></footer>
 </body>
 </html>
 

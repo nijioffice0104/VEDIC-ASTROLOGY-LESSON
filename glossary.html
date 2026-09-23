@@ -37,8 +37,11 @@
     </div>
   </main>
 
-  <script src="assets/vedic-data.js?v=13"></script>
+  <script src="assets/vedic-data.js?v=16"></script>
   <script>
+    (async () => {
+      await ensureVedicStorageReady();
+
     document.getElementById('senseiIntro').innerHTML = sensei(`
       <p>専門用語は、出てきたSTEPでその都度説明していますが、忘れてしまってもここで確認できます。</p>
       <p>ぜんぶ暗記しなくて大丈夫です。必要なときに開いて、「ああ、これか」と確認できれば十分。</p>
@@ -49,7 +52,10 @@
         <p class="text-[12.5px] text-sand-600 leading-relaxed mt-3">${t.easy}</p>
         <p class="text-[12px] text-sand-500 leading-relaxed mt-2 border-t border-sand-100 pt-2">${t.detail}</p>
       </details>`).join('');
-  </script>
+  
+    })().catch(error => { console.error(error); const notice=document.createElement("p"); notice.setAttribute("role","alert"); notice.textContent="保存情報を読み込めませんでした。ブラウザの保存設定を確認してください。"; document.querySelector("main")?.prepend(notice); });
+</script>
+<footer data-engine-edition style="text-align:center;padding:20px;font-size:12px">Astronomy Engine版・2026年9月23日更新 · <a href="license.html">計算仕様・ライセンス</a></footer>
 </body>
 </html>
 

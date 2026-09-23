@@ -84,8 +84,11 @@
     </div>
   </main>
 
-  <script src="assets/vedic-data.js?v=13"></script>
+  <script src="assets/vedic-data.js?v=16"></script>
   <script>
+    (async () => {
+      await ensureVedicStorageReady();
+
     __currentStepNum = 2;
     renderDayNav('dayNav', 2);
     const me = getMe() || {name:'あなた'};
@@ -120,7 +123,10 @@
       return sensei(`<p>${msg}</p><p>それではSTEP3で、あなたのラグナをじっくり深掘りしていきましょう。</p>`);
     });
 
-  </script>
+  
+    })().catch(error => { console.error(error); const notice=document.createElement("p"); notice.setAttribute("role","alert"); notice.textContent="保存情報を読み込めませんでした。ブラウザの保存設定を確認してください。"; document.querySelector("main")?.prepend(notice); });
+</script>
+<footer data-engine-edition style="text-align:center;padding:20px;font-size:12px">Astronomy Engine版・2026年9月23日更新 · <a href="license.html">計算仕様・ライセンス</a></footer>
 </body>
 </html>
 
