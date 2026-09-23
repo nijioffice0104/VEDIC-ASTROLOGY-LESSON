@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vedic-astrology-lesson-v4-astronomy-engine';
+const CACHE_NAME = 'vedic-astrology-lesson-v5-home-update';
 const CORE_ASSETS = [
   './',
   './index.html',
