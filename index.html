@@ -304,7 +304,12 @@
   
     })().catch(error => { console.error(error); const notice=document.createElement("p"); notice.setAttribute("role","alert"); notice.textContent="保存情報を読み込めませんでした。ブラウザの保存設定を確認してください。"; document.querySelector("main")?.prepend(notice); });
 </script>
-<footer data-engine-edition style="text-align:center;padding:20px;font-size:12px">Astronomy Engine版・2026年9月23日更新 · <a href="license.html">計算仕様・ライセンス</a></footer>
+<footer data-engine-edition style="max-width:896px;margin:0 auto;padding:20px 24px 28px;font-size:12px;line-height:1.8;color:#57534e;text-align:left">
+  <h2 style="font-size:12px;font-weight:600;margin:0 0 4px">アップデート情報</h2>
+  <p style="margin:0"><time datetime="2026-09-23">2026年9月23日</time>：計算エンジンをAstronomy Engineに更新し、天体位置・ラグナの計算精度を改善しました。</p>
+  <p style="margin:4px 0 8px">本アプリはホロスコープの読み方を練習するための教材です。有料鑑定では、専門の占星術サイト・ソフトで算出したホロスコープをご使用ください。</p>
+  <a href="license.html" style="text-decoration:underline">計算仕様・ライセンス</a>
+</footer>
 </body>
 </html>
 
